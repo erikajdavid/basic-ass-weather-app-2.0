@@ -18,21 +18,23 @@ router.post("/register", async(req, res) => {
         const user = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
 
         //if a user already exists, return an error
+        console.log(user);
         if (user.rows.lenght > 0) {
             return res.status(409).json({ message: `User with this email already exists.`})
-        }
-
-        //check if the passwords match
-        if (password !== passwordVerify) {
-            return res.status(400).json({ message: `Passwords do not match`});
         }
 
         //if the user doesn't exist, continue with the registration process and encrypt the password
         const saltRound = 10;
         const salt = await bcrypt.genSalt(saltRound);
         const bcryptPassword = await bcrypt.hash(password, salt);
+        const bcryptPasswordVerify = await bcrypt.hash(passwordVerify, salt);
 
-        const newUser = await pool.query("INSERT INTO users (user_email, user_password, user_password_verify) VALUES ($1, $2, $3) RETURNING*", [email, bcryptPassword, passwordVerify]);
+         //check if the passwords match
+         if (password !== passwordVerify) {
+            return res.status(400).json({ message: `Passwords do not match`});
+        }
+
+        const newUser = await pool.query("INSERT INTO users (user_email, user_password, user_password_verify) VALUES ($1, $2, $3) RETURNING*", [email, bcryptPassword, bcryptPasswordVerify]);
 
         res.status(201).json(newUser.rows[0]);
         
