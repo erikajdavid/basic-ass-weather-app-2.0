@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
+const authorization = require("../middlewear/authorization");
 
 //NOTES FOR IMPROVEMENT - lots of repetition here regarding validation checks. worth extracting and organizing in a file in middlewear. 
 
@@ -110,6 +111,17 @@ router.post("/login", async(req, res) => {
     } catch (error) {
         console.error(error.message);
         return res.status(500).json({ message: `Internal server error.`});
+    }
+});
+
+//did user pass authentication? is user verified?
+
+router.get("/is-verified", authorization, async(req, res) => {
+    try {
+        res.json(true);
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).send(`Internal error.`)  
     }
 });
 
