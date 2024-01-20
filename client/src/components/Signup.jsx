@@ -9,20 +9,18 @@ const Signup = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordVerify, setPasswordVerify] = useState("");
     const [hidePassword, setHidePassword] = useState(true);
-    const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
+    const [hidePasswordVerify, setHidePasswordVerify] = useState(true);
 
-    const signUpUser = async (e) => {
-        e.preventDefault();
-        
+    const signupUser = async (e) => {
         e.preventDefault();
 
         try {
             const body = {
                 email,
                 password,
-                confirmPassword
+                passwordVerify
             }; 
 
             const response = await fetch("http://localhost:3500/auth/register", {
@@ -39,18 +37,17 @@ const Signup = () => {
             }
     };
     
-
     const handlePasswordToggle = () => {
         setHidePassword(!hidePassword);
     };
 
-    const handleConfirmPasswordToggle = () => {
-        setHideConfirmPassword(!hideConfirmPassword);
+    const handlePasswordVerifyToggle = () => {
+        setHidePasswordVerify(!hidePasswordVerify);
     };
 
     return (
         <>
-            <form onSubmit={ signUpUser }>
+            <form onSubmit={ signupUser }>
                 <h1>Sign up</h1>
 
                 <label htmlFor="email"></label>
@@ -82,19 +79,19 @@ const Signup = () => {
                 </div>
                 
                 <div>
-                    <label htmlFor="confirmPassword"></label>
+                    <label htmlFor="passwordVerify"></label>
                     <input 
-                        type={ hideConfirmPassword ? "password" : "text" }
-                        name="confirmPassword"
-                        id="confirmPassword"
-                        value={ confirmPassword }
-                        onChange={ (e) => setConfirmPassword(e.target.value) }
+                        type={ hidePasswordVerify ? "password" : "text" }
+                        name="passwordVerify"
+                        id="passwordVerify"
+                        value={ passwordVerify }
+                        onChange={ (e) => setPasswordVerify(e.target.value) }
                         placeholder="Confirm password:"
                         required
                     />
                     <FontAwesomeIcon
-                        onClick={ handleConfirmPasswordToggle }
-                        icon={ hideConfirmPassword ? faEyeSlash : faEye }
+                        onClick={ handlePasswordVerifyToggle }
+                        icon={ hidePasswordVerify ? faEyeSlash : faEye }
                     />
                 </div>
 
