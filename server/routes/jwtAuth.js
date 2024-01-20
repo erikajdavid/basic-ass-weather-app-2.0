@@ -12,10 +12,7 @@ router.post("/register", async(req, res) => {
         //expecting these from the req.body
         const { email, password, passwordVerify } = req.body;
 
-        console.log(req.body);
-
         //check if email is in valid format 
-
         const isEmailValid = (email) => {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
@@ -71,7 +68,6 @@ router.post("/register", async(req, res) => {
 
 //login user
 router.post("/login", async(req, res) => {
-    console.log(`Login route reached.`)
     try {
         //expecting these from req.body
         const { email, password } = req.body;
