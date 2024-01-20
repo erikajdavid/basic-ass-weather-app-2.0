@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
@@ -30,6 +31,8 @@ function App() {
       
     } catch (error) {
         console.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -37,6 +40,9 @@ function App() {
     checkAuth();
   }, []);
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>
