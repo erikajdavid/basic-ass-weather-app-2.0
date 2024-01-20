@@ -25,7 +25,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     id="email"
-                    onValue={email}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required={true}
                     placeholder="Email:"
@@ -36,7 +36,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     id="password"
-                    onValue={password}
+                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required={true}
                     placeholder="Password:"
