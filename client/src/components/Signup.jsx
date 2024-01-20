@@ -14,13 +14,31 @@ const Signup = () => {
     const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
 
     const signUpUser = async (e) => {
-        e.preventDefault(e)
+        e.preventDefault();
+        
+        e.preventDefault();
+
         try {
-            //does stuff
-        } catch (error) {
-            console.error(error.message);
-        }
+            const body = {
+                email,
+                password,
+                confirmPassword
+            }; 
+
+            const response = await fetch("http://localhost:3500/auth/register", {
+                method: "POST",
+                headers: { "Content-type" : "application/json"},
+                body: JSON.stringify(body)
+            });
+
+            const parseResponse = await response.json();
+            
+            console.log(parseResponse);
+            } catch (error) {
+                console.error(error.message);
+            }
     };
+    
 
     const handlePasswordToggle = () => {
         setHidePassword(!hidePassword);
@@ -42,8 +60,8 @@ const Signup = () => {
                     id="email"
                     value={ email }
                     onChange={ (e) => setEmail(e.target.value) }
-                    required={ true }
                     placeholder="Email:"
+                    required
                 />
 
                 <div>
@@ -54,8 +72,8 @@ const Signup = () => {
                         id="password"
                         value={ password }
                         onChange={ (e) => setPassword(e.target.value) }
-                        required={ true }
-                        placeholder="Confirm password:"
+                        placeholder="Password:"
+                        required
                     />
                     <FontAwesomeIcon
                         onClick={ handlePasswordToggle }
@@ -71,8 +89,8 @@ const Signup = () => {
                         id="confirmPassword"
                         value={ confirmPassword }
                         onChange={ (e) => setConfirmPassword(e.target.value) }
-                        required={ true }
                         placeholder="Confirm password:"
+                        required
                     />
                     <FontAwesomeIcon
                         onClick={ handleConfirmPasswordToggle }
