@@ -12,6 +12,8 @@ router.post("/register", async(req, res) => {
         //expecting these from the req.body
         const { email, password, passwordVerify } = req.body;
 
+        console.log(req.body);
+
         //check if email is in valid format 
 
         const isEmailValid = (email) => {
@@ -26,7 +28,7 @@ router.post("/register", async(req, res) => {
 
         //if one of the input fields is empty, return and error
         if (!email || !password || !passwordVerify) {
-            return res.status(400).json({ message: `All input fields are required.`});
+            return res.status(400).json({ message: `All input fields are required. Why is this happening.`});
         }
 
         //check for a duplicate user
@@ -69,6 +71,7 @@ router.post("/register", async(req, res) => {
 
 //login user
 router.post("/login", async(req, res) => {
+    console.log(`Login route reached.`)
     try {
         //expecting these from req.body
         const { email, password } = req.body;
@@ -92,7 +95,7 @@ router.post("/login", async(req, res) => {
         const existingUser = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
 
         if (!existingUser.rows.length === 0) {
-            return res.json(401).json({ message: `Unauthorized.` })
+            return res.status(401).json({ message: `Unauthorized.` })
         }
 
         //if the user exists, compare password with bcryptPassword
@@ -100,7 +103,7 @@ router.post("/login", async(req, res) => {
 
         //if password is not correct, return an error
         if (!passwordCorrect) {
-            return res.json(401).json({ message: `Unauthorized.` })
+            return res.status(401).json({ message: `Unauthorized.` })
         }
 
         //if user exists and password is correct, grant user an access token
