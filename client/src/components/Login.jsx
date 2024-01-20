@@ -40,7 +40,8 @@ const Login = () => {
                 />
 
                 <button type="submit">Log in</button>
-                <p>Don't have an account? <Link to="/signup">Sign up</Link>.</p>
+                <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+                <p>Return <Link to="/">home</Link></p>
             </form>
         </>
     );
