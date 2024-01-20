@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
+
 
 const Signup = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [hidePassword, setHidePassword] = useState(true);
+    const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
 
     const signUpUser = async (e) => {
         e.preventDefault(e)
@@ -16,6 +21,14 @@ const Signup = () => {
         }
     };
 
+    const handlePasswordToggle = () => {
+        setHidePassword(!hidePassword);
+    };
+
+    const handleConfirmPasswordToggle = () => {
+        setHideConfirmPassword(!hideConfirmPassword);
+    };
+
     return (
         <>
             <form onSubmit={signUpUser}>
@@ -23,7 +36,7 @@ const Signup = () => {
 
                 <label htmlFor="email"></label>
                 <input 
-                    type="email"
+                    type={email}
                     name="email"
                     id="email"
                     onValue={email}
@@ -32,27 +45,39 @@ const Signup = () => {
                     placeholder="Email:"
                 />
 
-                <label htmlFor="password"></label>
-                <input 
-                    type="password"
-                    name="password"
-                    id="password"
-                    onValue={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required={true}
-                    placeholder="Password:"
-                />
-
-                <label htmlFor="confirmPassword"></label>
-                 <input 
-                    type="confirmPassword"
-                    name="confirmPassword"
-                    id="confirmPassword"
-                    onValue={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required={true}
-                    placeholder="Confirm password:"
-                />
+                <div>
+                    <label htmlFor="password"></label>
+                    <input 
+                        type={hidePassword ? "password" : "text"}
+                        name="password"
+                        id="password"
+                        onValue={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required={true}
+                        placeholder="Confirm password:"
+                    />
+                    <FontAwesomeIcon
+                        onClick={handlePasswordToggle}
+                        icon={hidePassword ? faEyeSlash : faEye}
+                    />
+                </div>
+                
+                <div>
+                    <label htmlFor="confirmPassword"></label>
+                    <input 
+                        type={hideConfirmPassword ? "password" : "text"}
+                        name="confirmPassword"
+                        id="confirmPassword"
+                        onValue={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required={true}
+                        placeholder="Confirm password:"
+                    />
+                    <FontAwesomeIcon
+                        onClick={handleConfirmPasswordToggle}
+                        icon={hideConfirmPassword ? faEyeSlash : faEye}
+                    />
+                </div>
 
                 <button type="submit">Register for an account</button>
                 <p>Already have an account? <Link to="/login">Log in</Link></p>
@@ -60,7 +85,6 @@ const Signup = () => {
             </form>
         </>
     );
-
-}
+};
 
 export default Signup;
