@@ -4,6 +4,8 @@ const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
 
+//NOTES FOR IMPROVEMENT - lots of repetition here regarding validation checks. worth extracting and organizing in a file in middlewear. 
+
 //register user
 router.post("/register", async(req, res) => {
     try {
