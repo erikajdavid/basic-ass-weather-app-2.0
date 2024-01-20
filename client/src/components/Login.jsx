@@ -17,11 +17,25 @@ const Login = () => {
 
     const loginUser = async (e) => {
         e.preventDefault()
-        try {
-            //does stuff
-        } catch (error) {
+            try {
+                const body = {
+                    email,
+                    password
+                }
+    
+                const response = await fetch("http://localhost:3500/auth/login", {
+                    method: "POST",
+                    headers: { "Content-type" : "application/json"},
+                    body: JSON.stringify(body)
+                });
+    
+                const parseResponse = await response.json();
+    
+                console.log(parseResponse);
+    
+            } catch (error) {
             console.error(error.message);
-        }
+            }
     };
 
     return (
