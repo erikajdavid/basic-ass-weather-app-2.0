@@ -30,7 +30,6 @@ const Login = () => {
                 });
     
                 const parseResponse = await response.json();
-                console.log(parseResponse);
                 
                 //save token in local storage
                 localStorage.setItem("token", parseResponse.token);
