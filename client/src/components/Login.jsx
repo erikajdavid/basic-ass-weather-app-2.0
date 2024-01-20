@@ -43,42 +43,46 @@ const Login = ({ setAuth }) => {
 
     return (
         <>
-            <form onSubmit={ loginUser }>
-                <h1>Log in</h1>
+            <div className="formContainer">
+                <form onSubmit={ loginUser }>
+                    <h1>Log in</h1>
 
-                <label htmlFor="email"></label>
-                <input 
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={ email }
-                    onChange={ (e) => setEmail(e.target.value) }
-                    required={ true }
-                    placeholder="Email:"
-                />
-
-                <div>
-                    <label htmlFor="password"></label>
+                    <label htmlFor="email"></label>
                     <input 
-                        type={ hidePassword ? "password" : "text "}
-                        name="password"
-                        id="password"
-                        value={ password }
-                        onChange={ (e) => setPassword(e.target.value) }
+                        type="email"
+                        name="email"
+                        id="email"
+                        value={ email }
+                        onChange={ (e) => setEmail(e.target.value) }
                         required={ true }
-                        placeholder="Password:"
+                        placeholder="Email:"
                     />
-                    <FontAwesomeIcon
-                        onClick={ handlePasswordToggle }
-                        icon={ hidePassword ? faEyeSlash : faEye }
-                    >
-                    </FontAwesomeIcon>
-                </div>
 
-                <button type="submit">Log in</button>
-                <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
-                <p>Return <Link to="/">home</Link></p>
-            </form>
+                    <div className="passwordInputCtn">
+                        <label htmlFor="password"></label>
+                        <input 
+                            type={ hidePassword ? "password" : "text "}
+                            name="password"
+                            id="password"
+                            value={ password }
+                            className="passwordInput"
+                            onChange={ (e) => setPassword(e.target.value) }
+                            required={ true }
+                            placeholder="Password:"
+                        />
+                        <FontAwesomeIcon
+                            onClick={ handlePasswordToggle }
+                            icon={ hidePassword ? faEyeSlash : faEye }
+                            className="eyeIcon"
+                        >
+                        </FontAwesomeIcon>
+                    </div>
+
+                    <button type="submit">Log in</button>
+                    <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
+                    <p>Return <Link to="/">home</Link></p>
+                </form>
+            </div>
         </>
     );
 
