@@ -7,10 +7,19 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    const signUpUser = async (e) => {
+        e.preventDefault(e)
+        try {
+            //does stuff
+        } catch (error) {
+            console.error(error.message);
+        }
+    };
+
     return (
         <>
             <h1>Sign up</h1>
-            <form>
+            <form onSubmit={signUpUser}>
                 <input 
                     type="email"
                     name="email"
@@ -40,8 +49,8 @@ const Signup = () => {
                     required={true}
                     placeholder="Confirm password:"
                 />
-                
-                <button type="submit">Register for an account</button>
+
+                <button type="submit" className="btn">Register for an account</button>
                 <p>Already have an account? <Link to="/login">Log in</Link></p>
             </form>
         </>
