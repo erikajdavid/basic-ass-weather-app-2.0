@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../db");
 const bcrypt = require("bcrypt");
+const jwtGenerator = require("../utils/jwtGenerator");
 
 //register user
 router.post("/register", async(req, res) => {
@@ -34,9 +35,13 @@ router.post("/register", async(req, res) => {
             return res.status(400).json({ message: `Passwords do not match`});
         }
 
+        //if passwords match, create new user
         const newUser = await pool.query("INSERT INTO users (user_email, user_password, user_password_verify) VALUES ($1, $2, $3) RETURNING*", [email, bcryptPassword, bcryptPasswordVerify]);
 
-        res.status(201).json(newUser.rows[0]);
+        //give user access token
+        const token = jwtGenerator(newUser.rows[0].user_id);
+
+        res.json({ token });
         
     } catch (error) {
         console.error(error.message);
