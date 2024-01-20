@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dashboard = () => {
+const Dashboard = ({ setAuth }) => {
 
     const logoutUser = async (e) => {
         e.preventDefault();
@@ -8,6 +8,8 @@ const Dashboard = () => {
         try {
             //delete token from localstorage
             localStorage.removeItem("token");
+
+            setAuth(false);
             
         } catch (error) {
             console.log(error.message);

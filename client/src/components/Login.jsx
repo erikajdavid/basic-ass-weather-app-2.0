@@ -5,7 +5,7 @@ import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
 
 //NOTES for later/improvement - hide password concept is similar to that of signup, can we isolate hide password into it's own component? refactor the toggle function into the return code? 
 
-const Login = () => {
+const Login = ({ setAuth }) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -33,6 +33,8 @@ const Login = () => {
                 
                 //save token in local storage
                 localStorage.setItem("token", parseResponse.token);
+
+                setAuth(true);
 
             } catch (error) {
             console.error(error.message);

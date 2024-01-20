@@ -11,16 +11,26 @@ import Dashboard from "./components/Dashboard";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem("token");
+  const setAuth = (boolean) => {
+    setIsAuthenticated(boolean);
+  }
 
-        if (token) {
-          setIsAuthenticated(true);
-        }
-      } catch (error) {
+  const checkAuth = async () => {
+    try {
+      const response = await fetch("http://localhost:3500/auth/is-verified", {
+          method: "GET",
+          headers: { token: localStorage.token }
+      });
+
+      const parseResponse = await response.json();
+
+      console.log(parseResponse);
+
+      parseResponse === true  ? setIsAuthenticated(true) : setIsAuthenticated(false);
+      
+    } catch (error) {
         console.error(error.message);
-      }
+    }
   };
 
   useEffect(() => {
@@ -34,15 +44,15 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route
           path="/signup"
-          element={!isAuthenticated ? <Signup /> : <Navigate to="/dashboard" />}
+          element={!isAuthenticated ? <Signup setAuth={setAuth} /> : <Navigate to="/dashboard" />}
         />
         <Route
           path="/login"
-          element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />}
+          element={!isAuthenticated ? <Login setAuth={setAuth} /> : <Navigate to="/dashboard" />}
         />
         <Route
           path="/dashboard"
-          element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
+          element={isAuthenticated ? <Dashboard setAuth={setAuth} /> : <Navigate to="/" />}
         />
       </Routes>
     </>
