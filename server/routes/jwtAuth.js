@@ -45,9 +45,33 @@ router.post("/register", async(req, res) => {
 });
 
 //login user
-router.post("/register", async(req, res) => {
+router.post("/login", async(req, res) => {
     try {
-        //do stuff
+        //expecting these from req.body
+        const { email, password } = req.body;
+        
+        //if no email and/or password, return an error
+        if (!email || !password ) {
+            return res.status(400).json({ message: `All input fields are required.` })
+        }
+
+        //check if user exists in the database
+        const existingUser = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
+
+        if (!existingUser) {
+            return res.json(401).json({ message: `Unauthorized.` })
+        }
+
+        //if the user exists, compare password with bcryptPassword
+        const passwordCorrect = await bcrypt.compare(password, existingUser.rows[0].user_password);
+
+        //if password is not correct, return an error
+        if (!passwordCorrect) {
+            return res.json(401).json({ message: `Unauthorized.` })
+        }
+
+        res.json(existingUser.rows[0]);
+
     } catch (error) {
         console.error(error.message);
         return res.status(500).json({ message: `Internal server error.`});
