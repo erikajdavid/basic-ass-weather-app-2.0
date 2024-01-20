@@ -20,6 +20,8 @@ const Signup = () => {
         <>
             <form onSubmit={signUpUser}>
                 <h1>Sign up</h1>
+
+                <label htmlFor="email"></label>
                 <input 
                     type="email"
                     name="email"
@@ -30,6 +32,7 @@ const Signup = () => {
                     placeholder="Email:"
                 />
 
+                <label htmlFor="password"></label>
                 <input 
                     type="password"
                     name="password"
@@ -40,6 +43,7 @@ const Signup = () => {
                     placeholder="Password:"
                 />
 
+                <label htmlFor="confirmPassword"></label>
                  <input 
                     type="confirmPassword"
                     name="confirmPassword"

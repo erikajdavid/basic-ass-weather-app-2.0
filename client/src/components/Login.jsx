@@ -19,6 +19,8 @@ const Login = () => {
         <>
             <form onSubmit={loginUser}>
                 <h1>Log in</h1>
+
+                <label htmlFor="email"></label>
                 <input 
                     type="email"
                     name="email"
@@ -29,6 +31,7 @@ const Login = () => {
                     placeholder="Email:"
                 />
 
+                <label htmlFor="password"></label>
                 <input 
                     type="password"
                     name="password"
