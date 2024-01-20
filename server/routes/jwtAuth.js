@@ -10,6 +10,18 @@ router.post("/register", async(req, res) => {
         //expecting these from the req.body
         const { email, password, passwordVerify } = req.body;
 
+        //check if email is in valid format 
+
+        const isEmailValid = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        //if email is invalid, return error
+        if (!isEmailValid(email)) {
+            return res.status(400).json({ message: `Please format email correctly.` })
+        }
+
         //if one of the input fields is empty, return and error
         if (!email || !password || !passwordVerify) {
             return res.status(400).json({ message: `All input fields are required.`});
@@ -20,7 +32,7 @@ router.post("/register", async(req, res) => {
 
         //if a user already exists, return an error
         console.log(user);
-        if (user.rows.lenght > 0) {
+        if (user.rows.length > 0) {
             return res.status(409).json({ message: `User with this email already exists.`})
         }
 
@@ -30,8 +42,12 @@ router.post("/register", async(req, res) => {
         const bcryptPassword = await bcrypt.hash(password, salt);
         const bcryptPasswordVerify = await bcrypt.hash(passwordVerify, salt);
 
-         //check if the passwords match
-         if (password !== passwordVerify) {
+        //password much be at least 8 characters long
+        if (password.length < 8) {
+            return res.status(400).json({ message: `Password must be at least 8 characters long.` })
+        }
+        //check if the passwords match
+        if (password !== passwordVerify) {
             return res.status(400).json({ message: `Passwords do not match`});
         }
 
@@ -54,6 +70,16 @@ router.post("/login", async(req, res) => {
     try {
         //expecting these from req.body
         const { email, password } = req.body;
+
+        const isEmailValid = (email) => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        //if email is invalid, return error
+        if (!isEmailValid(email)) {
+            return res.status(400).json({ message: `Please format email correctly.` })
+        }
         
         //if no email and/or password, return an error
         if (!email || !password ) {
@@ -63,7 +89,7 @@ router.post("/login", async(req, res) => {
         //check if user exists in the database
         const existingUser = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
 
-        if (!existingUser) {
+        if (!existingUser.rows.length === 0) {
             return res.json(401).json({ message: `Unauthorized.` })
         }
 
@@ -75,7 +101,10 @@ router.post("/login", async(req, res) => {
             return res.json(401).json({ message: `Unauthorized.` })
         }
 
-        res.json(existingUser.rows[0]);
+        //if user exists and password is correct, grant user an access token
+        const token = jwtGenerator(existingUser.rows[0].user_id);
+
+        res.json({ token });
 
     } catch (error) {
         console.error(error.message);
