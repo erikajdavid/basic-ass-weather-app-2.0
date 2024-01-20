@@ -50,8 +50,8 @@ const Signup = () => {
                     placeholder="Confirm password:"
                 />
 
-                <button type="submit" className="btn">Register for an account</button>
-                <p>Already have an account? <Link to="/login">Log in</Link></p>
+                <button type="submit">Register for an account</button>
+                <p>Already have an account? <Link to="/login">Log in</Link>.</p>
             </form>
         </>
     );
