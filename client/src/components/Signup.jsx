@@ -18,8 +18,8 @@ const Signup = () => {
 
     return (
         <>
-            <h1>Sign up</h1>
             <form onSubmit={signUpUser}>
+                <h1>Sign up</h1>
                 <input 
                     type="email"
                     name="email"

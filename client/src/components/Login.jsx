@@ -17,8 +17,8 @@ const Login = () => {
 
     return (
         <>
-            <h1>Log in</h1>
             <form onSubmit={loginUser}>
+                <h1>Log in</h1>
                 <input 
                     type="email"
                     name="email"
