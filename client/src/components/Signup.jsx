@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
 
+//NOTES for later/improvement - hide password concept is similar to that of login, can we isolate hide password into it's own component? refactor the toggle functions into the return code? 
 
 const Signup = () => {
 
@@ -31,7 +32,7 @@ const Signup = () => {
 
     return (
         <>
-            <form onSubmit={signUpUser}>
+            <form onSubmit={ signUpUser }>
                 <h1>Sign up</h1>
 
                 <label htmlFor="email"></label>
@@ -39,43 +40,43 @@ const Signup = () => {
                     type="email"
                     name="email"
                     id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required={true}
+                    value={ email }
+                    onChange={ (e) => setEmail(e.target.value) }
+                    required={ true }
                     placeholder="Email:"
                 />
 
                 <div>
                     <label htmlFor="password"></label>
                     <input 
-                        type={hidePassword ? "password" : "text"}
+                        type={ hidePassword ? "password" : "text" }
                         name="password"
                         id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required={true}
+                        value={ password }
+                        onChange={ (e) => setPassword(e.target.value) }
+                        required={ true }
                         placeholder="Confirm password:"
                     />
                     <FontAwesomeIcon
-                        onClick={handlePasswordToggle}
-                        icon={hidePassword ? faEyeSlash : faEye}
+                        onClick={ handlePasswordToggle }
+                        icon={ hidePassword ? faEyeSlash : faEye }
                     />
                 </div>
                 
                 <div>
                     <label htmlFor="confirmPassword"></label>
                     <input 
-                        type={hideConfirmPassword ? "password" : "text"}
+                        type={ hideConfirmPassword ? "password" : "text" }
                         name="confirmPassword"
                         id="confirmPassword"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required={true}
+                        value={ confirmPassword }
+                        onChange={ (e) => setConfirmPassword(e.target.value) }
+                        required={ true }
                         placeholder="Confirm password:"
                     />
                     <FontAwesomeIcon
-                        onClick={handleConfirmPasswordToggle}
-                        icon={hideConfirmPassword ? faEyeSlash : faEye}
+                        onClick={ handleConfirmPasswordToggle }
+                        icon={ hideConfirmPassword ? faEyeSlash : faEye }
                     />
                 </div>
 
