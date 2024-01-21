@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const pool = require("../db");
+const pool = require("../../config/db");
 const bcrypt = require("bcrypt");
-const jwtGenerator = require("../utils/jwtGenerator");
-const authorization = require("../middleware/authorization");
+const jwtGenerator = require("../../utils/jwtGenerator");
+const authorization = require("../../middleware/authorization");
 
 //NOTES FOR IMPROVEMENT - lots of repetition here regarding validation checks. worth extracting and organizing in a file in middlewear. 
 
