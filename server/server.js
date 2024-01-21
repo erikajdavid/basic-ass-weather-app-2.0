@@ -12,10 +12,10 @@ app.use(cors());
 app.use(express.json());
 
 //register and login routes
-app.use("/auth", require("./routes/jwtAuth"));
+app.use("/auth", require("./routes/auth/jwtAuth"));
 
 //dashboard route
-app.use("/dashboard", require("./routes/dashboard"));
+app.use("/dashboard", require("./routes/auth/dashboard"));
 
 app.listen (PORT, () => {
     console.log(`Server is listening on port ${PORT}.`);
