@@ -1,14 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../db");
-const authorization = require("../middlewear/authorization");
+const authorization = require("../middleware/authorization");
 
 router.get("/", authorization, async (req, res) => {
     try {
         const user = await pool.query("SELECT user_email FROM users WHERE user_id = $1", [req.user.id]);
 
         res.json(user.rows[0]);
-        console.log(user.rows[0]);
         
     } catch (error) {
         console.error(error.message);
