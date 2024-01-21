@@ -41,10 +41,10 @@ const Dashboard = ({ setAuth }) => {
     };
 
     return (
-        <>
+        <div className="dashboardCtn">
             <h1>Welcome, {email}</h1>
             <button onClick={logoutUser}>Log out</button>
-        </>
+        </div>
 
     );
 }
