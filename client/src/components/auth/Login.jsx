@@ -29,12 +29,16 @@ const Login = ({ setAuth }) => {
                     body: JSON.stringify(body)
                 });
     
-                const parseResponse = await response.json();
-                
-                //save token in local storage
-                localStorage.setItem("token", parseResponse.token);
-
-                setAuth(true);
+                if (response.ok) {
+                    const parseResponse = await response.json();
+        
+                    // Save token in local storage
+                    localStorage.setItem("token", parseResponse.token);
+        
+                    setAuth(true);
+                } else {
+                    console.error("Login failed:", response.status, response.statusText);
+                }
 
             } catch (error) {
             console.error(error.message);
