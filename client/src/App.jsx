@@ -3,10 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 
 // Import components
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./components/auth/Signup";
+import Login from "./components/auth/Login";
 import Landing from "./components/Landing";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/auth/Dashboard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
