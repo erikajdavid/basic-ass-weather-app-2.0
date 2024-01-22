@@ -7,10 +7,16 @@ import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import Landing from "./components/Landing";
 import Dashboard from "./components/auth/Dashboard";
+import Weather from "./components/auth/Weather";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const myHeaders = {
+    "Content-type": "application/json",
+    "Authorization": `Bearer ${localStorage.token || ""}`
+  }
 
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
@@ -20,7 +26,7 @@ function App() {
     try {
       const response = await fetch("http://localhost:3500/auth/is-verified", {
           method: "GET",
-          headers: { token: localStorage.token }
+          headers: myHeaders
       });
 
       const parseResponse = await response.json();
@@ -59,6 +65,10 @@ function App() {
         <Route
           path="/dashboard"
           element={isAuthenticated ? <Dashboard setAuth={setAuth} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/weather"
+          element={isAuthenticated ? <Weather setAuth={setAuth} /> : <Navigate to="/" />}
         />
       </Routes>
     </>
