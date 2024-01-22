@@ -1,5 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const authorization = require("../../middleware/authorization");
+
+router.use(authorization);
 
 router.get("/", async (req, res) => {
     try {
