@@ -7,13 +7,12 @@ const Weather = ({ weatherData }) => {
 
   return (
     <>
-      <h1>Weather Forecast for meeeee</h1>
-      <p>{weatherData.name}</p>
+      <h1>{weatherData.name}</h1>
       <p>Conditions: {weatherData.weather[0].main}</p>
-      <p>Temp: {weatherData.main.temp}</p>
-      <p>Feels like: {weatherData.main.feels_like}</p>
-      <p>High: {weatherData.main.temp_max}</p>
-      <p>Low: {weatherData.main.temp_min}</p>
+      <p>Temp: {weatherData.main.temp}°C</p>
+      <p>Feels like: {weatherData.main.feels_like}°C</p>
+      <p>High: {weatherData.main.temp_max}°C</p>
+      <p>Low: {weatherData.main.temp_min}°C</p>
     </>
   );
 }
