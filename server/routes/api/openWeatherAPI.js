@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
         const API_KEY = process.env.API_KEY;
 
         //construct the API URL with the actual city name and API key
-        const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}`;
+        const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
 
         console.log(apiUrl);
 
