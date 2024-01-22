@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
         const { default: fetch } = await import("node-fetch");
         
         //get the city name from the req.body
-        const { city } = req.body;
+        const { city } = req.query;
 
         //check that input field is not empty
         if (!city) {
