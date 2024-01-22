@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Weather from "./Weather";
 
 const Dashboard = ({ setAuth }) => {
 
     const [email, setEmail] = useState("");
     const [weatherData, setWeatherData] = useState("");
-    const navigate = useNavigate();
 
     const myHeaders = {
         "Content-type": "application/json",
