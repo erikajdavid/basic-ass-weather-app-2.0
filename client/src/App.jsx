@@ -66,10 +66,6 @@ function App() {
           path="/dashboard"
           element={isAuthenticated ? <Dashboard setAuth={setAuth} /> : <Navigate to="/" />}
         />
-        <Route
-          path="/weather"
-          element={isAuthenticated ? <Weather setAuth={setAuth} /> : <Navigate to="/" />}
-        />
       </Routes>
     </>
   );
