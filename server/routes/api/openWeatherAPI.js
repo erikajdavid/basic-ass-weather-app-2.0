@@ -9,7 +9,8 @@ router.get("/", async (req, res) => {
         //dynamically import 'node-fetch' as an ECMAScript Module
         const { default: fetch } = await import("node-fetch");
         
-        //get the city name from the req.body
+        //get the city name from the req.query
+        //not req.body because this is not a POST request
         const { city } = req.query;
 
         //check that input field is not empty
