@@ -17,6 +17,9 @@ app.use("/auth", require("./routes/auth/jwtAuth"));
 //dashboard route
 app.use("/dashboard", require("./routes/auth/dashboard"));
 
+//weather route
+app.use("/weather", require("./routes/api/openWeatherAPI"));
+
 app.listen (PORT, () => {
     console.log(`Server is listening on port ${PORT}.`);
 }); 
