@@ -89,7 +89,7 @@ input {
   width: 100%;
   margin-bottom: 1.5rem;
   background-color: rgb(40, 40, 40);
-  colo
+  color: rgba(255, 255, 255, 0.87);
 }
 
 .passwordInputCtn {
