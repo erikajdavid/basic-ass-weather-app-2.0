@@ -7,7 +7,6 @@ import Signup from "./components/auth/Signup";
 import Login from "./components/auth/Login";
 import Landing from "./components/Landing";
 import Dashboard from "./components/auth/Dashboard";
-import Weather from "./components/auth/Weather";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,7 +50,7 @@ function App() {
   }
 
   return (
-    <>
+    <main className="App">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route
@@ -67,7 +66,7 @@ function App() {
           element={isAuthenticated ? <Dashboard setAuth={setAuth} /> : <Navigate to="/" />}
         />
       </Routes>
-    </>
+    </main>
   );
 }
 
