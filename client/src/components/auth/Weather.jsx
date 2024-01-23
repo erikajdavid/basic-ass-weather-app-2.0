@@ -7,12 +7,14 @@ const Weather = ({ weatherData }) => {
 
   return (
     <div className="wrapper">
-      <h1>{weatherData.name}</h1>
-      <p>Conditions: {weatherData.weather[0].main}</p>
-      <p>Temp: {weatherData.main.temp}°C</p>
-      <p>Feels like: {weatherData.main.feels_like}°C</p>
-      <p>High: {weatherData.main.temp_max}°C</p>
-      <p>Low: {weatherData.main.temp_min}°C</p>
+      <h1>{weatherData.city.name}</h1>
+      <ul>{weatherData.list.slice(0, 5).map((list) => {
+        return(
+          <li>
+            <p>{list.main.temp}</p>
+          </li>
+        )
+      } )}</ul>
     </div>
   );
 }
