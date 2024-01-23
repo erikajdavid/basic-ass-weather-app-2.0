@@ -114,3 +114,16 @@ input {
   height: 100vh;
 }
 
+/* Disabled styles */
+.buttonDisabled {
+  background-color: rgba(120, 120, 255, 0.481);
+  color: rgba(255, 255, 255, 0.87);
+  cursor: not-allowed;
+}
+
+/* Enabled styles */
+.buttonEnabled {
+  background-color: rgb(120, 120, 255);
+  color: rgba(255, 255, 255, 0.87);
+  cursor: pointer;
+}
