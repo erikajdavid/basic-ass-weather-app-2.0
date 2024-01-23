@@ -36,7 +36,7 @@ const Search = () => {
           {weatherData ? (
             <Weather weatherData={weatherData} />
           ) : (
-            <div>
+            <div className="wrapper">
               <input type="text" id="cityInput" placeholder="Enter city" required></input>
               <button type="submit" onClick={searchWeather}>
                 Search Weather
