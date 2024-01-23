@@ -105,11 +105,12 @@ input {
   font-size: 1.15rem;
 }
 
-.landingCtn, .dashboardCtn {
+.landingCtn {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
