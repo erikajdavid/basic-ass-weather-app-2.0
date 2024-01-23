@@ -11,6 +11,11 @@ const Login = ({ setAuth }) => {
     const [password, setPassword] = useState("");
     const [hidePassword, setHidePassword] = useState(true);
 
+    const buttonStyles = {
+        disabled: 'buttonDisabled',
+        enabled: 'buttonEnabled',
+      };
+
     const handlePasswordToggle = () => {
         setHidePassword(!hidePassword);
     }
@@ -82,7 +87,18 @@ const Login = ({ setAuth }) => {
                         </FontAwesomeIcon>
                     </div>
 
-                    <button type="submit">Log in</button>
+                    <button
+                        type="submit"
+                        className={
+                            !email || !password
+                            ? buttonStyles.disabled
+                            : buttonStyles.enabled
+                        }
+                        disabled={!email || !password}
+                        >
+                        Log in
+                    </button>
+                    
                     <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
                     <p>Return <Link to="/">home</Link></p>
                 </form>
