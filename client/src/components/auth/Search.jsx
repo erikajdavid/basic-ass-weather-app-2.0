@@ -3,6 +3,7 @@ import Weather from "./Weather";
 
 const Search = () => {
     const [weatherData, setWeatherData] = useState("");
+    const [city, setCity] = useState("");
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -37,8 +38,16 @@ const Search = () => {
             <Weather weatherData={weatherData} />
           ) : (
             <div className="wrapper">
-              <input type="text" id="cityInput" placeholder="Enter city" required></input>
-              <button type="submit" onClick={searchWeather}>
+              <input type="text" 
+                id="cityInput" 
+                placeholder="Enter a city..." 
+                onValue={city}
+                onChange={(e => setCity(e.target.value))}
+                required></input>
+              <button 
+                type="submit" 
+                onClick={searchWeather}
+                className={!city ? "buttonDisabled" : "buttonEnabled"}>
                 Search Weather
               </button>
             </div>
