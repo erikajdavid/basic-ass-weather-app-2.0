@@ -10,7 +10,9 @@ const Search = () => {
         "Authorization": `Bearer ${localStorage.token || ""}`
     }
 
-    const searchWeather = async () => {
+    const searchWeather = async (e) => {
+        e.preventDefault();
+        
         try {
              const city = document.getElementById("cityInput").value;
  
@@ -37,20 +39,22 @@ const Search = () => {
           {weatherData ? (
             <Weather weatherData={weatherData} />
           ) : (
-            <div className="wrapper">
-              <input type="text" 
-                id="cityInput" 
-                placeholder="Enter a city..." 
-                onValue={city}
-                onChange={(e => setCity(e.target.value))}
-                required></input>
-              <button 
-                type="submit" 
-                onClick={searchWeather}
-                className={!city ? "buttonDisabled" : "buttonEnabled"}>
-                Search Weather
-              </button>
-            </div>
+            <form>
+              <div className="wrapper">
+                <input type="text" 
+                  id="cityInput" 
+                  placeholder="Enter a city..." 
+                  value={city}
+                  onChange={(e => setCity(e.target.value))}
+                  required></input>
+                <button 
+                  type="submit" 
+                  onClick={searchWeather}
+                  className={!city ? "buttonDisabled" : "buttonEnabled"}>
+                  Search Weather
+                </button>
+              </div>
+            </form>
           )}
         </>
     );
