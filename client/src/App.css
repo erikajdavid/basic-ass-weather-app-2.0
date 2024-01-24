@@ -114,10 +114,11 @@ input {
   height: 100vh;
 }
 
+
 /* Disabled styles */
 .buttonDisabled {
-  background-color: rgba(120, 120, 255, 0.481);
-  color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(120, 120, 255, 0.279);
+  color: rgba(255, 255, 255, 0.511);
   cursor: not-allowed;
 }
 
