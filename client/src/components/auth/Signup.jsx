@@ -13,11 +13,6 @@ const Signup = ({ setAuth }) => {
     const [hidePassword, setHidePassword] = useState(true);
     const [hidePasswordVerify, setHidePasswordVerify] = useState(true);
 
-    const buttonStyles = {
-        disabled: 'buttonDisabled',
-        enabled: 'buttonEnabled',
-      };
-      
     const signupUser = async (e) => {
         e.preventDefault();
 
@@ -115,13 +110,9 @@ const Signup = ({ setAuth }) => {
 
                     <button
                         type="submit"
-                        className={
-                            !email || !password || !passwordVerify
-                            ? buttonStyles.disabled
-                            : buttonStyles.enabled
-                        }
-                        disabled={!email || !password || !passwordVerify}
-                        >
+                        className={`submitButton ${!email || !password || !passwordVerify ? 'buttonDisabled' : 'buttonEnabled'}`}
+                        disabled={!email || !password}
+                    >
                         Register for an account
                     </button>
                     <p>Already have an account? <Link to="/login">Log in</Link></p>

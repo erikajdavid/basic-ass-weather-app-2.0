@@ -11,11 +11,6 @@ const Login = ({ setAuth }) => {
     const [password, setPassword] = useState("");
     const [hidePassword, setHidePassword] = useState(true);
 
-    const buttonStyles = {
-        disabled: 'buttonDisabled',
-        enabled: 'buttonEnabled',
-      };
-
     const handlePasswordToggle = () => {
         setHidePassword(!hidePassword);
     }
@@ -89,13 +84,9 @@ const Login = ({ setAuth }) => {
 
                     <button
                         type="submit"
-                        className={
-                            !email || !password
-                            ? buttonStyles.disabled
-                            : buttonStyles.enabled
-                        }
+                        className={`submitButton ${!email || !password ? 'buttonDisabled' : 'buttonEnabled'}`}
                         disabled={!email || !password}
-                        >
+                    >
                         Log in
                     </button>
                     
