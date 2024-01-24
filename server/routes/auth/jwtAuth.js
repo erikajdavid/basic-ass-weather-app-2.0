@@ -121,7 +121,18 @@ router.get("/is-verified", authorization, async(req, res) => {
         res.json(true);
     } catch (error) {
         console.log(error.message)
-        return res.status(500).send(`Internal error.`)  
+        return res.status(500).send(`Internal server error.`)  
+    }
+});
+
+//logout user
+router.get("/logout", async(req, res) => {
+    try {
+        //should we handled the logout on the server side instead of client (where the jwt is cleared from local storage)
+    } catch (error) {
+        console.error(error.message)
+        return res.status(500).send(`Internal server error.`)  
+
     }
 });
 
