@@ -133,3 +133,8 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
+footer {
+  font-size: 0.75rem;
+  color: grey;
+}
