@@ -7,6 +7,11 @@ const formatDate = (dateString) => {
   return `${month} ${day}`;
 };
 
+//round temp to the neaest degree
+const roundTemperature = (temperature) => {
+  return Math.round(temperature);
+};
+
 const Weather = ({ weatherData }) => {
 
   if (!weatherData) {
@@ -50,11 +55,11 @@ const Weather = ({ weatherData }) => {
         {todaysWeather && (
           <li key={todaysWeather.dt}>
             <p>Date: {formatDate(todaysWeather.dt_txt)}</p>
-            <p>{todaysWeather.main.temp}°C</p>
+            <p>{roundTemperature(todaysWeather.main.temp)}°C</p>
             <p>{todaysWeather.weather[0].description}</p>
-            <p>Feels like: {todaysWeather.main.feels_like}°C</p>
-            <p>H: {todaysWeather.main.temp_max}°C</p>
-            <p>L: {todaysWeather.main.temp_min}°C</p>
+            <p>Feels like: {roundTemperature(todaysWeather.main.feels_like)}°C</p>
+            <p>H: {roundTemperature(todaysWeather.main.temp_max)}°C</p>
+            <p>L: {roundTemperature(todaysWeather.main.temp_min)}°C</p>
             <p>Humidity: {todaysWeather.main.humidity}%</p>
             <p>Pressure: {todaysWeather.main.pressure}hPa</p>
             <p>Wind speed: {todaysWeather.wind.speed}km/h</p>
@@ -64,11 +69,11 @@ const Weather = ({ weatherData }) => {
           {forecast.map((entry) => (
             <li key={entry.dt}>
               <p>Date: {formatDate(entry.dt_txt)}</p>
-              <p>{entry.main.temp}°C</p>
+              <p>{roundTemperature(entry.main.temp)}°C</p>
               <p>{entry.weather[0].description}</p>
-              <p>Feels like: {entry.main.feels_like}°C</p>
-              <p>H: {entry.main.temp_max}°C</p>
-              <p>L: {entry.main.temp_min}°C</p>
+              <p>Feels like: {roundTemperature(entry.main.feels_like)}°C</p>
+              <p>H: {roundTemperature(entry.main.temp_max)}°C</p>
+              <p>L: {roundTemperature(entry.main.temp_min)}°C</p>
               <p>Humidity: {entry.main.humidity}%</p>
               <p>Pressure: {entry.main.pressure}hPa</p>
               <p>Wind speed: {entry.wind.speed}km/h</p>
