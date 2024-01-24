@@ -76,6 +76,11 @@ form {
   background-color: #181818;
 }
 
+.searchForm {
+  width: 100vw;
+  padding: 0;
+}
+
 form p {
   font-size: 0.8rem;
   text-align: center;
