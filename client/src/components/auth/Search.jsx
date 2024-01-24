@@ -12,7 +12,7 @@ const Search = () => {
 
     const searchWeather = async (e) => {
         e.preventDefault();
-        
+
         try {
              const city = document.getElementById("cityInput").value;
  
@@ -39,7 +39,7 @@ const Search = () => {
           {weatherData ? (
             <Weather weatherData={weatherData} />
           ) : (
-            <form>
+            <form className="searchForm">
               <div className="wrapper">
                 <input type="text" 
                   id="cityInput" 
