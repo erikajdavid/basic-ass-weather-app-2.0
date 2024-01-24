@@ -1,5 +1,6 @@
 import React from "react";
 
+//reformat date from api
 const formatDate = (dateString) => {
   const dateObject = new Date(dateString);
   const month = dateObject.toLocaleString('en-US', { month: 'short' });
@@ -7,7 +8,7 @@ const formatDate = (dateString) => {
   return `${month} ${day}`;
 };
 
-//round temp to the neaest degree
+//round temp to the nearest degree
 const roundTemperature = (temperature) => {
   return Math.round(temperature);
 };
@@ -66,19 +67,20 @@ const Weather = ({ weatherData }) => {
           </li>
         )}
 
-          {forecast.map((entry) => (
-            <li key={entry.dt}>
-              <p>Date: {formatDate(entry.dt_txt)}</p>
-              <p>{roundTemperature(entry.main.temp)}°C</p>
-              <p>{entry.weather[0].description}</p>
-              <p>Feels like: {roundTemperature(entry.main.feels_like)}°C</p>
-              <p>H: {roundTemperature(entry.main.temp_max)}°C</p>
-              <p>L: {roundTemperature(entry.main.temp_min)}°C</p>
-              <p>Humidity: {entry.main.humidity}%</p>
-              <p>Pressure: {entry.main.pressure}hPa</p>
-              <p>Wind speed: {entry.wind.speed}km/h</p>
-            </li>
+        {forecast.map((entry) => (
+          <li key={entry.dt}>
+            <p>Date: {formatDate(entry.dt_txt)}</p>
+            <p>{roundTemperature(entry.main.temp)}°C</p>
+            <p>{entry.weather[0].description}</p>
+            <p>Feels like: {roundTemperature(entry.main.feels_like)}°C</p>
+            <p>H: {roundTemperature(entry.main.temp_max)}°C</p>
+            <p>L: {roundTemperature(entry.main.temp_min)}°C</p>
+            <p>Humidity: {entry.main.humidity}%</p>
+            <p>Pressure: {entry.main.pressure}hPa</p>
+            <p>Wind speed: {entry.wind.speed}km/h</p>
+          </li>
         ))}
+        
       </ul>
     </div>
   );
