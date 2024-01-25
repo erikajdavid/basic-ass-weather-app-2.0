@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Weather from "./Weather";
-
 const Search = () => {
     const [weatherData, setWeatherData] = useState("");
     const [city, setCity] = useState("");
@@ -40,7 +39,7 @@ const Search = () => {
             <Weather weatherData={weatherData} />
           ) : (
             <form className="searchForm">
-              <div className="wrapper">
+              <div className="searchWrapper">
                 <input type="text" 
                   id="cityInput" 
                   placeholder="Enter a city..." 
@@ -51,7 +50,8 @@ const Search = () => {
                   type="submit" 
                   onClick={searchWeather}
                   className={!city ? "buttonDisabled" : "buttonEnabled"}>
-                  Search Weather
+                    {/* adding FA like this here because this icon isn't available in the FA library installed */}
+                  <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
             </form>
