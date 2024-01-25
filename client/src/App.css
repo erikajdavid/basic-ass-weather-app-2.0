@@ -158,3 +158,29 @@ nav {
   align-items: center;
 }
 
+.searchWrapper {
+  width: 400px;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchWrapper input {
+  width: 87%;
+}
+
+.welcomeCtn {
+  display: flex;
+  align-items: center;
+}
+
+.welcomeCtn p {
+  margin-left: 0.7rem;
+  color: grey;
+}
+
+.faUserCtn {
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: #131313;
+}
