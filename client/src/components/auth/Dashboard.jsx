@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Weather from "./Weather";
+import Logout from "./Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
 
     const [email, setEmail] = useState("");
-    const [city, setCity] = useState(""); // State to track the city being searched
     const [weatherData, setWeatherData] = useState(null); // State to store weather data  
 
     const myHeaders = {
@@ -35,10 +35,8 @@ const Dashboard = ({ setAuth }) => {
         displayEmail();
     }, [])
 
-    const handleSearch = async(e, searchedCity) => {
+    const handleSearch = async (e) => {
         e.preventDefault;
-        
-        setCity(searchedCity);
 
         try {
             const city = document.getElementById("cityInput").value;
@@ -58,20 +56,6 @@ const Dashboard = ({ setAuth }) => {
        }
       };
 
-    const logoutUser = async (e) => {
-        e.preventDefault();
-
-        try {
-            //delete token from localstorage
-            localStorage.removeItem("token");
-
-            setAuth(false);
-            
-        } catch (error) {
-            console.log(error.message);
-        }
-    };
-
     return (
         <>
             <header className="wrapper">
@@ -82,15 +66,12 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                     <div>
                         <Search handleSearch={handleSearch} />
-                        <button onClick={logoutUser}>Log out</button>
+                        <Logout setAuth={setAuth}/>
                     </div>
                 </nav>
             </header>
             <main>
-                {/* Display the searched city */}
-                {city && <p>Weather for {city}:</p>}
-                {/* Display the Weather component with weatherData */}
-                {weatherData && <Weather weatherData={weatherData} />}
+                <Weather weatherData={weatherData}/>
             </main>
         </>
       );
