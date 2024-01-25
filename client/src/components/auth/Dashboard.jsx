@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
+import Weather from "./Weather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
 
     const [email, setEmail] = useState("");
+    const [city, setCity] = useState(""); // State to track the city being searched
+    const [weatherData, setWeatherData] = useState(null); // State to store weather data  
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -32,6 +35,29 @@ const Dashboard = ({ setAuth }) => {
         displayEmail();
     }, [])
 
+    const handleSearch = async(e, searchedCity) => {
+        e.preventDefault;
+        
+        setCity(searchedCity);
+
+        try {
+            const city = document.getElementById("cityInput").value;
+   
+            const response = await fetch(`http://localhost:3500/weather?city=${encodeURIComponent(city)}`, {
+                method: "GET",
+                headers: myHeaders
+            });
+   
+            const parseResponse = await response.json();
+   
+            setWeatherData(parseResponse);
+            console.log(parseResponse);
+        
+       } catch (error) {
+        console.error(error.message);
+       }
+      };
+
     const logoutUser = async (e) => {
         e.preventDefault();
 
@@ -54,11 +80,17 @@ const Dashboard = ({ setAuth }) => {
                         <FontAwesomeIcon icon={ faUser } className="faUserCtn"></FontAwesomeIcon>
                         <p>Welcome, {email}!</p>
                     </div>
-                    <button onClick={logoutUser}>Log out</button>        
+                    <div>
+                        <Search handleSearch={handleSearch} />
+                        <button onClick={logoutUser}>Log out</button>
+                    </div>
                 </nav>
             </header>
-            <main className="dashboardCtn wrapper">
-                <Search />
+            <main>
+                {/* Display the searched city */}
+                {city && <p>Weather for {city}:</p>}
+                {/* Display the Weather component with weatherData */}
+                {weatherData && <Weather weatherData={weatherData} />}
             </main>
         </>
       );

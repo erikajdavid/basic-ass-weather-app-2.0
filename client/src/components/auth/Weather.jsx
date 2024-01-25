@@ -14,6 +14,7 @@ const roundTemperature = (temperature) => {
 };
 
 const Weather = ({ weatherData }) => {
+
   if (!weatherData) {
     return null;
   }
