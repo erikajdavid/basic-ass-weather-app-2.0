@@ -47,8 +47,10 @@ const Dashboard = ({ setAuth }) => {
     return (
         <>
             <header className="dashboardCtn wrapper">
-                <h1>Welcome, {email}</h1>
-                <button onClick={logoutUser}>Log out</button>
+                <nav>
+                    <p>Welcome, {email}!</p>
+                    <button onClick={logoutUser}>Log out</button>
+                </nav>
             </header>
             <Search />
         </>
