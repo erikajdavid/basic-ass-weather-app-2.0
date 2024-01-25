@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
 
@@ -48,7 +50,10 @@ const Dashboard = ({ setAuth }) => {
         <>
             <header className="dashboardCtn wrapper">
                 <nav>
-                    <p>Welcome, {email}!</p>
+                    <div className="welcomeCtn">
+                        <FontAwesomeIcon icon={ faUser } className="faUserCtn"></FontAwesomeIcon>
+                        <p>Welcome, {email}!</p>
+                    </div>
                     <button onClick={logoutUser}>Log out</button>
                 </nav>
             </header>
