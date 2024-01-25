@@ -80,7 +80,7 @@ form {
   height: 100%;
   padding: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start
 }
 
 form p {
@@ -172,6 +172,7 @@ nav {
 .welcomeCtn {
   display: flex;
   align-items: center;
+  width: 400px;
 }
 
 .welcomeCtn p {

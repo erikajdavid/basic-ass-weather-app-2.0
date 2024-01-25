@@ -48,16 +48,18 @@ const Dashboard = ({ setAuth }) => {
 
     return (
         <>
-            <header className="dashboardCtn wrapper">
+            <header className="wrapper">
                 <nav>
                     <div className="welcomeCtn">
                         <FontAwesomeIcon icon={ faUser } className="faUserCtn"></FontAwesomeIcon>
                         <p>Welcome, {email}!</p>
                     </div>
-                    <button onClick={logoutUser}>Log out</button>
+                    <button onClick={logoutUser}>Log out</button>        
                 </nav>
             </header>
-            <Search />
+            <main className="dashboardCtn wrapper">
+                <Search />
+            </main>
         </>
       );
 }
