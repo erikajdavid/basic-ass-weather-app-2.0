@@ -46,11 +46,10 @@ p {
 button {
   border-radius: 4px;
   border: 1px solid transparent;
-  padding: 1em 1.2em;
-  margin: 1em 0;
-  font-size: 1em;
+  padding: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.15rem;
   font-family: inherit;
   background-color: rgb(120, 120, 255);
   color: rgba(255, 255, 255, 0.87);
@@ -78,7 +77,10 @@ form {
 
 .searchForm {
   width: 100vw;
+  height: 100%;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 form p {
@@ -116,9 +118,8 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 85vh;
 }
-
 
 /* Disabled styles */
 .buttonDisabled {
@@ -134,12 +135,26 @@ input {
   cursor: pointer;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
+footer {
+  font-size: 0.7rem;
+  color: grey;
+  height: 5vh;
+  text-align: right;
 }
 
-footer {
-  font-size: 0.75rem;
-  color: grey;
+.landingImg {
+  width: 50%;
 }
+
+header {
+  height: 10vh;
+  display: flex;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
