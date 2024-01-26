@@ -191,7 +191,6 @@ nav {
 header {
   height: 8vh;
   display: flex;
-  border: 1px solid red;
 }
 
 nav {
@@ -233,8 +232,15 @@ footer {
 }
 
 .dashNavRight {
-  width: 500px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* search */
+
+.searchWrapper input {
+  margin-right: 0.2rem;
+  width: 300px;
 }

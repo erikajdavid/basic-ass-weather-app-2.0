@@ -14,7 +14,7 @@ const Search = ({ handleSearch }) => {
   }
 
   return (
-    <form className="searchForm">
+    <form>
       <div className="searchWrapper">
         <input type="text" 
           id="cityInput" 
