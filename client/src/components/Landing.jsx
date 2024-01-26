@@ -7,7 +7,7 @@ const Landing = () => {
             <header>
                 <nav className="wrapper">
                     <Link to="/">LOGO</Link>
-                    <Link to="/login"><button>Log in</button></Link>
+                    <Link to="/login"><button className="buttonInversed">Log in</button></Link>
                 </nav>
             </header>
             <main className="landingCtn wrapper">

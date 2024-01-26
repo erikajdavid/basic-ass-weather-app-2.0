@@ -67,6 +67,12 @@ button {
   text-transform: uppercase;
 }
 
+.buttonInversed {
+  background-color: var(--priBlack);
+  border: 1px solid var(--priBlue);
+  font-weight: 400;
+}
+
 /* Disabled styles */
 .buttonDisabled {
   background-color: rgba(120, 120, 255, 0.279);
@@ -132,7 +138,7 @@ footer {
 }
 
 .dashNavRight {
-  width: 450px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;

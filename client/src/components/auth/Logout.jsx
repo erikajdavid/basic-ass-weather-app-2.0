@@ -15,7 +15,7 @@ const Logout = ({ setAuth }) => {
     };
 
     return (
-        <button onClick={logoutUser}>Log out</button>
+        <button className="buttonInversed" onClick={logoutUser}>Log out</button>
     );
 
 }
