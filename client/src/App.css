@@ -32,15 +32,15 @@ body {
   margin: auto;
 }
 
-a {
-  color: rgb(120, 120, 255);
-  font-weight: 500;
-  text-decoration: none;
-}
-
 p {
   padding: 0;
   margin: 0;
+}
+
+/* a {
+  color: rgb(120, 120, 255);
+  font-weight: 500;
+  text-decoration: none;
 }
 
 button {
@@ -135,7 +135,7 @@ input {
   cursor: pointer;
 }
 
-footer {
+/* footer {
   font-size: 0.7rem;
   color: grey;
   height: 5vh;
@@ -184,4 +184,28 @@ nav {
   padding: 1rem;
   border-radius: 50%;
   background-color: #131313;
+} */ 
+
+header {
+  height: 8vh;
+  display: flex;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.landingCtn, .dashboardCtn {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  height: 7vh;
+  font-size: 0.7rem;
+  text-align: right;
 }
