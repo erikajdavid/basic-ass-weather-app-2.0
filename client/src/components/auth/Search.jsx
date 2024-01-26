@@ -14,7 +14,7 @@ const Search = ({ handleSearch }) => {
   }
 
   return (
-    <form>
+    <>
       <div className="searchWrapper">
         <input type="text" 
           id="cityInput" 
@@ -30,7 +30,7 @@ const Search = ({ handleSearch }) => {
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-    </form>
+    </>
   );
 }
 
