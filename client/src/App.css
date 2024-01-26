@@ -186,9 +186,12 @@ nav {
   background-color: #131313;
 } */ 
 
+/* landing  */
+
 header {
   height: 8vh;
   display: flex;
+  border: 1px solid red;
 }
 
 nav {
@@ -208,4 +211,30 @@ footer {
   height: 7vh;
   font-size: 0.7rem;
   text-align: right;
+}
+
+/* dashboard */
+
+.welcomeCtn {
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+
+.welcomeCtn p {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.faUserCtn {
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.dashNavRight {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
