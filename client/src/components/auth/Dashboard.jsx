@@ -58,13 +58,13 @@ const Dashboard = ({ setAuth }) => {
 
     return (
         <>
-            <header className="wrapper">
-                <nav>
+            <header>
+                <nav className="wrapper">
                     <div className="welcomeCtn">
                         <FontAwesomeIcon icon={ faUser } className="faUserCtn"></FontAwesomeIcon>
                         <p>Welcome, {email}!</p>
                     </div>
-                    <div>
+                    <div className="dashNavRight">
                         <Search handleSearch={handleSearch} />
                         <Logout setAuth={setAuth}/>
                     </div>
