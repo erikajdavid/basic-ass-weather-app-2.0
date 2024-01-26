@@ -54,72 +54,70 @@ const Signup = ({ setAuth }) => {
     };
 
     return (
-        <>
-            <div className="formContainer">
-                <form onSubmit={ signupUser }>
-                    <h1>Sign up</h1>
+        <div className="formContainer">
+            <form onSubmit={ signupUser }>
+                <h1>Sign up</h1>
 
-                    <label htmlFor="email"></label>
+                <label htmlFor="email"></label>
+                <input 
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={ email }
+                    onChange={ (e) => setEmail(e.target.value) }
+                    placeholder="Email:"
+                    required
+                />
+
+                <div className="passwordInputCtn">
+                    <label htmlFor="password"></label>
                     <input 
-                        type="email"
-                        name="email"
-                        id="email"
-                        value={ email }
-                        onChange={ (e) => setEmail(e.target.value) }
-                        placeholder="Email:"
+                        type={ hidePassword ? "password" : "text" }
+                        name="password"
+                        id="password"
+                        className="passwordInput"
+                        value={ password }
+                        onChange={ (e) => setPassword(e.target.value) }
+                        placeholder="Password:"
                         required
                     />
+                    <FontAwesomeIcon
+                        onClick={ handlePasswordToggle }
+                        icon={ hidePassword ? faEyeSlash : faEye }
+                        className="eyeIcon"
+                    />
+                </div>
+                
+                <div className="passwordInputCtn">
+                    <label htmlFor="passwordVerify"></label>
+                    <input 
+                        type={ hidePasswordVerify ? "password" : "text" }
+                        name="passwordVerify"
+                        id="passwordVerify"
+                        className="passwordInput"
+                        value={ passwordVerify }
+                        onChange={ (e) => setPasswordVerify(e.target.value) }
+                        placeholder="Confirm password:"
+                        required
+                    />
+                    <FontAwesomeIcon
+                        onClick={ handlePasswordVerifyToggle }
+                        icon={ hidePasswordVerify ? faEyeSlash : faEye }
+                        className="eyeIcon"
+                    />
+                </div>
 
-                    <div className="passwordInputCtn">
-                        <label htmlFor="password"></label>
-                        <input 
-                            type={ hidePassword ? "password" : "text" }
-                            name="password"
-                            id="password"
-                            className="passwordInput"
-                            value={ password }
-                            onChange={ (e) => setPassword(e.target.value) }
-                            placeholder="Password:"
-                            required
-                        />
-                        <FontAwesomeIcon
-                            onClick={ handlePasswordToggle }
-                            icon={ hidePassword ? faEyeSlash : faEye }
-                            className="eyeIcon"
-                        />
-                    </div>
-                    
-                    <div className="passwordInputCtn">
-                        <label htmlFor="passwordVerify"></label>
-                        <input 
-                            type={ hidePasswordVerify ? "password" : "text" }
-                            name="passwordVerify"
-                            id="passwordVerify"
-                            className="passwordInput"
-                            value={ passwordVerify }
-                            onChange={ (e) => setPasswordVerify(e.target.value) }
-                            placeholder="Confirm password:"
-                            required
-                        />
-                        <FontAwesomeIcon
-                            onClick={ handlePasswordVerifyToggle }
-                            icon={ hidePasswordVerify ? faEyeSlash : faEye }
-                            className="eyeIcon"
-                        />
-                    </div>
-
-                    <button
-                        type="submit"
-                        className={`submitButton ${!email || !password || !passwordVerify ? 'buttonDisabled' : 'buttonEnabled'}`}
-                        disabled={!email || !password}
-                    >
-                        Register for an account
-                    </button>
-                    <p>Already have an account? <Link to="/login">Log in</Link></p>
-                    <p>Return <Link to="/">home</Link></p>
-                </form>
-            </div>
-        </>
+                <button
+                    type="submit"
+                    className={`submitButton ${!email || !password || !passwordVerify ? 'buttonDisabled' : 'buttonEnabled'}`}
+                    disabled={!email || !password}
+                >
+                    Register for an account
+                </button>
+                <p>Already have an account? <Link to="/login">Log in</Link></p>
+                <p>Return <Link to="/">home</Link></p>
+            </form>
+        </div>
     );
 };
 
