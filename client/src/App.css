@@ -101,6 +101,11 @@ nav {
   align-items: center;
 }
 
+.landingText {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 footer {
   height: 7vh;
   font-size: 0.7rem;
