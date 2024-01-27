@@ -6,7 +6,7 @@ const Landing = () => {
         <>
             <header>
                 <nav className="wrapper">
-                    <Link to="/">LOGO</Link>
+                    <Link to="/"><img className="logo" src="./assets/logo.png" alt="sun"/></Link>
                     <Link to="/login"><button className="buttonInversed">Log in</button></Link>
                 </nav>
             </header>
