@@ -70,9 +70,9 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                 </nav>
             </header>
-            <main>
+            <section>
                 <Weather weatherData={weatherData}/>
-            </main>
+            </section>
         </>
       );
 }
