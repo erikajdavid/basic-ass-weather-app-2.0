@@ -11,7 +11,8 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 :root {
   --priBlack: #1a1a1a;
   --priWhite: rgba(255, 255, 255, 0.87);
-  --priBlue: rgb(120, 120, 255);
+  --priBlue:  rgb(43, 93, 215);
+  /* rgb(120, 120, 255) */
 }
 
 
@@ -75,15 +76,15 @@ button {
 
 /* Disabled styles */
 .buttonDisabled {
-  background-color: rgba(120, 120, 255, 0.279);
+  background-color: rgba(170, 170, 170, 0.61);
   color: rgba(255, 255, 255, 0.511);
   cursor: not-allowed;
 }
 
 /* Enabled styles */
 .buttonEnabled {
-  background-color: rgb(120, 120, 255);
-  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--priBlue);
+  color: var(--priWhite);
   cursor: pointer;
 }
 
