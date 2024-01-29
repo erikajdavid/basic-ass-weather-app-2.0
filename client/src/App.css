@@ -59,7 +59,6 @@ button {
   border-radius: 4px;
   border: 1px solid transparent;
   padding: 1rem;
-  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.15rem;
   font-family: inherit;
@@ -270,12 +269,19 @@ form p {
   border-radius: 0 4px 4px 0;
 }
 
-/* loading spinner */
+/* CSS for the spinner */
 .spinner {
-  border: 25px solid var(--triBlack);
+  border: 4px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  border-top: 25px solid var(--purple);
-  width: 100px;
-  height: 100px;
+  border-top: 4px solid var(--priWhite);
   animation: spin 1s linear infinite;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block; /* Add this to make sure the element behaves like an inline block */
+}
+
+/* Animation keyframes for the spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
