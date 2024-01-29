@@ -10,10 +10,15 @@ const Login = ({ setAuth }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [hidePassword, setHidePassword] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handlePasswordToggle = () => {
         setHidePassword(!hidePassword);
     }
+
+    const handleLoadingState = () => {
+        setIsLoading(true);
+    };
 
     const loginUser = async (e) => {
         e.preventDefault()
@@ -36,10 +41,10 @@ const Login = ({ setAuth }) => {
                     localStorage.setItem("token", parseResponse.token);
         
                     setAuth(true);
+                    
                 } else {
                     console.error("Login failed:", response.status, response.statusText);
                 }
-
             } catch (error) {
             console.error(error.message);
             }
@@ -85,8 +90,10 @@ const Login = ({ setAuth }) => {
                     type="submit"
                     className={`submitButton ${!email || !password ? 'buttonDisabled' : 'buttonEnabled'}`}
                     disabled={!email || !password}
+                    onClick={handleLoadingState}
                 >
-                    Log in
+                    {isLoading ? <span className="spinner"></span> : `Log in`}
+                    
                 </button>
                 
                 <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
