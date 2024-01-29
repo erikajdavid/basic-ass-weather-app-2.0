@@ -9,6 +9,7 @@ const Dashboard = ({ setAuth }) => {
 
     const [email, setEmail] = useState("");
     const [weatherData, setWeatherData] = useState(null); // State to store weather data  
+    const [welcome, setWelcome] = useState(true);
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -35,8 +36,7 @@ const Dashboard = ({ setAuth }) => {
         displayEmail();
     }, [])
 
-    const handleSearch = async (e) => {
-        e.preventDefault;
+    const handleSearch = async () => {
 
         try {
             const city = document.getElementById("cityInput").value;
@@ -50,6 +50,8 @@ const Dashboard = ({ setAuth }) => {
    
             setWeatherData(parseResponse);
             console.log(parseResponse);
+
+            setWelcome(false);
         
        } catch (error) {
         console.error(error.message);
@@ -70,8 +72,10 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                 </nav>
             </header>
-            <section>
-                <Weather weatherData={weatherData}/>
+            <section className="wrapper">
+                {
+                    welcome ? <p>HELLO WHAT TO PUT HERE</p> : <Weather weatherData={weatherData}/>
+                }
             </section>
         </>
       );
