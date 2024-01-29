@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
+import LoadingSpinner from "./LoadingSpinner";
 
 //NOTES for later/improvement - hide password concept is similar to that of login, can we isolate hide password into it's own component? refactor the toggle functions into the return code? 
 
@@ -12,6 +13,7 @@ const Signup = ({ setAuth }) => {
     const [passwordVerify, setPasswordVerify] = useState("");
     const [hidePassword, setHidePassword] = useState(true);
     const [hidePasswordVerify, setHidePasswordVerify] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const signupUser = async (e) => {
         e.preventDefault();
@@ -51,6 +53,10 @@ const Signup = ({ setAuth }) => {
 
     const handlePasswordVerifyToggle = () => {
         setHidePasswordVerify(!hidePasswordVerify);
+    };
+
+    const handleLoadingSpinner = () => {
+        setIsLoading(true);
     };
 
     return (
@@ -111,8 +117,9 @@ const Signup = ({ setAuth }) => {
                     type="submit"
                     className={`submitButton ${!email || !password || !passwordVerify ? 'buttonDisabled' : 'buttonEnabled'}`}
                     disabled={!email || !password}
+                    onClick={handleLoadingSpinner}
                 >
-                    Register for an account
+                    {isLoading? <LoadingSpinner /> : `Register for an account`}
                 </button>
                 <p>Already have an account? <Link to="/login">Log in</Link></p>
                 <p>Return <Link to="/">home</Link></p>
