@@ -73,7 +73,7 @@ const Login = ({ setAuth }) => {
                     id="email"
                     value={ email }
                     onChange={ (e) => setEmail(e.target.value) }
-                    required={ true }
+                    required
                     autoComplete="off"
                     placeholder="Email:"
                 />
@@ -87,7 +87,7 @@ const Login = ({ setAuth }) => {
                         value={ password }
                         className="passwordInput"
                         onChange={ (e) => setPassword(e.target.value) }
-                        required={ true }
+                        required
                         placeholder="Password:"
                     />
                     <FontAwesomeIcon
