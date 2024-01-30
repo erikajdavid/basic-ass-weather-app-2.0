@@ -20,8 +20,9 @@ const Search = ({ handleSearch }) => {
         placeholder="Enter a city..." 
         value={city}
         onChange={(e => setCity(e.target.value))}
-        required>
-      </input>
+        required
+        autoComplete="off"
+      />
       <button 
         type="submit" 
         onClick={handleSearchClick}

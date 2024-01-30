@@ -73,8 +73,9 @@ const Signup = ({ setAuth }) => {
                     onChange={ (e) => setEmail(e.target.value) }
                     placeholder="Email:"
                     required
+                    autoComplete="off"
                 />
-
+                
                 <div className="passwordInputCtn">
                     <label htmlFor="password"></label>
                     <input 
