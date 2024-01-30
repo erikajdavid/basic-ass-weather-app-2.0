@@ -48,7 +48,7 @@ const Login = ({ setAuth }) => {
                     console.error("Login failed:", response.status, response.statusText);
 
                     if (response.status === 401) {
-                        setError(`Email and/or password is invalid. Please try again.`)
+                        setError(`Email and/or password is invalid. Please try again.`);
                         setIsLoading(false);
                     } else if (response.status === 400) {
                         setError(`All input fields are required`);

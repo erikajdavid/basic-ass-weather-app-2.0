@@ -14,6 +14,7 @@ const Signup = ({ setAuth }) => {
     const [hidePassword, setHidePassword] = useState(true);
     const [hidePasswordVerify, setHidePasswordVerify] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const signupUser = async (e) => {
         e.preventDefault();
@@ -40,6 +41,14 @@ const Signup = ({ setAuth }) => {
                     setAuth(true);
                 } else {
                     console.error("Registration failed:", response.status, response.statusText);
+
+                    if (response.status === 400) {
+                        setError(`All input fields are required`);
+                        setIsLoading(false);
+                    } else if (response.status === 409) {
+                        setError(`An account with this email already exists.`);
+                        setIsLoading(false);
+                    }
                 }
                 
             } catch (error) {
@@ -113,6 +122,8 @@ const Signup = ({ setAuth }) => {
                         className="eyeIcon"
                     />
                 </div>
+
+                {error && <p className="error">{error}</p>}
 
                 <button
                     type="submit"
