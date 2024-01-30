@@ -12,6 +12,7 @@ const Login = ({ setAuth }) => {
     const [password, setPassword] = useState("");
     const [hidePassword, setHidePassword] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
 
     const handlePasswordToggle = () => {
         setHidePassword(!hidePassword);
@@ -45,6 +46,13 @@ const Login = ({ setAuth }) => {
                     
                 } else {
                     console.error("Login failed:", response.status, response.statusText);
+
+                    if (response.status === 401) {
+                        setError(`Email and/or password is invalid. Please try again.`)
+                    } else if (response.status === 400) {
+                        setError(`All input fields are required`);
+                        setIsLoading(false);
+                    }
                 }
             } catch (error) {
             console.error(error.message);
@@ -87,6 +95,9 @@ const Login = ({ setAuth }) => {
                     >
                     </FontAwesomeIcon>
                 </div>
+
+                {error && <p className="error">{error}</p>}
+
 
                 <button
                     type="submit"
