@@ -1,6 +1,11 @@
 import React from "react";
+import { format } from "date-fns";
 
 const DailyWeather = ({ dailyWeather, roundTemperature }) => {
+
+    const today = new Date();
+
+    const formatDate = format(today, 'EEEE, MMMM d, yyyy');
 
     return (
 
@@ -9,6 +14,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature }) => {
                 <h1>{dailyWeather.name}</h1>
                 <div>
                     <h2>Daily Forecast:</h2>
+                    <p>{formatDate}</p>
                     <p>Temp: {roundTemperature(dailyWeather.main.temp)}°C</p>
                     <p>Description: {dailyWeather.weather[0].description}</p>
                     <p>Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
