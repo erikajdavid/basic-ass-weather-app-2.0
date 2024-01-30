@@ -96,6 +96,7 @@ const Signup = ({ setAuth }) => {
                         onChange={ (e) => setPassword(e.target.value) }
                         placeholder="Password:"
                         required
+                        minLength={8}
                     />
                     <FontAwesomeIcon
                         onClick={ handlePasswordToggle }
@@ -115,6 +116,7 @@ const Signup = ({ setAuth }) => {
                         onChange={ (e) => setPasswordVerify(e.target.value) }
                         placeholder="Confirm password:"
                         required
+                        minLength={8}
                     />
                     <FontAwesomeIcon
                         onClick={ handlePasswordVerifyToggle }
