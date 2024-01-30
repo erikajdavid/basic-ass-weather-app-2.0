@@ -26,7 +26,7 @@ router.post("/register", async(req, res) => {
 
         //if one of the input fields is empty, return and error
         if (!email || !password || !passwordVerify) {
-            return res.status(400).json({ message: `All input fields are required. Why is this happening.`});
+            return res.status(400).json({ message: `All input fields are required.`});
         }
 
         //check for a duplicate user
