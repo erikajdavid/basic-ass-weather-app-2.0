@@ -91,7 +91,7 @@ router.post("/login", async(req, res) => {
         //check if user exists in the database
         const existingUser = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
 
-        if (!existingUser.rows.length === 0) {
+        if (existingUser.rows.length === 0) {
             return res.status(401).json({ message: `Unauthorized.` })
         }
 
