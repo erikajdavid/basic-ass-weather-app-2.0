@@ -142,6 +142,7 @@ const Signup = ({ setAuth }) => {
             </form>
         </div>
     );
+    
 };
 
 export default Signup;

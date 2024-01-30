@@ -11,7 +11,6 @@ const Dashboard = ({ setAuth }) => {
     const [email, setEmail] = useState("");
     const [dailyWeather, setDailyWeather] = useState(null); // State to store weather data  
     const [forecastWeather, setForecastWeather] = useState(null); // State to store weather data  
-
     const [welcome, setWelcome] = useState(true);
 
     const myHeaders = {
@@ -40,7 +39,6 @@ const Dashboard = ({ setAuth }) => {
     }, [])
 
     const handleSearch = async () => {
-        
         try {
             const city = document.getElementById("cityInput").value;
 
@@ -90,6 +88,7 @@ const Dashboard = ({ setAuth }) => {
             <Footer />
         </>
       );
-}
+      
+};
 
 export default Dashboard;

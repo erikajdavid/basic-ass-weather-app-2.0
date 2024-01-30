@@ -116,6 +116,7 @@ const Login = ({ setAuth }) => {
             </form>
         </div>
     );
-}
+    
+};
 
 export default Login;

@@ -18,6 +18,6 @@ const Logout = ({ setAuth }) => {
         <button className="buttonInversed" onClick={logoutUser}>Log out</button>
     );
 
-}
+};
 
 export default Logout;

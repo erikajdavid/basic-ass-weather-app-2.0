@@ -32,6 +32,7 @@ const Search = ({ handleSearch }) => {
       </button>
     </form>
   );
-}
+
+};
 
 export default Search;

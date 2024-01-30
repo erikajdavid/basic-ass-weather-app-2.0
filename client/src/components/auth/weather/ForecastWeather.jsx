@@ -3,7 +3,7 @@ import React from "react";
 const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
 
     return (
-        <div>
+        <div className="wrapper">
             <h2>Next 4-day Forecast</h2>
             <ul>
             {forecastWeather.list.map((day) => (
@@ -21,9 +21,8 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
             ))}
             </ul>
         </div>
-
     );
 
-}
+};
 
 export default ForecastWeather;

@@ -6,9 +6,7 @@ import { format } from "date-fns";
 //reformat date from api
 const formatDate = (dateString) => {
   const dateObject = new Date(dateString);
-
   const formattedDate = format(dateObject, 'eeee, MMMM, d');
-
   return formattedDate;
 };
 

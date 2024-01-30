@@ -20,9 +20,9 @@ const Landing = () => {
                 <Link to="/signup"><button>Register now</button></Link>
             </main>
             <Footer />
-
         </>
     );
-}
+    
+};
 
 export default Landing;
