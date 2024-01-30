@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
-import Weather from "./Weather";
+import Weather from "./weather/Weather";
 import Logout from "./Logout";
 import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
