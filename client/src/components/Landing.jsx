@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 const Landing = () => {
 
@@ -18,10 +19,8 @@ const Landing = () => {
                 </div>
                 <Link to="/signup"><button>Register now</button></Link>
             </main>
-            <footer className="wrapper">
-                <p>Designed and developed by <a href="https://erikadavid.dev/" target="_blank">Erika David</a></p>
-                <p>All rights reserved © 2024</p>
-            </footer>
+            <Footer />
+
         </>
     );
 }

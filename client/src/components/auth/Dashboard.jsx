@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Weather from "./Weather";
 import Logout from "./Logout";
+import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 
@@ -81,11 +82,12 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                 </nav>
             </header>
-            <section className="wrapper">
+            <section className="dashboardCtn wrapper">
                 {
                     welcome ? <p>HELLO WHAT TO PUT HERE</p> : <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
                 }
             </section>
+            <Footer />
         </>
       );
 }
