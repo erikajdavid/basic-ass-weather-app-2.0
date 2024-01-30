@@ -38,8 +38,7 @@ const Dashboard = ({ setAuth }) => {
         displayEmail();
     }, [])
 
-    const handleSearch = async (e) => {
-        e.preventDefault();
+    const handleSearch = async () => {
         
         try {
             const city = document.getElementById("cityInput").value;
