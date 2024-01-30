@@ -25,7 +25,7 @@ const Weather = ({ dailyWeather, forecastWeather }) => {
 
   return (
     <>  
-      <DailyWeather formatDate={formatDate} roundTemperature={roundTemperature} dailyWeather={dailyWeather}></DailyWeather>
+      <DailyWeather roundTemperature={roundTemperature} dailyWeather={dailyWeather}></DailyWeather>
       <ForecastWeather formatDate={formatDate} roundTemperature={roundTemperature} forecastWeather={forecastWeather}></ForecastWeather>
     </>
   );
