@@ -1,13 +1,15 @@
 import React from "react";
 import DailyWeather from "./DailyWeather";
 import ForecastWeather from "./ForecastWeather";
+import { format } from "date-fns";
 
 //reformat date from api
 const formatDate = (dateString) => {
   const dateObject = new Date(dateString);
-  const month = dateObject.toLocaleString('en-US', { month: 'short' });
-  const day = dateObject.getDate();
-  return `${month} ${day}`;
+
+  const formattedDate = format(dateObject, 'eeee, MMMM, d');
+
+  return formattedDate;
 };
 
 //round temp to the nearest degree
