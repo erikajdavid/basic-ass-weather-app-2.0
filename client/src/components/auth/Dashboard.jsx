@@ -82,9 +82,9 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                 </nav>
             </header>
-            <section className="dashboardCtn wrapper">
+            <section>
                 {
-                    welcome ? <p>HELLO WHAT TO PUT HERE</p> : <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
+                    welcome ? <p className="dashboardCtn">HELLO WHAT TO PUT HERE</p> : <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
                 }
             </section>
             <Footer />
