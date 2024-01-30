@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
 import LoadingSpinner from "./LoadingSpinner";
+import FormError from "./FormError";
 
 //NOTES for later/improvement - hide password concept is similar to that of login, can we isolate hide password into it's own component? refactor the toggle functions into the return code? 
 
@@ -125,7 +126,7 @@ const Signup = ({ setAuth }) => {
                     />
                 </div>
 
-                {error && <p className="error">{error}</p>}
+                {error && <FormError error={error}/>}
 
                 <button
                     type="submit"
@@ -135,7 +136,7 @@ const Signup = ({ setAuth }) => {
                 >
                     {isLoading? <LoadingSpinner /> : `Register for an account`}
                 </button>
-                
+
                 <p>Already have an account? <Link to="/login">Log in</Link></p>
                 <p>Return <Link to="/">home</Link></p>
             </form>
