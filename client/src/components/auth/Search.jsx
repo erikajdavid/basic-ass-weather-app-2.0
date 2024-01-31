@@ -21,7 +21,7 @@ const Search = ({ handleSearch }) => {
   }
 
   return (
-    <form className="searchWrapper">
+    <form onSubmit={handleSearchClick} className="searchWrapper">
       <input type="text" 
         id="cityInput" 
         placeholder="Enter a city..." 
@@ -33,7 +33,6 @@ const Search = ({ handleSearch }) => {
       />
       <button 
         type="submit" 
-        onClick={handleSearchClick}
         className={!city ? "buttonDisabled" : "buttonEnabled"}>
           {/* adding FA like this here because this icon isn't available in the FA library installed */}
         <i className="fa-solid fa-magnifying-glass"></i>
