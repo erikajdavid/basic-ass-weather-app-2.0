@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const Search = ({ handleSearch }) => {
   
   const [city, setCity] = useState("");
+  const cityInputRef = useRef(null);
 
   const handleSearchClick = (e) => {
     e.preventDefault();
@@ -11,6 +12,12 @@ const Search = ({ handleSearch }) => {
 
     //clear search
     setCity("");
+
+    //remove focus from input field
+    // document.getElementById('cityInput').blur();
+    if (cityInputRef.current) {
+      cityInputRef.current.blur();
+    }
   }
 
   return (
@@ -22,6 +29,7 @@ const Search = ({ handleSearch }) => {
         onChange={(e => setCity(e.target.value))}
         required
         autoComplete="off"
+        ref={cityInputRef}
       />
       <button 
         type="submit" 
