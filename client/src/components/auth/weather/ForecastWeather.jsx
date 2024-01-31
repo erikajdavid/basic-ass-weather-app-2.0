@@ -22,18 +22,18 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
   console.log(noonWeather);
     
     return (
-        <div className="wrapper">
-            <h2>Next 4-day Forecast</h2>
+        <div className="wrapper forecastCtn">
+            <h2>Forecast</h2>
             <ul>
             {noonWeather.map((day) => (
                 <li key={day.date}>
-                <p>Date: {formatDate(day.date)}</p>
-                <p>Main Temp: {roundTemperature(day.mainTemp)}°C</p>
-                <p>Description: {day.description}</p>
-                <p>Feels Like: {roundTemperature(day.feelsLike)}°C</p>
-                <p>Humidity: {day.humidity}%</p>
-                <p>Pressure: {day.pressure}hPa</p>
-                <p>Wind Speed: {day.speed}km/h</p>
+                    <p>{formatDate(day.date)}</p>
+                    <p>{roundTemperature(day.mainTemp)}°C</p>
+                    <p>{day.description}</p>
+                    <p>Feels Like: {roundTemperature(day.feelsLike)}°C</p>
+                    <p>Humidity: {day.humidity}%</p>
+                    <p>Pressure: {day.pressure}hPa</p>
+                    <p>Wind Speed: {day.speed}km/h</p>
                 </li>
             ))}
             </ul>
