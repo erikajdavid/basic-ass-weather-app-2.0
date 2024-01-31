@@ -13,8 +13,8 @@ const DailyWeather = ({ dailyWeather, roundTemperature }) => {
             <div>
                 <h2>Daily Forecast:</h2>
                 <p>{formatDate}</p>
-                <p>Temp: {roundTemperature(dailyWeather.main.temp)}°C</p>
-                <p>Description: {dailyWeather.weather[0].description}</p>
+                <p>{roundTemperature(dailyWeather.main.temp)}°C</p>
+                <p>{dailyWeather.weather[0].description}</p>
                 <p>Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
                 <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
                 <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
