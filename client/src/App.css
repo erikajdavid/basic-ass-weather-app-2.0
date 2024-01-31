@@ -12,11 +12,11 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
   --priBlack: #1a1a1a;
   --priWhite: rgba(255, 255, 255, 0.87);
   --priBlue:  rgb(43, 93, 215);
+  --secBlue: rgb(69, 122, 255);
   --priGrey: rgb(48, 48, 48);
   --secGrey: rgba(170, 170, 170, 0.6);
   /* rgb(120, 120, 255) */
 }
-
 
 html {
   font-family: Arial, Helvetica, sans-serif;
@@ -68,12 +68,22 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   text-transform: uppercase;
+  transition: all 0.25sec;
+}
+
+button:hover {
+  background-color: var(--secBlue);
 }
 
 .buttonInversed {
   background-color: var(--priBlack);
   border: 1px solid var(--priBlue);
   font-weight: 400;
+  transition: all 0.25s;
+}
+
+.buttonInversed:hover {
+  background-color: var(--priBlue);
 }
 
 /* Disabled styles */
