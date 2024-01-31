@@ -4,7 +4,7 @@ import Weather from "./weather/WeatherCard";
 import Logout from "./Logout";
 import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
 
