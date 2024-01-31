@@ -1,6 +1,6 @@
 import React from "react";
 
-const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
+const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capitalize }) => {
 
     const noonWeather = forecastWeather.list
     .map((entry) => {
@@ -29,7 +29,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
                 <li key={day.date}>
                     <p>{formatDate(day.date)}</p>
                     <p>{roundTemperature(day.mainTemp)}°C</p>
-                    <p>{day.description}</p>
+                    <p>{capitalize(day.description)}</p>
                     <p>Feels Like: {roundTemperature(day.feelsLike)}°C</p>
                     <p>Humidity: {day.humidity}%</p>
                     <p>Pressure: {day.pressure}hPa</p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
 
-const DailyWeather = ({ dailyWeather, roundTemperature }) => {
+const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
     //date is not provided by API, so we are inserting it manually
     const today = new Date();
@@ -14,7 +14,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature }) => {
                 <h2>Daily Forecast:</h2>
                 <p>{formatDate}</p>
                 <p>{roundTemperature(dailyWeather.main.temp)}°C</p>
-                <p>{dailyWeather.weather[0].description}</p>
+                <p>{capitalize(dailyWeather.weather[0].description)}</p>
                 <p>Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
                 <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
                 <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
