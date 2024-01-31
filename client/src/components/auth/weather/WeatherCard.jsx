@@ -15,6 +15,16 @@ const roundTemperature = (temperature) => {
   return Math.round(temperature);
 };
 
+//capitalize first letter in description returned from API
+const capitalize = (str) => {
+  if (str && typeof str === 'string') {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  } else {
+    // Return the original string if it's empty or not a string
+    return str;
+  }
+}
+
 const Weather = ({ dailyWeather, forecastWeather }) => {
 
   if (!dailyWeather || !forecastWeather) {
@@ -23,8 +33,17 @@ const Weather = ({ dailyWeather, forecastWeather }) => {
 
   return (
     <>  
-      <DailyWeather roundTemperature={roundTemperature} dailyWeather={dailyWeather}></DailyWeather>
-      <ForecastWeather formatDate={formatDate} roundTemperature={roundTemperature} forecastWeather={forecastWeather}></ForecastWeather>
+      <DailyWeather 
+        roundTemperature={roundTemperature} 
+        dailyWeather={dailyWeather} 
+        capitalize={capitalize}>  
+      </DailyWeather>
+      <ForecastWeather 
+        formatDate={formatDate} 
+        roundTemperature={roundTemperature} 
+        forecastWeather={forecastWeather} 
+        capitalize={capitalize}>  
+      </ForecastWeather>
     </>
   );
   
