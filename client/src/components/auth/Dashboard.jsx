@@ -51,6 +51,8 @@ const Dashboard = ({ setAuth }) => {
             const dailyParseResponse = await dailyResponse.json();
                 if (dailyResponse.status === 404) {
                     setError(`City not found. Please try again`)
+                } else {
+                    setError("");
                 }
 
             setDailyWeather(dailyParseResponse);
@@ -65,15 +67,19 @@ const Dashboard = ({ setAuth }) => {
             const forecastParseResponse = await forecastResponse.json();
                 if (forecastResponse.status === 404) {
                     setError(`City not found. Please try again`)
+                } else {
+                    setError("");
                 }
             
             setForecastWeather(forecastParseResponse);
             console.log(forecastParseResponse);
 
             setWelcome(false);
+            
         } catch (error) {
             console.error(error.message);
         }
+
     };
 
     return (
