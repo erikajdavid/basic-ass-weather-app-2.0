@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Weather from "./weather/WeatherCard";
 import Logout from "./Logout";
+import LoadingSpinner from "./LoadingSpinner";
 import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -12,6 +13,7 @@ const Dashboard = ({ setAuth }) => {
     const [dailyWeather, setDailyWeather] = useState(null); // State to store weather data  
     const [forecastWeather, setForecastWeather] = useState(null); // State to store weather data  
     const [welcome, setWelcome] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     const myHeaders = {
@@ -42,6 +44,8 @@ const Dashboard = ({ setAuth }) => {
     const handleSearch = async () => {
         try {
             const city = document.getElementById("cityInput").value;
+
+            setLoading(true); // Set loading to true when the search starts
 
             // Daily weather API call
             const dailyResponse = await fetch(`http://localhost:3500/weather/dailyWeather?city=${encodeURIComponent(city)}`, {
@@ -78,6 +82,8 @@ const Dashboard = ({ setAuth }) => {
             
         } catch (error) {
             console.error(error.message);
+        } finally {
+            setLoading(false);
         }
 
     };
@@ -97,14 +103,14 @@ const Dashboard = ({ setAuth }) => {
                 </nav>
             </header>
             <section className="dashboardCtn">
-                {welcome ? (
-                    <p>HELLO WHAT TO PUT HERE</p>
+                {loading ? (
+                <LoadingSpinner />
+                ) : welcome ? (
+                <p>HELLO WHAT TO PUT HERE</p>
+                ) : error !== "" ? (
+                <p>{error}</p>
                 ) : (
-                    error !== "" ? (
-                        <p>{error}</p>
-                    ) : (
-                        <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
-                    )
+                <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather} />
                 )}
             </section>
             <Footer />
