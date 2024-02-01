@@ -2,22 +2,26 @@ import React from "react";
 
 const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capitalize }) => {
 
-    const noonWeather = forecastWeather.list
-    .map((entry) => {
-      const entryDateTime = new Date(entry.dt_txt);
-      return entryDateTime.getHours() === 12 && entryDateTime.getMinutes() === 0
-        ? {
-            date: entryDateTime.toISOString(),
-            mainTemp: entry.main.temp,
-            description: entry.weather[0].description,
-            feelsLike: entry.main.feels_like,
-            humidity: entry.main.humidity,
-            pressure: entry.main.pressure,
-            windSpeed: entry.windSpeed,
-          }
-        : null;
-    })
-    .filter(Boolean)
+  if (!forecastWeather || !forecastWeather.list || forecastWeather.list.length === 0) {
+    return null;
+  }
+
+  const noonWeather = forecastWeather.list
+  .map((entry) => {
+    const entryDateTime = new Date(entry.dt_txt);
+    return entryDateTime.getHours() === 12 && entryDateTime.getMinutes() === 0
+      ? {
+          date: entryDateTime.toISOString(),
+          mainTemp: entry.main.temp,
+          description: entry.weather[0].description,
+          feelsLike: entry.main.feels_like,
+          humidity: entry.main.humidity,
+          pressure: entry.main.pressure,
+          windSpeed: entry.wind.speed,
+        }
+      : null;
+  })
+  .filter(Boolean)
 
   console.log(noonWeather);
     
@@ -33,7 +37,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
                     <p>Feels Like: {roundTemperature(day.feelsLike)}°C</p>
                     <p>Humidity: {day.humidity}%</p>
                     <p>Pressure: {day.pressure}hPa</p>
-                    <p>Wind Speed: {day.speed}km/h</p>
+                    <p>Wind Speed: {day.windSpeed}km/h</p>
                 </li>
             ))}
             </ul>
