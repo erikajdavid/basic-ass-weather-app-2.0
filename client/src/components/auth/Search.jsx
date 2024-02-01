@@ -34,8 +34,8 @@ const Search = ({ handleSearch, loading }) => {
       />
       <button 
         type="submit" 
-        className={!city ? "buttonDisabled" : "buttonEnabled"}>
-          {/* adding FA like this here because this icon isn't available in the FA library installed */}
+        className={loading ? "buttonEnabled" : (!city ? "buttonDisabled" : "buttonEnabled")}>
+        {/* adding FA like this here because this icon isn't available in the FA library installed */}
         {loading ? <LoadingSpinner /> : <i className="fa-solid fa-magnifying-glass"></i>}
       </button>
     </form>
