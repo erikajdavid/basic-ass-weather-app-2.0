@@ -1,7 +1,11 @@
 import React from "react";
 
 const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capitalize }) => {
-  
+
+  if (!forecastWeather || !forecastWeather.list || forecastWeather.list.length === 0) {
+    return null;
+  }
+
   const noonWeather = forecastWeather.list
   .map((entry) => {
     const entryDateTime = new Date(entry.dt_txt);
