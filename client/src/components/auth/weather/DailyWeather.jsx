@@ -3,10 +3,6 @@ import { format } from "date-fns";
 
 const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
-    if( !dailyWeather || !dailyWeather.main || !dailyWeather.wind || !dailyWeather.name || !dailyWeather.weather) {
-        return null;
-    }
-
     //date is not provided by API, so we are inserting it manually
     const today = new Date();
     const formatDate = format(today, 'EEEE, MMMM d, yyyy');
