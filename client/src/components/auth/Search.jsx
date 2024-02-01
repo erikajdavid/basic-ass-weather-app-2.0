@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
-const Search = ({ handleSearch }) => {
+const Search = ({ handleSearch, loading }) => {
   
   const [city, setCity] = useState("");
   const cityInputRef = useRef(null);
@@ -35,7 +36,7 @@ const Search = ({ handleSearch }) => {
         type="submit" 
         className={!city ? "buttonDisabled" : "buttonEnabled"}>
           {/* adding FA like this here because this icon isn't available in the FA library installed */}
-        <i className="fa-solid fa-magnifying-glass"></i>
+        {loading ? <LoadingSpinner /> : <i className="fa-solid fa-magnifying-glass"></i>}
       </button>
     </form>
   );

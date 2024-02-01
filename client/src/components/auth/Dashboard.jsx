@@ -97,20 +97,20 @@ const Dashboard = ({ setAuth }) => {
                         <p>Welcome, {email}!</p>
                     </div>
                     <div className="dashNavRight">
-                        <Search handleSearch={handleSearch} />
+                        <Search handleSearch={handleSearch} loading={loading}/>
                         <Logout setAuth={setAuth}/>
                     </div>
                 </nav>
             </header>
             <section className="dashboardCtn">
-                {loading ? (
-                <LoadingSpinner />
-                ) : welcome ? (
-                <p>HELLO WHAT TO PUT HERE</p>
-                ) : error !== "" ? (
-                <p>{error}</p>
+                {welcome ? (
+                    <p>HELLO WHAT TO PUT HERE</p>
                 ) : (
-                <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather} />
+                    error !== "" ? (
+                        <p>{error}</p>
+                    ) : (
+                        <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
+                    )
                 )}
             </section>
             <Footer />
