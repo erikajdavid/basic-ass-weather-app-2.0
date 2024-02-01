@@ -12,6 +12,7 @@ const Dashboard = ({ setAuth }) => {
     const [dailyWeather, setDailyWeather] = useState(null); // State to store weather data  
     const [forecastWeather, setForecastWeather] = useState(null); // State to store weather data  
     const [welcome, setWelcome] = useState(true);
+    const [error, setError] = useState("");
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -48,6 +49,10 @@ const Dashboard = ({ setAuth }) => {
                 headers: myHeaders
             });
             const dailyParseResponse = await dailyResponse.json();
+                if (dailyResponse.status === 404) {
+                    setError(`City not found. Please try again`)
+                }
+
             setDailyWeather(dailyParseResponse);
             console.log(dailyParseResponse);
 
@@ -56,7 +61,12 @@ const Dashboard = ({ setAuth }) => {
                 method: "GET",
                 headers: myHeaders
             });
+
             const forecastParseResponse = await forecastResponse.json();
+                if (forecastResponse.status === 404) {
+                    setError(`City not found. Please try again`)
+                }
+            
             setForecastWeather(forecastParseResponse);
             console.log(forecastParseResponse);
 
@@ -80,10 +90,16 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                 </nav>
             </header>
-            <section>
-                {
-                    welcome ? <p className="dashboardCtn">HELLO WHAT TO PUT HERE</p> : <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
-                }
+            <section className="dashboardCtn">
+                {welcome ? (
+                    <p>HELLO WHAT TO PUT HERE</p>
+                ) : (
+                    error !== "" ? (
+                        <p>{error}</p>
+                    ) : (
+                        <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
+                    )
+                )}
             </section>
             <Footer />
         </>
