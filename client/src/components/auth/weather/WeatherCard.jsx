@@ -25,7 +25,7 @@ const capitalize = (str) => {
   }
 }
 
-const Weather = ({ dailyWeather, forecastWeather }) => {
+const WeatherCard = ({ dailyWeather, forecastWeather }) => {
 
   if (!dailyWeather || !forecastWeather) {
     return null;
@@ -36,17 +36,19 @@ const Weather = ({ dailyWeather, forecastWeather }) => {
       <DailyWeather 
         roundTemperature={roundTemperature} 
         dailyWeather={dailyWeather} 
-        capitalize={capitalize}>  
+        capitalize={capitalize}
+      >  
       </DailyWeather>
       <ForecastWeather 
         formatDate={formatDate} 
         roundTemperature={roundTemperature} 
         forecastWeather={forecastWeather} 
-        capitalize={capitalize}>  
+        capitalize={capitalize}
+      >  
       </ForecastWeather>
     </>
   );
   
 };
 
-export default Weather;
+export default WeatherCard;
