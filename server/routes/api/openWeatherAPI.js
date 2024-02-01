@@ -31,7 +31,11 @@ router.get("/dailyWeather", async (req, res) => {
 
         //check if the response is successful
         if (!response.ok) {
-            throw new Error(`OpenWeather API request failed with status: ${response.status}`);
+            if (response.status === 404) {
+                return res.status(404).json({ message: "City not found." });
+            } else {
+                throw new Error(`OpenWeather API request failed with status: ${response.status}`);
+            }
         }
 
         const parseResponse = await response.json();
@@ -66,7 +70,11 @@ router.get("/forecast", async(req, res) => {
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
-            throw new Error(`OpenWeather API request failed with status: ${response.status}`);
+            if (response.status === 404) {
+                return res.status(404).json({ message: "City not found." });
+            } else {
+                throw new Error(`OpenWeather API request failed with status: ${response.status}`);
+            }
         }
 
         const parseResponse = await response.json();
