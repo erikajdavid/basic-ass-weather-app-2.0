@@ -21,12 +21,12 @@ router.post("/register", async(req, res) => {
 
         //if email is invalid, return error
         if (!isEmailValid(email)) {
-            return res.status(400).json({ message: `Please format email correctly.` })
+            return res.status(400).json({ type: email, message: `Please format email correctly.` })
         }
 
         //if one of the input fields is empty, return and error
         if (!email || !password || !passwordVerify) {
-            return res.status(400).json({ message: `All input fields are required.`});
+            return res.status(400).json({ type: all, message: `All input fields are required.`});
         }
 
         //check for a duplicate user
@@ -35,7 +35,7 @@ router.post("/register", async(req, res) => {
         //if a user already exists, return an error
         console.log(user);
         if (user.rows.length > 0) {
-            return res.status(409).json({ message: `User with this email already exists.`})
+            return res.status(409).json({ type: email, message: `User with this email already exists.`})
         }
 
         //if the user doesn't exist, continue with the registration process and encrypt the password
@@ -46,11 +46,11 @@ router.post("/register", async(req, res) => {
 
         //password much be at least 8 characters long
         if (password.length < 8) {
-            return res.status(400).json({ message: `Password must be at least 8 characters long.` })
+            return res.status(400).json({ type: password, message: `Password must be at least 8 characters long.` })
         }
         //check if the passwords match
         if (password !== passwordVerify) {
-            return res.status(400).json({ message: `Passwords do not match`});
+            return res.status(400).json({ type: passwordVerify, message: `Passwords do not match`});
         }
 
         //if passwords match, create new user
