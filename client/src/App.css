@@ -86,6 +86,10 @@ button {
   transition: all 0.25sec;
 }
 
+button:hover {
+  background-color: var(--secBlue);
+}
+
 .buttonInversed {
   background-color: var(--priBlack);
   border: 1px solid var(--priBlue);
@@ -102,6 +106,10 @@ button {
   background-color: var(--secGrey);
   color: rgba(255, 255, 255, 0.511);
   cursor: not-allowed;
+}
+
+.buttonDisabled:hover {
+  background-color: var(--secGrey);
 }
 
 /* Enabled styles */
