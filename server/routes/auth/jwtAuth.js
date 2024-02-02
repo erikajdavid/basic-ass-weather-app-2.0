@@ -35,7 +35,7 @@ router.post("/register", async(req, res) => {
         //if a user already exists, return an error
         console.log(user);
         if (user.rows.length > 0) {
-            return res.status(409).json({ type: email, message: `User with this email already exists.`})
+            return res.status(409).json({ type: email, message: `An account with this email already exists.`})
         }
 
         //if the user doesn't exist, continue with the registration process and encrypt the password
@@ -50,7 +50,7 @@ router.post("/register", async(req, res) => {
         }
         //check if the passwords match
         if (password !== passwordVerify) {
-            return res.status(400).json({ type: passwordVerify, message: `Passwords do not match`});
+            return res.status(400).json({ type: passwordVerify, message: `Passwords do not match. Please try again.`});
         }
 
         //if passwords match, create new user
@@ -92,7 +92,7 @@ router.post("/login", async(req, res) => {
         const existingUser = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
 
         if (existingUser.rows.length === 0) {
-            return res.status(401).json({ type: email, message: `An account with this email does not exist. Sign up for an account ot please try again.` })
+            return res.status(401).json({ type: email, message: `An account with this email does not exist. Sign up for an account or please try again.` })
         }
 
         //if the user exists, compare password with bcryptPassword
@@ -100,7 +100,7 @@ router.post("/login", async(req, res) => {
 
         //if password is not correct, return an error
         if (!passwordCorrect) {
-            return res.status(401).json({ type: password, message: `Email and/or password is invalid.` })
+            return res.status(401).json({ type: password, message: `Email and/or password is invalid. Please try again.` })
         }
 
         //if user exists and password is correct, grant user an access token
