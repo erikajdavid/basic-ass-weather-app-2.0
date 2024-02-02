@@ -46,14 +46,18 @@ const Login = ({ setAuth }) => {
                     setAuth(true);
                     
                 } else {
-                    console.error("Login failed:", response.status, response.statusText);
+                    const parseResponse = await response.json();
+                    console.log(parseResponse)
 
-                    if (response.status === 400) {
-                        setError(`All input fields are required`);
-                        setIsLoading(false);
-                    } else if (response.status === 401) {
-                        setError(`Email and/or password is invalid. Please try again.`);
-                        setIsLoading(false);
+                    if (parseResponse.type === email) {
+                        setError(parseResponse.message);
+                        setIsLoading(false)
+                    } else if (parseResponse.type === password) {
+                        setError(parseResponse.message);
+                        setIsLoading(false)
+                    } else if (parseResponse.type === all) {
+                        setError(parseResponse.message);
+                        setIsLoading(false)
                     }
                 }
             } catch (error) {
