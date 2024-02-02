@@ -80,19 +80,19 @@ router.post("/login", async(req, res) => {
 
         //if email is invalid, return error
         if (!isEmailValid(email)) {
-            return res.status(400).json({ message: `Please format email correctly.` })
+            return res.status(400).json({ type: email, message: `Please format email correctly.` })
         }
         
         //if no email and/or password, return an error
         if (!email || !password ) {
-            return res.status(400).json({ message: `All input fields are required.` })
+            return res.status(400).json({ type: all, message: `All input fields are required.` })
         }
 
         //check if user exists in the database
         const existingUser = await pool.query("SELECT * FROM users WHERE user_email = $1", [email]);
 
         if (existingUser.rows.length === 0) {
-            return res.status(401).json({ message: `Unauthorized.` })
+            return res.status(401).json({ type: email, message: `An account with this email does not exist. Sign up for an account ot please try again.` })
         }
 
         //if the user exists, compare password with bcryptPassword
@@ -100,7 +100,7 @@ router.post("/login", async(req, res) => {
 
         //if password is not correct, return an error
         if (!passwordCorrect) {
-            return res.status(401).json({ message: `Unauthorized.` })
+            return res.status(401).json({ type: password, message: `Email and/or password is invalid.` })
         }
 
         //if user exists and password is correct, grant user an access token
