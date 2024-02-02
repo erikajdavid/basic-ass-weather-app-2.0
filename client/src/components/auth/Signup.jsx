@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye } from "@fortawesome/free-regular-svg-icons";
 import LoadingSpinner from "./LoadingSpinner";
 import FormError from "./FormError";
+import { parse } from "date-fns";
 
 //NOTES for later/improvement - hide password concept is similar to that of login, can we isolate hide password into it's own component? refactor the toggle functions into the return code? 
 
@@ -40,16 +41,26 @@ const Signup = ({ setAuth }) => {
                     localStorage.setItem("token", parseResponse.token);
         
                     setAuth(true);
+
                 } else {
                     console.error("Registration failed:", response.status, response.statusText);
+                    
+                    const parseResponse = await response.json(); 
 
-                    if (response.status === 400) {
-                        setError(`All input fields are required`);
+                    if (parseResponse.type === email) {
+                        setError(parseResponse.message);
                         setIsLoading(false);
-                    } else if (response.status === 409) {
-                        setError(`An account with this email already exists.`);
+                    } else if (parseResponse.type === password) {
+                        setError(parseResponse.message);
                         setIsLoading(false);
-                    }
+                    } else if (parseResponse.type === passwordVerify) {
+                        setError(parseResponse.message);
+                        setIsLoading(false);
+                    } else if (parseResponse.type === all) {
+                        setError(parseResponse.message);
+                        setIsLoading(false);
+                    } 
+
                 }
                 
             } catch (error) {
@@ -97,7 +108,7 @@ const Signup = ({ setAuth }) => {
                         onChange={ (e) => setPassword(e.target.value) }
                         placeholder="Password:"
                         required
-                        minLength={8}
+                        //minLength={8}
                     />
                     <FontAwesomeIcon
                         onClick={ handlePasswordToggle }
@@ -117,7 +128,7 @@ const Signup = ({ setAuth }) => {
                         onChange={ (e) => setPasswordVerify(e.target.value) }
                         placeholder="Confirm password:"
                         required
-                        minLength={8}
+                        //minLength={8}
                     />
                     <FontAwesomeIcon
                         onClick={ handlePasswordVerifyToggle }
