@@ -47,7 +47,6 @@ const Login = ({ setAuth }) => {
                     
                 } else {
                     const parseResponse = await response.json();
-                    console.log(parseResponse)
 
                     if (parseResponse.type === email) {
                         setError(parseResponse.message);

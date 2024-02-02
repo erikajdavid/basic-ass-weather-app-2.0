@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Weather from "./weather/WeatherCard";
 import Logout from "./Logout";
-import LoadingSpinner from "./LoadingSpinner";
 import Footer from "../Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -60,7 +59,6 @@ const Dashboard = ({ setAuth }) => {
                 }
 
             setDailyWeather(dailyParseResponse);
-            console.log(dailyParseResponse);
 
             // Forecast API call
             const forecastResponse = await fetch(`http://localhost:3500/weather/forecast?city=${encodeURIComponent(city)}`, {
@@ -76,8 +74,6 @@ const Dashboard = ({ setAuth }) => {
                 }
             
             setForecastWeather(forecastParseResponse);
-            console.log(forecastParseResponse);
-
             setWelcome(false);
             
         } catch (error) {
