@@ -185,7 +185,27 @@ footer {
   height: 6vh;
   font-size: 0.7rem;
   text-align: right;
+  line-height: 1rem;
   color: var(--secGrey)
+}
+
+footer div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.social {
+  font-size: 1rem;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  color: var(--secBlue);
+}
+
+.social:hover {
+  text-decoration: none;
+  color: var(--priBlue);
+
 }
 
 /* dashboard */
