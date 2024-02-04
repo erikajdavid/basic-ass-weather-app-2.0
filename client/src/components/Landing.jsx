@@ -12,12 +12,16 @@ const Landing = () => {
                 </nav>
             </header>
             <main className="landingCtn wrapper">
-                <h1>My basic-ass weather app</h1>
-                <div className="landingText">
-                    <p>A real-time global weather app that is nowhere near as complex as the one you're already using.</p>
-                    <p>Your weather forecast awaits.</p>
+                <div className="landingTextCtn">
+                    <h1>My basic-ass weather app</h1>
+                    <div className="landingText">
+                        <p>A real-time global weather app that is nowhere near as complex as the one you're already using.</p>
+                    </div>
+                    <Link to="/signup"><button>Register now</button></Link>
                 </div>
-                <Link to="/signup"><button>Register now</button></Link>
+                <div className="landingImgCtn">
+                    <img src="./assets/landingImg.png" alt="2-D weather illustration"></img>
+                </div>
             </main>
             <Footer />
         </>
