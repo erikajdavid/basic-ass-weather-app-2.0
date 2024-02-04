@@ -388,8 +388,20 @@ form p {
   color: var(--priWhite);
 }
 
-/* forecast */
+/* daily weather */
 
-.forecastCtn ul {
-  display: flex;  
+.dailyWeatherCtn {
+  width: 30%;
+  border: 1px solid red;
+}
+
+/* forecast weather */
+
+.forecastWeatherCtn {
+  width: 65%;
+  border: 1px solid red;
+}
+
+.forecastWeatherCtn ul {
+  display: flex;
 }

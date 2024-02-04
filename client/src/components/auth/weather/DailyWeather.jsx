@@ -14,7 +14,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
     const formatDate = format(today, 'EEEE, MMMM d, yyyy');
 
     return (
-        <div className="wrapper">
+        <div className="dailyWeatherCtn">
             <h1>{dailyWeather.name}</h1>
             <div>
                 <h2>Daily Forecast:</h2>

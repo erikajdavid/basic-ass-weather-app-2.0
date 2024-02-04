@@ -26,7 +26,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
 
     
     return (
-        <div className="wrapper forecastCtn">
+        <div className="forecastWeatherCtn">
             <h2>Forecast</h2>
             <ul>
             {noonWeather.map((day) => (
