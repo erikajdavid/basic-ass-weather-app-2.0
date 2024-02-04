@@ -6,6 +6,8 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
     return null;
   }
 
+  console.log(forecastWeather);
+
   const noonWeather = forecastWeather.list
   .map((entry) => {
     const entryDateTime = new Date(entry.dt_txt);
@@ -14,6 +16,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
           date: entryDateTime.toISOString(),
           mainTemp: entry.main.temp,
           description: entry.weather[0].description,
+          icon: entry.weather[0].icon,
           feelsLike: entry.main.feels_like,
           humidity: entry.main.humidity,
           pressure: entry.main.pressure,
@@ -22,6 +25,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
       : null;
   })
   .filter(Boolean)
+
     
     return (
         <div className="wrapper forecastCtn">
@@ -33,6 +37,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
                     <p>{roundTemperature(day.mainTemp)}°C</p>
                     <p>{capitalize(day.description)}</p>
                     <p>Feels Like: {roundTemperature(day.feelsLike)}°C</p>
+                    <img src={`http://openweathermap.org/img/w/${day.icon}.png`} alt={day.description}/>
                     <p>Humidity: {day.humidity}%</p>
                     <p>Pressure: {day.pressure}hPa</p>
                     <p>Wind Speed: {day.windSpeed}km/h</p>

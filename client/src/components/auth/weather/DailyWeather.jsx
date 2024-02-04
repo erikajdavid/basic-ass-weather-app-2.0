@@ -7,6 +7,9 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
         return null;
     }
 
+    console.log(dailyWeather);
+    const icon = dailyWeather.weather[0].icon;
+
     //date is not provided by API, so we are inserting it manually
     const today = new Date();
     const formatDate = format(today, 'EEEE, MMMM d, yyyy');
@@ -18,6 +21,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                 <h2>Daily Forecast:</h2>
                 <p>{formatDate}</p>
                 <p>{roundTemperature(dailyWeather.main.temp)}°C</p>
+                <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
                 <p>{capitalize(dailyWeather.weather[0].description)}</p>
                 <p>Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
                 <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
