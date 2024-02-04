@@ -29,7 +29,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                 <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
             </div>
             <div className="darkBlueCtn">
-                <p>{capitalize(dailyWeather.weather[0].description)}</p>
+                <p className="weatherDescription">{capitalize(dailyWeather.weather[0].description)}</p>
                 <div class="weatherExtrasMainCtn">
                     <div className="weatherExtrasCtn">
                         <p>Humidity:</p>
