@@ -13,17 +13,20 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
   --priWhite: rgba(255, 255, 255, 0.87);
   --priBlue:  rgb(43, 93, 215);
   --secBlue: rgb(69, 122, 255);
+  --terBlue: rgb(11, 19, 53);
   --priGrey: rgb(48, 48, 48);
   --secGrey: rgba(170, 170, 170, 0.6);
   /* rgb(120, 120, 255) */
+
+  --priFont: "Poppins", sans-serif;
 }
 
 html {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--priFont);
   font-size: 16px;
+  letter-spacing: 0.02rem;
   background-color: var(--priBlack);
   color: var(--priWhite);
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -39,7 +42,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1400px;
+  max-width: 1200px;
   width: 90%;
   margin: auto;
 }
@@ -139,14 +142,40 @@ nav {
 .landingCtn, .dashboardCtn {
   height: 85vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
+.landingTextCtn {
+  width: 55%;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 500;
+  letter-spacing: 0.075rem;
+}
+
 .landingText {
-  text-align: center;
   margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.landingImgCtn {
+  width: 35%;
+  border: 5px solid var(--priWhite);
+  border-radius: 3rem;
+  padding: 0 0.5rem;
+  height: 92%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
+}
+
+.landingImgCtn img {
+  width: 100%;
 }
 
 footer {
