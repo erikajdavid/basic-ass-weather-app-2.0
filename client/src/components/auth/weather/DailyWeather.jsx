@@ -15,19 +15,44 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
     return (
         <div className="dailyWeatherCtn">
-            <h1>{dailyWeather.name}</h1>
-            <div>
-                <h2>Daily Forecast:</h2>
+            <div className="lightBlueCtn">
+                <h2>Today</h2>
                 <p>{formatDate}</p>
-                <p>{roundTemperature(dailyWeather.main.temp)}°C</p>
-                <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
-                <p>{capitalize(dailyWeather.weather[0].description)}</p>
+                <div className="temps">
+                    <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
+                    <div className="HLtemps">
+                        <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
+                        <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
+                    </div>
+                </div>
                 <p>Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
-                <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
-                <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
-                <p>Humidity: {dailyWeather.main.humidity}%</p>
-                <p>Pressure: {dailyWeather.main.pressure}hPa</p>
-                <p>Wind Speed: {dailyWeather.wind.speed}km/h</p>
+                <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
+            </div>
+            <div className="darkBlueCtn">
+                <p>{capitalize(dailyWeather.weather[0].description)}</p>
+                <div class="weatherExtrasMainCtn">
+                    <div className="weatherExtrasCtn">
+                        <p>Humidity:</p>
+                        <div className="extraIconCtn">
+                            <img src="./assets/humidity.png"></img>
+                        </div>
+                        <p>{dailyWeather.main.humidity}%</p>
+                    </div>
+                    <div className="weatherExtrasCtn">
+                        <p>Pressure:</p>
+                        <div className="extraIconCtn">
+                            <img src="./assets/pressure.png"></img>
+                        </div>
+                        <p>{dailyWeather.main.pressure}hPa</p>
+                    </div>
+                    <div className="weatherExtrasCtn">
+                        <p>Wind speed:</p>
+                        <div className="extraIconCtn">
+                            <img src="./assets/wind.png"></img>
+                        </div>
+                        <p>{dailyWeather.wind.speed}km/h</p>
+                    </div>
+                </div>
             </div>
         </div>
     );

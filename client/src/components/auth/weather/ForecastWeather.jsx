@@ -27,7 +27,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
     
     return (
         <div className="forecastWeatherCtn">
-            <h2>Forecast</h2>
+            <h2>Your next 5-day forecast</h2>
             <ul>
             {noonWeather.map((day) => (
                 <li key={day.date}>
