@@ -7,7 +7,6 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
         return null;
     }
 
-    console.log(dailyWeather);
     const icon = dailyWeather.weather[0].icon;
 
     //date is not provided by API, so we are inserting it manually

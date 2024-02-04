@@ -6,8 +6,6 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
     return null;
   }
 
-  console.log(forecastWeather);
-
   const noonWeather = forecastWeather.list
   .map((entry) => {
     const entryDateTime = new Date(entry.dt_txt);
