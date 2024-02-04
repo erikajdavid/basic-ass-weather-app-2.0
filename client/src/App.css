@@ -406,8 +406,19 @@ form p {
 }
 
 .location h1 {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 400;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+}
+
+.location i {
+  font-size: 1.75rem;
+  margin-right: 0.5rem;
+  color: var(--secGrey);
 }
 
 /* daily weather */
@@ -424,21 +435,11 @@ form p {
 .dailyWeatherCtn h2 {
   font-weight: 500;
   font-size: 1.5rem;
-}
-
-.location {
-  display: flex;
-  align-items: center;
-}
-
-.location i {
-  font-size: 1.75rem;
-  margin-right: 0.5rem;
-  color: var(--secGrey)
+  margin-bottom: 0.25rem;
 }
 
 .lightBlueCtn {
-  height: calc(50% - 14px);
+  height: calc(45% - 14px);
   border-radius: 3rem 3rem 0 0;
   position: relative;
 }
@@ -447,6 +448,7 @@ form p {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 1rem;
 }
 
 .mainTemp {
@@ -455,31 +457,17 @@ form p {
   margin-right: 1rem;
 }
 
+.weatherDescription {
+  font-size: 1.25rem;
+}
+
 .darkBlueCtn {
   background-color: var(--terBlue);
-  height: calc(50% - 6px);
+  height: calc(55% - 6px);
   border-radius: 0 0 3.5rem 3.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-}
-
-/* forecast weather */
-
-.forecastWeatherCtn {
-  width: 65%;
-  padding-top: 1rem;
-  background-color: rgb(58, 58, 58);
-  text-align: center;
-}
-
-.forecastWeatherCtn h2 {
-  font-weight: 500;
-  text-align: left;
-}
-
-.forecastWeatherCtn ul {
-  display: flex;
 }
 
 /* weather extras */
@@ -508,3 +496,22 @@ form p {
 .extraIconCtn img {
   width: 80%;
 }
+
+/* forecast weather */
+
+.forecastWeatherCtn {
+  width: 65%;
+  padding-top: 1rem;
+  background-color: rgb(58, 58, 58);
+  text-align: center;
+}
+
+.forecastWeatherCtn h2 {
+  font-weight: 500;
+  text-align: left;
+}
+
+.forecastWeatherCtn ul {
+  display: flex;
+}
+
