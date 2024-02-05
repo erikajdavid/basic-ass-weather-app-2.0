@@ -145,6 +145,10 @@ nav {
   align-items: center;
 }
 
+.dashboardCtn {
+  background: radial-gradient(var(--priBlue), var(--priBlack));
+} 
+
 .landingTextCtn {
   width: 55%;
 }
@@ -154,6 +158,11 @@ h1 {
   font-weight: 500;
   letter-spacing: 0.075rem;
   line-height: 1.25rem;
+}
+
+h2, h3 {
+  padding: 0;
+  margin: 0;
 }
 
 .landingText {
@@ -386,8 +395,166 @@ form p {
 
 .weatherCardCtn {
   display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  padding: 4rem 0;
+}
+
+.dailyWeatherCtn {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.forecastWeatherCtn {
+  background-color: var(--priBlue);
+  border-radius: 1rem;
+  margin-left: 2rem;
+  padding: 1.5rem;
 }
 
 .forecastDayCtn {
   display: flex;
 }
+
+.location {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1.5rem;
+}
+
+.location h2 {
+  font-weight: 500;
+}
+
+.location i {
+  color: var(--terBlue);
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.ctn1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65%;
+  border-radius: 1rem;
+}
+
+.dailyMainInfo {
+  display: flex;
+  width: 75%;
+  height: 100%;
+  background-color: var(--priBlue);
+  border-radius: 1rem;
+}
+
+.mainWeatherText {
+  width: 50%;
+  border-radius: 1rem 0 0 1rem;
+  padding: 1.5rem;
+}
+
+.mainWeatherText h3 {
+  font-weight: normal;
+}
+
+.weatherDescription {
+  font-weight: 600;
+  font-size: 1.5rem;
+  padding-top: 2rem;
+}
+
+.temps {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.mainTemp {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.HLtemp {
+  color: var(--terBlue);
+  font-weight: 700;
+}
+
+.feelsLikeTemp {
+  font-weight: 500;
+}
+
+.imgCtn {
+  width: 45%;
+  border-radius: 0 1rem 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgCtn img {
+  width: 100%;
+}
+
+.ctn2 {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  background-color: var(--priBlue);
+}
+
+.extraInfoCtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(var(--priBlue), var(--terBlue));
+  height: 31%;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.extraInfoCtn p {
+  font-size: 0.8rem;
+}
+
+.extraInfoImgCtn img {
+  width: 65%;
+}
+
+.ctn3 {
+  display: flex;
+  height: 30%;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: var(--priBlue);
+}
+
+.forecastTemp {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.sunInfoCtn {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sunInfoCtn i {
+  font-size: 3rem;
+  padding: 1rem 0;
+}
+
