@@ -16,9 +16,6 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
           description: entry.weather[0].description,
           icon: entry.weather[0].icon,
           feelsLike: entry.main.feels_like,
-          humidity: entry.main.humidity,
-          pressure: entry.main.pressure,
-          windSpeed: entry.wind.speed,
         }
       : null;
   })
@@ -27,24 +24,20 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
     
     return (
         <div className="forecastWeatherCtn">
-            <h2>Your next 5-day forecast</h2>
+            <h2>5-day forecast</h2>
             <ul>
             {noonWeather.map((day) => (
-                <li key={day.date}>
+                <li key={day.date} className="forecastDayCtn">
                     <p>{formatDate(day.date)}</p>
-                    <p>{roundTemperature(day.mainTemp)}°C</p>
-                    <p>{capitalize(day.description)}</p>
-                    <p>Feels Like: {roundTemperature(day.feelsLike)}°C</p>
+                    <p className="mainTemp">{roundTemperature(day.mainTemp)}°C</p>
+                    <p className="feelsLikeTemp">Feels Like: {roundTemperature(day.feelsLike)}°C</p>
+                    {/* <p>{capitalize(day.description)}</p> */}
                     <img src={`http://openweathermap.org/img/w/${day.icon}.png`} alt={day.description}/>
-                    <p>Humidity: {day.humidity}%</p>
-                    <p>Pressure: {day.pressure}hPa</p>
-                    <p>Wind Speed: {day.windSpeed}km/h</p>
                 </li>
             ))}
             </ul>
         </div>
     );
-
 };
 
 export default ForecastWeather;
