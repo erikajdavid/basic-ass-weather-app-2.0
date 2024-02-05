@@ -11,7 +11,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
     //date is not provided by API, so we are inserting it manually
     const today = new Date();
-    const formatDate = format(today, 'EEEE, MMMM d, yyyy');
+    const formatDate = format(today, 'EEEE, MMM d').toUpperCase();
 
     const formatTime = (timestamp) => {
         const time = new Date(timestamp * 1000);
@@ -28,26 +28,69 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
     return (
         <div className="dailyWeatherCtn">
-            <div>
-                <h2>Today</h2>
-                <p>{formatDate}</p>
-                <p>{roundTemperature(dailyWeather.main.temp)}°C</p>
-                <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
-                <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
-                <p>Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
-                <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
-                <p className="weatherDescription">{capitalize(dailyWeather.weather[0].description)}</p>
+            <div className="ctn1">
+                <div className="dailyMainInfo">
+                    <div class="mainWeatherText">
+                        <div className="location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <h2>{dailyWeather.name}</h2>
+                        </div>
+                        <h3>Today</h3>
+                        <p>{formatDate}</p>
+                        <p className="weatherDescription">{capitalize(dailyWeather.weather[0].description)}</p>
+                        <div className="temps">
+                            <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
+                            <div className="HLtemp">
+                                <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
+                                <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
+                            </div>
+                        </div>
+                        <p className="feelsLikeTemp">Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
+                    </div>
+                    <div className="imgCtn">
+                        <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
+                    </div>
+                    
+                </div>
+                <div className="ctn2">
+                    <div class="extraInfoCtn">
+                        <p>Humidity</p> 
+                        <div className="extraInfoImgCtn">
+                            <img src="./assets/humidity.png" alt=""></img>
+                        </div>
+                        <p>{dailyWeather.main.humidity}%</p>
+                    </div>
+                    <div class="extraInfoCtn">
+                        <p>Pressure</p> 
+                        <div className="extraInfoImgCtn">
+                            <img src="./assets/pressure.png" alt=""></img>
+                        </div>
+                        <p>{dailyWeather.main.pressure}hPa</p>
+                    </div>
+                    <div class="extraInfoCtn">
+                        <p>Wind speed</p> 
+                        <div className="extraInfoImgCtn">
+                            <img src="./assets/wind.png" alt=""></img>
+                        </div>
+                        <p>{dailyWeather.wind.speed}km/h</p>
+                    </div>
+                </div>  
             </div>
-            <div>
-                <p>Sunrise: {formatTime(dailyWeather.sys.sunrise)} AM</p>
-                <p>Sunset: {formatTime(dailyWeather.sys.sunset)} PM</p>
-                <p>Day Length: {calculateDayLength(dailyWeather.sys.sunrise, dailyWeather.sys.sunset)}</p>
-            </div>
-            <div>
-                <p>Humidity: {dailyWeather.main.humidity}%</p>
-                <p>Pressure: {dailyWeather.main.pressure}hPa</p>
-                <p>Wind speed: {dailyWeather.wind.speed}km/h</p>
-            </div>
+            <div className="ctn3">
+                    <div className="sunInfoCtn">
+                        <p>Sunrise</p>
+                        <i class="fa-regular fa-sun"></i>
+                        <p>{formatTime(dailyWeather.sys.sunrise)} AM</p>
+                    </div>
+                    <div className="sunInfoCtn">
+                        <p>Sunset</p>
+                        <i class="fa-regular fa-moon"></i>
+                        <p>{formatTime(dailyWeather.sys.sunset)} PM</p>
+                    </div>
+                    <div className="sunInfoCtn">
+                        <p>Day Length: {calculateDayLength(dailyWeather.sys.sunrise, dailyWeather.sys.sunset)}</p>
+                    </div>
+                </div>
         </div>
     );
 
