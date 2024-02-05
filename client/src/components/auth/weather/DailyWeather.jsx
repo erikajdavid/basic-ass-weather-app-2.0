@@ -19,6 +19,13 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
         return formattedTime;
     }
 
+    const calculateDayLength = (sunriseTimestamp, sunsetTimestamp) => {
+        const dayLengthInSeconds = sunsetTimestamp - sunriseTimestamp;
+        const hours = Math.floor(dayLengthInSeconds / 3600);
+        const minutes = Math.floor((dayLengthInSeconds % 3600) / 60);
+        return `${hours}h ${minutes}min`;
+      };
+
     return (
         <div className="dailyWeatherCtn">
             <div>
@@ -34,6 +41,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
             <div>
                 <p>Sunrise: {formatTime(dailyWeather.sys.sunrise)} AM</p>
                 <p>Sunset: {formatTime(dailyWeather.sys.sunset)} PM</p>
+                <p>Day Length: {calculateDayLength(dailyWeather.sys.sunrise, dailyWeather.sys.sunset)}</p>
             </div>
             <div>
                 <p>Humidity: {dailyWeather.main.humidity}%</p>
