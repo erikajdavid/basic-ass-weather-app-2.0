@@ -98,7 +98,7 @@ const Dashboard = ({ setAuth }) => {
                     </div>
                 </nav>
             </header>
-            <section className="dashboardCtn wrapper">
+            <section className="dashboardCtn">
                 {welcome ? (
                     <p>HELLO WHAT TO PUT HERE</p>
                 ) : (

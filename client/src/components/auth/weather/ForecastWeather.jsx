@@ -29,7 +29,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
             {noonWeather.map((day) => (
                 <li key={day.date} className="forecastDayCtn">
                     <p>{formatDate(day.date)}</p>
-                    <p className="mainTemp">{roundTemperature(day.mainTemp)}°C</p>
+                    <p className="Temp">{roundTemperature(day.mainTemp)}°C</p>
                     <p className="feelsLikeTemp">Feels Like: {roundTemperature(day.feelsLike)}°C</p>
                     {/* <p>{capitalize(day.description)}</p> */}
                     <img src={`http://openweathermap.org/img/w/${day.icon}.png`} alt={day.description}/>
