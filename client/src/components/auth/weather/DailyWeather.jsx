@@ -1,13 +1,16 @@
 import React from "react";
 import { format } from "date-fns";
 
-const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, formatDate }) => {
+const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
     if( !dailyWeather || !dailyWeather.main || !dailyWeather.wind || !dailyWeather.name || !dailyWeather.weather) {
         return null;
     }
 
     const icon = dailyWeather.weather[0].icon;
+
+    const today = new Date();
+    const formatDate = format(today, "EEE, MMM d").toUpperCase();
 
     const formatTime = (timestamp) => {
         const time = new Date(timestamp * 1000);
@@ -32,14 +35,14 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, formatDate }
                             <h2>{dailyWeather.name}</h2>
                         </div>
                         <h3>Today</h3>
-                        <p className="date">{formatDate(dailyWeather.dt)}</p>
+                        <p className="date">{formatDate}</p>
                         <div className="temps">
                             <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
                         </div>
                         <p className="feelsLikeTemp">Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
                         <div className="HLtemp">
-                                <p>High: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
-                                <p>Low: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
+                            <p>High: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
+                            <p>Low: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
                         </div>
                     </div>
                     <div className="hi">

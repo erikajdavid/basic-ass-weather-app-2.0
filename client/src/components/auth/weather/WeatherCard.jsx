@@ -39,7 +39,6 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
         roundTemperature={roundTemperature} 
         dailyWeather={dailyWeather} 
         capitalize={capitalize}
-        formatDate={formatDate}
       >  
       </DailyWeather>
 
