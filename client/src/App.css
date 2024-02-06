@@ -517,7 +517,7 @@ form p {
   color: var(--priBlue);
 }
 
-.hi {
+.imgMainCtn {
   width: 50%;
   height: 100%;
   text-align: center;
@@ -575,11 +575,6 @@ form p {
   background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
 }
 
-.forecastTemp {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
 .sunInfoCtn {
   width: 32%;
   border-radius: 1rem;
@@ -615,6 +610,10 @@ form p {
   color: var(--priBlue);
 }
 
+.forecastTemp {
+  font-size: 2rem;
+  font-weight: 700;
+}
 
 .forecastWeatherCtn h2 {
   font-weight: 500;
