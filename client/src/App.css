@@ -88,7 +88,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--secBlue);
+  background-color: var(--terBlue);
 }
 
 .buttonInversed {
@@ -181,7 +181,7 @@ h2, h3 {
   height: 85%;
   display: flex;
   align-items: center;
-  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
+  background: linear-gradient(95deg, var(--priBlue), var(--terBlue));
 }
 
 .landingImgCtn img {
@@ -411,14 +411,32 @@ form p {
 }
 
 .forecastWeatherCtn {
-  background-color: var(--priBlue);
+  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
   border-radius: 1rem;
   margin-left: 2rem;
   padding: 1.5rem;
+  width: 35%;
+}
+
+.forecastWeatherCtn h2 {
+  height: 10%;
+}
+
+.forecastWeatherCtn ul {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .forecastDayCtn {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--terBlue);
+  padding: 1.4rem 1rem;
+  border-radius: 1rem;
+  /* background: linear-gradient(var(--priBlue), var(--terBlue)); */
 }
 
 .location {
@@ -456,7 +474,7 @@ form p {
 }
 
 .mainWeatherText {
-  width: 55%;
+  width: 50%;
   padding: 1.5rem 0 1.5rem 1.5rem;
 }
 
@@ -501,6 +519,7 @@ form p {
 
 .hi {
   width: 50%;
+  height: 100%;
   text-align: center;
 }
 
@@ -522,8 +541,10 @@ form p {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 1rem;
+  padding: 1rem;
   /* padding: 1.5rem 1rem; */
   /* background-color: var(--priBlue); */
+  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
 }
 
 .extraInfoCtn {
@@ -532,11 +553,9 @@ form p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* background: linear-gradient(var(--priBlue), var(--terBlue)); */
   height: 31%;
-  padding: 1rem;
   border-radius: 1rem;
-  background-color: var(--priBlue);
+  background-color: var(--terBlue);
 }
 
 .extraInfoCtn p {
@@ -549,10 +568,11 @@ form p {
 
 .ctn3 {
   display: flex;
+  justify-content: space-between;
   height: 30%;
   border-radius: 1rem;
-  padding: 1.5rem;
-  background-color: var(--priBlue);
+  padding: 1rem;
+  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
 }
 
 .forecastTemp {
@@ -561,16 +581,54 @@ form p {
 }
 
 .sunInfoCtn {
-  width: 33%;
+  width: 32%;
+  border-radius: 1rem;
+  background-color: var(--terBlue);
+  text-align: center;
+  padding: 0.75rem 0;;
+}
+
+.sunImgCtn {
+  height: 80%;
+}
+
+.sunImgCtn img {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 1rem;
 }
 
-.sunInfoCtn i {
-  font-size: 3rem;
-  padding: 1rem 0;
+.dayLengthCtn {
+  height: 80%;
 }
 
+.dayLengthCtn img {
+  height: 110%;
+}
+
+.dayLength {
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.lightText {
+  color: var(--priBlue);
+}
+
+
+.forecastWeatherCtn h2 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.temp {
+  font-size: 1.5rem;
+  padding: 0 1rem;
+  font-weight: 700;
+}
+
+span {
+  color: var(--priBlue);
+  font-weight: normal;
+}
