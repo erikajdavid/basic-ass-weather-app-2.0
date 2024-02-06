@@ -78,17 +78,22 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
             </div>
             <div className="ctn3">
                     <div className="sunInfoCtn">
-                        <p>Sunrise</p>
-                        <i class="fa-regular fa-sun"></i>
+                        <div className="sunImgCtn">
+                            <img src="./assets/sunrise.png" alt=""/>
+                        </div>
                         <p>{formatTime(dailyWeather.sys.sunrise)} AM</p>
                     </div>
                     <div className="sunInfoCtn">
-                        <p>Sunset</p>
-                        <i class="fa-regular fa-moon"></i>
+                        <div className="sunImgCtn">
+                            <img src="./assets/sunset.png" alt=""/>
+                        </div>
                         <p>{formatTime(dailyWeather.sys.sunset)} PM</p>
                     </div>
                     <div className="sunInfoCtn">
-                        <p>Day Length: {calculateDayLength(dailyWeather.sys.sunrise, dailyWeather.sys.sunset)}</p>
+                        <div className="sunImgCtn dayLengthCtn">
+                            <img src="./assets/light.png" alt=""/>
+                        </div>
+                        <p className="dayLength"><span className="lightText">Hours of light:</span> {calculateDayLength(dailyWeather.sys.sunrise, dailyWeather.sys.sunset)}</p>
                     </div>
                 </div>
         </div>
