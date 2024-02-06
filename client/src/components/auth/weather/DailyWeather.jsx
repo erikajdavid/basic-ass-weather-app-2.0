@@ -45,7 +45,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                             <p>Low: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
                         </div>
                     </div>
-                    <div className="hi">
+                    <div className="imgMainCtn">
                         <div className="imgCtn">
                             <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
                         </div>
