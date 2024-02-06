@@ -32,21 +32,22 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, formatDate }
                             <h2>{dailyWeather.name}</h2>
                         </div>
                         <h3>Today</h3>
-                        <p>{formatDate}</p>
-                        <p className="weatherDescription">{capitalize(dailyWeather.weather[0].description)}</p>
+                        <p className="date">{formatDate(dailyWeather.dt)}</p>
                         <div className="temps">
                             <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
-                            <div className="HLtemp">
-                                <p>H: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
-                                <p>L: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
-                            </div>
                         </div>
                         <p className="feelsLikeTemp">Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
+                        <div className="HLtemp">
+                                <p>High: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
+                                <p>Low: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
+                        </div>
                     </div>
-                    <div className="imgCtn">
-                        <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
+                    <div className="hi">
+                        <div className="imgCtn">
+                            <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
+                        </div>
+                        <p className="weatherDescription">{capitalize(dailyWeather.weather[0].description)}</p>
                     </div>
-                    
                 </div>
                 <div className="ctn2">
                     <div class="extraInfoCtn">

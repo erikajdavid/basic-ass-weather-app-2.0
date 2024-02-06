@@ -6,7 +6,7 @@ import { format } from "date-fns";
 //reformat date from api
 const formatDate = (dateString) => {
   const dateObject = new Date(dateString);
-  const formattedDate = format(dateObject, 'eee, MMM, d');
+  const formattedDate = format(dateObject, 'eee, MMM d').toUpperCase();
   return formattedDate;
 };
 
