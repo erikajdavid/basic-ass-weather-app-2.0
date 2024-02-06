@@ -6,6 +6,8 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
     return null;
   }
 
+  console.log(forecastWeather);
+
   const noonWeather = forecastWeather.list
   .map((entry) => {
     const entryDateTime = new Date(entry.dt_txt);
@@ -24,13 +26,12 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
     
     return (
         <div className="forecastWeatherCtn">
-            <h2>5-day forecast</h2>
+            <h2>Coming up this week</h2>
             <ul>
             {noonWeather.map((day) => (
                 <li key={day.date} className="forecastDayCtn">
                     <p>{formatDate(day.date)}</p>
-                    <p className="Temp">{roundTemperature(day.mainTemp)}°C</p>
-                    <p className="feelsLikeTemp">Feels Like: {roundTemperature(day.feelsLike)}°C</p>
+                    <p className="temp">{roundTemperature(day.mainTemp)}°C <span>/ {roundTemperature(day.feelsLike)}°C</span></p>
                     {/* <p>{capitalize(day.description)}</p> */}
                     <img src={`http://openweathermap.org/img/w/${day.icon}.png`} alt={day.description}/>
                 </li>
