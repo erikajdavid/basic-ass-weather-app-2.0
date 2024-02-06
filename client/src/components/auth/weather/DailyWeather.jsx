@@ -1,17 +1,13 @@
 import React from "react";
 import { format } from "date-fns";
 
-const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
+const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, formatDate }) => {
 
     if( !dailyWeather || !dailyWeather.main || !dailyWeather.wind || !dailyWeather.name || !dailyWeather.weather) {
         return null;
     }
 
     const icon = dailyWeather.weather[0].icon;
-
-    //date is not provided by API, so we are inserting it manually
-    const today = new Date();
-    const formatDate = format(today, 'EEEE, MMM d').toUpperCase();
 
     const formatTime = (timestamp) => {
         const time = new Date(timestamp * 1000);

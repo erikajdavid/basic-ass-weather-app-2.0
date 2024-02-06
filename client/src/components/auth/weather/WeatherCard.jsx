@@ -6,7 +6,7 @@ import { format } from "date-fns";
 //reformat date from api
 const formatDate = (dateString) => {
   const dateObject = new Date(dateString);
-  const formattedDate = format(dateObject, 'eeee, MMMM, d');
+  const formattedDate = format(dateObject, 'eee, MMM, d');
   return formattedDate;
 };
 
@@ -34,11 +34,12 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
   console.log(dailyWeather);
 
   return (
-    <div className="weatherCardCtn">  
+    <div className="weatherCardCtn wrapper">  
       <DailyWeather 
         roundTemperature={roundTemperature} 
         dailyWeather={dailyWeather} 
         capitalize={capitalize}
+        formatDate={formatDate}
       >  
       </DailyWeather>
 
