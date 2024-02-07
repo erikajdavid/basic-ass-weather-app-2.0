@@ -7,7 +7,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
         return null;
     }
 
-    const icon = dailyWeather.weather[0].icon;
+    const { id } = dailyWeather.weather[0];
 
     const today = new Date();
     const formatDate = format(today, "EEE, MMM d").toUpperCase();
@@ -23,7 +23,28 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
         const hours = Math.floor(dayLengthInSeconds / 3600);
         const minutes = Math.floor((dayLengthInSeconds % 3600) / 60);
         return `${hours}h ${minutes}min`;
-      };
+    };
+
+    const getCustomWeatherIconUrl = (id) => {
+        if (id >= 200 && id < 300) {
+            return "./assets/11d.png";
+        } else if (id >= 300 && id < 40 || id >= 500 && id < 600) {
+            return "./assets/09d.png";
+        } else if (id >= 600 && id < 700) {
+            return "./assets/13d.png";
+        } else if (id >= 700 && id < 800) {
+            return "./assets/50d.png"
+        } else if (id === 800) {
+            return "./assets/01d.png"
+        } else if (id = 801 && id < 900) {
+            return "./assets/03d.png"
+        } else {        
+            // Default to the icon from the API
+            return getWeatherIconUrl(dailyWeather.weather[0].icon, id);
+        }
+    };
+
+    const customWeatherIconUrl = getCustomWeatherIconUrl(id);
 
     return (
         <div className="dailyWeatherCtn">
@@ -47,7 +68,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                     </div>
                     <div className="imgMainCtn">
                         <div className="imgCtn">
-                            <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={dailyWeather.weather[0].description}/>
+                            <img src={customWeatherIconUrl} alt={dailyWeather.weather[0].description}/>
                         </div>
                         <p className="weatherDescription">{capitalize(dailyWeather.weather[0].description)}</p>
                     </div>
