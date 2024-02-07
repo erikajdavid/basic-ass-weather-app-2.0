@@ -430,20 +430,36 @@ form p {
   justify-content: space-between;
   align-items: center;
   background-color: var(--terBlue);
-  padding: 1.4rem 1rem;
   border-radius: 1rem;
+  padding: 1rem;
+  font-size: 0.9rem;
   /* background: linear-gradient(var(--priBlue), var(--terBlue)); */
+}
+
+.forecastDayCtn p {
+  width: 35%;
+}
+
+.forecastImgCtn {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.forecastImgCtn img {
+  width: 80%;
 }
 
 .location {
   display: flex;
   align-items: center;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
 }
 
 .location h2 {
+  font-size: 1.75rem;
   font-weight: 500;
 }
 
@@ -490,7 +506,7 @@ form p {
 .temps {
   display: flex;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.6rem 0;
 }
 
 .mainTemp {
@@ -518,11 +534,18 @@ form p {
   height: 100%;
   text-align: center;
   position: relative;
+  padding: 1rem 2rem 0 0;
+}
+
+.imgCtn {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgCtn img {
   width: 100%;
-
 }
 
 .weatherDescription {
@@ -641,11 +664,3 @@ span {
   font-weight: normal;
 }
 
-.forecastImgCtn {
-  height: 100%;
-  width: 40%;
-}
-
-.forecastImgCtn img {
-  width: 100%;
-}
