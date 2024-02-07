@@ -54,21 +54,21 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                 </div>
                 <div className="ctn2">
                     <div class="extraInfoCtn">
-                        <p>Humidity</p> 
+                        <p className="extraInfoType">Humidity</p> 
                         <div className="extraInfoImgCtn">
                             <img src="./assets/humidity.png" alt=""></img>
                         </div>
                         <p>{dailyWeather.main.humidity}%</p>
                     </div>
                     <div class="extraInfoCtn">
-                        <p>Pressure</p> 
+                        <p className="extraInfoType">Pressure</p> 
                         <div className="extraInfoImgCtn">
                             <img src="./assets/pressure.png" alt=""></img>
                         </div>
                         <p>{dailyWeather.main.pressure}hPa</p>
                     </div>
                     <div class="extraInfoCtn">
-                        <p>Wind speed</p> 
+                        <p className="extraInfoType">Wind speed</p> 
                         <div className="extraInfoImgCtn">
                             <img src="./assets/wind.png" alt=""></img>
                         </div>

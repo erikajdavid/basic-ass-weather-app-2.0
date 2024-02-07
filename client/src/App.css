@@ -418,12 +418,8 @@ form p {
   width: 35%;
 }
 
-.forecastWeatherCtn h2 {
-  height: 10%;
-}
-
 .forecastWeatherCtn ul {
-  height: 90%;
+  height: 93%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -545,6 +541,8 @@ form p {
   /* padding: 1.5rem 1rem; */
   /* background-color: var(--priBlue); */
   background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
+  font-weight: 500;
+  letter-spacing: 0.025rem;
 }
 
 .extraInfoCtn {
@@ -558,8 +556,13 @@ form p {
   background-color: var(--terBlue);
 }
 
+.extraInfoType {
+  color: var(--priBlue);
+}
+
 .extraInfoCtn p {
   font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .extraInfoImgCtn img {
@@ -579,8 +582,10 @@ form p {
   width: 32%;
   border-radius: 1rem;
   background-color: var(--terBlue);
+  /* background: radial-gradient(var(--priBlue), var(--terBlue)); */
   text-align: center;
   padding: 0.75rem 0;;
+  font-weight: 500;
 }
 
 .sunImgCtn {
@@ -616,13 +621,15 @@ form p {
 }
 
 .forecastWeatherCtn h2 {
-  font-weight: 500;
-  font-size: 1.25rem;
+  height: 7%;
+  font-weight: normal;
+  font-size: 1.15rem;
   text-transform: uppercase;
+  padding-left: 1rem;
 }
 
 .temp {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   padding: 0 1rem;
   font-weight: 700;
 }
