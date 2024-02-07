@@ -36,11 +36,8 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
             return "./assets/50d.png"
         } else if (id === 800) {
             return "./assets/01d.png"
-        } else if (id = 801 && id < 900) {
+        } else if (id >= 801 && id < 900) {
             return "./assets/03d.png"
-        } else {        
-            // Default to the icon from the API
-            return getWeatherIconUrl(dailyWeather.weather[0].icon, id);
         }
     };
 
