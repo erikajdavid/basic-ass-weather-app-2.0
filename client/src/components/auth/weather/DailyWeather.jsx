@@ -28,7 +28,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
     const getCustomWeatherIconUrl = (id) => {
         if (id >= 200 && id < 300) {
             return "./assets/11d.png";
-        } else if (id >= 300 && id < 40 || id >= 500 && id < 600) {
+        } else if (id >= 300 && id < 400 || id >= 500 && id < 600) {
             return "./assets/09d.png";
         } else if (id >= 600 && id < 700) {
             return "./assets/13d.png";
