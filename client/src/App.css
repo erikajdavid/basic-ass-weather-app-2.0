@@ -517,10 +517,12 @@ form p {
   width: 50%;
   height: 100%;
   text-align: center;
+  position: relative;
 }
 
 .imgCtn img {
   width: 100%;
+
 }
 
 .weatherDescription {
@@ -637,4 +639,13 @@ form p {
 span {
   color: var(--priBlue);
   font-weight: normal;
+}
+
+.forecastImgCtn {
+  height: 100%;
+  width: 40%;
+}
+
+.forecastImgCtn img {
+  width: 100%;
 }
