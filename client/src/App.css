@@ -433,7 +433,7 @@ form p {
   border-radius: 1rem;
   padding: 1rem;
   font-size: 0.9rem;
-  /* background: linear-gradient(var(--priBlue), var(--terBlue)); */
+  height: 19%;
 }
 
 .forecastDayCtn p {
@@ -551,8 +551,8 @@ form p {
 .weatherDescription {
   font-weight: 500;
   font-size: 1.25rem;
-  padding-top: 2rem;
   letter-spacing: 0.05rem;
+  padding-top: 1rem;
 }
 
 .ctn2 {
@@ -614,7 +614,7 @@ form p {
 }
 
 .sunImgCtn {
-  height: 80%;
+  height: 75%;
 }
 
 .sunImgCtn img {
