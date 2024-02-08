@@ -1,7 +1,7 @@
 import React from "react";
 import { getCustomWeatherIconUrl } from "./WeatherUtils";
 
-const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capitalize }) => {
+const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
 
   if (!forecastWeather || !forecastWeather.list || forecastWeather.list.length === 0) {
     return null;
@@ -29,7 +29,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
         <div className="forecastWeatherCtn">
             <h2>Coming up this week</h2>
             <ul>
-            {noonWeather.map((day, index) => (
+              {noonWeather.map((day, index) => (
                 <li key={day.date} className="forecastDayCtn">
                   <div className="forecastTempInfo">
                     <p>{formatDate(day.date)}</p>
@@ -39,7 +39,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature, capita
                     <img src={customWeatherIconUrl[index]} alt={day.description} />
                   </div>
                 </li>
-            ))}
+              ))}
             </ul>
         </div>
     );
