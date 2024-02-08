@@ -31,8 +31,6 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
     return null;
   }
 
-  console.log(dailyWeather);
-
   return (
     <div className="weatherCardCtn wrapper">  
       <DailyWeather 
