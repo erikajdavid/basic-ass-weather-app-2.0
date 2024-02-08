@@ -3,8 +3,9 @@ import Search from "./Search";
 import Weather from "./weather/WeatherCard";
 import Logout from "./Logout";
 import Footer from "../Footer";
+import FormError from "./FormError";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
 
@@ -103,7 +104,7 @@ const Dashboard = ({ setAuth }) => {
                     <p>HELLO WHAT TO PUT HERE</p>
                 ) : (
                     error !== "" ? (
-                        <p>{error}</p>
+                        <FormError error={error}/>
                     ) : (
                         <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
                     )
