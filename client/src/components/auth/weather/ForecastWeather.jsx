@@ -55,12 +55,13 @@ console.log(customWeatherIconUrl);
             <ul>
             {noonWeather.map((day, index) => (
                 <li key={day.date} className="forecastDayCtn">
+                  <div className="forecastTempInfo">
                     <p>{formatDate(day.date)}</p>
                     <p className="temp">{roundTemperature(day.mainTemp)}°C <span>/ {roundTemperature(day.feelsLike)}°C</span></p>
-                    {/* <p>{capitalize(day.description)}</p> */}
-                    <div className="forecastImgCtn">
-                      <img src={customWeatherIconUrl[index]} alt={day.description} />
-                    </div>
+                  </div>
+                  <div className="forecastImgCtn">
+                    <img src={customWeatherIconUrl[index]} alt={day.description} />
+                  </div>
                 </li>
             ))}
             </ul>
