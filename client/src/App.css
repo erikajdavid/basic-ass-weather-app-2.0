@@ -389,10 +389,18 @@ form p {
 
 .error {
   letter-spacing: 0.025rem;
-  background-color: rgba(255, 25, 240, 0.43);
-  padding: 1rem 0;
+  background-color: rgba(187, 16, 176, 0.636);
   border-radius: 4px;
   color: var(--priWhite);
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  text-align: left;
+}
+
+.error i {
+  font-size: 2rem;
+  margin-right: 1rem;
 }
 
 /* daily weather */
