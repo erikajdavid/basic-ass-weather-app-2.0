@@ -50,14 +50,12 @@ const Login = ({ setAuth }) => {
 
                     if (parseResponse.type === email) {
                         setError(parseResponse.message);
-                        setIsLoading(false)
                     } else if (parseResponse.type === password) {
                         setError(parseResponse.message);
-                        setIsLoading(false)
                     } else if (parseResponse.type === all) {
                         setError(parseResponse.message);
-                        setIsLoading(false)
                     }
+                    setIsLoading(false);
                 }
             } catch (error) {
                 console.error(error.message);
