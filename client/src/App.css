@@ -174,7 +174,7 @@ h2, h3 {
   height: 85%;
   display: flex;
   align-items: center;
-  background: linear-gradient(95deg, var(--priBlue), var(--terBlue));
+  background: linear-gradient(-20deg, var(--priBlue), var(--terBlue));
 }
 
 .landingImgCtn img {
@@ -409,12 +409,27 @@ form p {
 
 /* daily weather */
 
+.weatherCardMainCtn {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.saveCity {
+  text-align: right;
+  height: 100%;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+  color: rgb(245, 158, 148);
+  cursor: pointer;
+}
+
 .weatherCardCtn {
   display: flex;
   justify-content: space-between;
-  height: 100%;
   width: 100%;
-  padding: 4rem 0;
+  height: 95%;
+  padding: 1rem 0 2rem 0;
 }
 
 .dailyWeatherCtn {
@@ -452,6 +467,7 @@ form p {
   align-items: center;
   height: 67.5%;
   border-radius: 1rem;
+  position: relative;
 }
 
 .dailyMainInfo {
@@ -514,11 +530,38 @@ form p {
   padding: 3rem 2rem 0 0;
 }
 
+.tempToggleCtn {
+  background-color: var(--priBlue);
+  width: 28%;
+  padding: 0.6rem 1rem;
+  border-radius: 12rem;
+  position: absolute;
+  top: 7%;
+  right: 7%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.35);
+}
+
+.toggle {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: var(--terBlue);
+  position: absolute;
+  top: 12%;
+  right: 10%;
+
+}
+
 .imgCtn {
   height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 2rem;
 }
 
 .imgCtn img {
@@ -688,5 +731,4 @@ span {
   flex-direction: column;
   line-height: 2rem;
 }
-
 
