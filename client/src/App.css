@@ -389,18 +389,29 @@ form p {
 
 .error {
   letter-spacing: 0.025rem;
-  background-color: rgba(187, 16, 176, 0.636);
+  background-color: var(--secGrey);
   border-radius: 4px;
   color: var(--priWhite);
-  display: flex;
-  align-items: flex-start;
   padding: 1rem;
-  text-align: left;
+  text-align: center;
 }
 
-.error i {
-  font-size: 2rem;
-  margin-right: 1rem;
+.cityErrorCtn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cityErrorCtn .error {
+  background-color: none;
+}
+
+.textFace {
+  font-size: 5em;
+  color: var(--secGrey);
+  padding-bottom: 1rem;
 }
 
 /* daily weather */
@@ -538,7 +549,8 @@ form p {
   justify-content: space-between;
   border-radius: 1rem;
   padding: 1rem;
-  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
+  background-color: var(--priBlue);
+  /* background: linear-gradient(45deg, var(--priBlue), var(--terBlue)); */
   font-weight: 500;
   letter-spacing: 0.025rem;
 }
@@ -579,7 +591,8 @@ form p {
   height: 30%;
   border-radius: 1rem;
   padding: 1rem;
-  background: linear-gradient(45deg, var(--priBlue), var(--terBlue));
+  /* background: linear-gradient(45deg, var(--priBlue), var(--terBlue)); */
+  background-color: var(--priBlue);
 }
 
 .sunInfoCtn {
