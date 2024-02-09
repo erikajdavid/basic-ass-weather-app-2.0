@@ -11,14 +11,11 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 :root {
   --priBlack: #1a1a1a;
   --priWhite: rgba(255, 255, 255, 0.87);
-  /* --priBlue:  rgb(43, 93, 215); */
   --priBlue: #00A2FF;
   --secBlue: rgb(69, 122, 255);
-  /* --terBlue: rgb(11, 19, 53); */
   --terBlue: #004D80;
   --priGrey: rgb(48, 48, 48);
   --secGrey: rgba(170, 170, 170, 0.6);
-  /* rgb(120, 120, 255) */
 
   --priFont: "Poppins", sans-serif;
 }
@@ -146,10 +143,6 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-
-/* .dashboardCtn {
-  background: radial-gradient(var(--priBlue), var(--priBlack));
-}  */
 
 .landingTextCtn {
   width: 55%;
@@ -550,7 +543,6 @@ form p {
   border-radius: 1rem;
   padding: 1rem;
   background-color: var(--priBlue);
-  /* background: linear-gradient(45deg, var(--priBlue), var(--terBlue)); */
   font-weight: 500;
   letter-spacing: 0.025rem;
 }
@@ -591,7 +583,6 @@ form p {
   height: 30%;
   border-radius: 1rem;
   padding: 1rem;
-  /* background: linear-gradient(45deg, var(--priBlue), var(--terBlue)); */
   background-color: var(--priBlue);
 }
 
@@ -599,7 +590,6 @@ form p {
   width: 32%;
   border-radius: 1rem;
   background-color: var(--terBlue);
-  /* background: radial-gradient(var(--priBlue), var(--terBlue)); */
   text-align: center;
   padding: 0.75rem 0;;
   font-weight: 500;
