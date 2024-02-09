@@ -5,7 +5,7 @@ import Logout from "./Logout";
 import Footer from "../Footer";
 import FormError from "./FormError";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
 

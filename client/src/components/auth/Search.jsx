@@ -32,6 +32,7 @@ const Search = ({ handleSearch, loading }) => {
         autoComplete="off"
         ref={cityInputRef}
       />
+      
       <button 
         type="submit" 
         className={loading ? "buttonEnabled" : (!city ? "buttonDisabled" : "buttonEnabled")}>

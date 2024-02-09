@@ -103,7 +103,6 @@ const Login = ({ setAuth }) => {
 
                 {error && <FormError error={error}/>}
 
-
                 <button
                     type="submit"
                     className={`submitButton ${!email || !password ? 'buttonDisabled' : 'buttonEnabled'}`}
