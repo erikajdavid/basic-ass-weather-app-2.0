@@ -1,16 +1,7 @@
 import React from "react";
 import DailyWeather from "./DailyWeather";
 import ForecastWeather from "./ForecastWeather";
-import { format } from "date-fns";
-import { capitalize } from "./WeatherUtils";
-import { roundTemperature } from "./WeatherUtils";
-
-//reformat date from api
-const formatDate = (dateString) => {
-  const dateObject = new Date(dateString);
-  const formattedDate = format(dateObject, 'eee, MMM d').toUpperCase();
-  return formattedDate;
-};
+import { capitalize, roundTemperature } from "./WeatherUtils";
 
 const WeatherCard = ({ dailyWeather, forecastWeather }) => {
 
@@ -28,7 +19,6 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
       </DailyWeather>
 
       <ForecastWeather 
-        formatDate={formatDate} 
         roundTemperature={roundTemperature} 
         forecastWeather={forecastWeather} 
       >  

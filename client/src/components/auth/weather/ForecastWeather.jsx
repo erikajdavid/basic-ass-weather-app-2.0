@@ -1,7 +1,7 @@
 import React from "react";
-import { getCustomWeatherIconUrl } from "./WeatherUtils";
+import { getCustomWeatherIconUrl, formatForecastDate } from "./WeatherUtils";
 
-const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
+const ForecastWeather = ({ forecastWeather, roundTemperature }) => {
 
   if (!forecastWeather || !forecastWeather.list || forecastWeather.list.length === 0) {
     return null;
@@ -32,7 +32,7 @@ const ForecastWeather = ({ forecastWeather, formatDate, roundTemperature }) => {
               {noonWeather.map((day, index) => (
                 <li key={day.date} className="forecastDayCtn">
                   <div className="forecastTempInfo">
-                    <p>{formatDate(day.date)}</p>
+                    <p>{formatForecastDate(day.date)}</p>
                     <p className="temp">{roundTemperature(day.mainTemp)}°C <span>/ {roundTemperature(day.feelsLike)}°C</span></p>
                   </div>
                   <div className="forecastImgCtn">

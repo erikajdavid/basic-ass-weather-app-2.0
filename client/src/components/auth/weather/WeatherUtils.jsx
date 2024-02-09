@@ -49,6 +49,12 @@ export const formatTime = (timestamp) => {
 export const todayDate = () => {
     const today = new Date();
     const formatDate = format(today, "EEE, MMM d").toUpperCase();
+    return formatDate;
 };
 
+export const formatForecastDate = (dateString) => {
+    const dateObject = new Date(dateString);
+    const formattedDate = format(dateObject, 'eee, MMM d').toUpperCase();
+    return formattedDate;
+};
 
