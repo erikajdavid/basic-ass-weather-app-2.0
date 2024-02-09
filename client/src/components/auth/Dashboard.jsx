@@ -54,7 +54,7 @@ const Dashboard = ({ setAuth }) => {
             });
             const dailyParseResponse = await dailyResponse.json();
                 if (dailyResponse.status === 404) {
-                    setError(`City not found. Please try again`)
+                    setError(`City not found. Please try again.`)
                 } else {
                     setError("");
                 }
@@ -69,7 +69,7 @@ const Dashboard = ({ setAuth }) => {
 
             const forecastParseResponse = await forecastResponse.json();
                 if (forecastResponse.status === 404) {
-                    setError(`City not found. Please try again`)
+                    setError(`City not found. Please try again.`)
                 } else {
                     setError("");
                 }
@@ -104,7 +104,10 @@ const Dashboard = ({ setAuth }) => {
                     <p>HELLO WHAT TO PUT HERE</p>
                 ) : (
                     error !== "" ? (
-                        <FormError error={error}/>
+                        <div className="cityErrorCtn">
+                            <div className="textFace">¯\_(ツ)_/¯</div>
+                            <FormError error={error}/>
+                        </div>
                     ) : (
                         <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
                     )
