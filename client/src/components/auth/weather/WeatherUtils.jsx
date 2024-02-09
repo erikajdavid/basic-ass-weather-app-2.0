@@ -17,3 +17,12 @@ export const getCustomWeatherIconUrl = (id) => {
         return "./assets/03d.png"
     }
 }
+
+export const capitalize = (str) => {
+    if (str && typeof str === 'string') {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    } else {
+      // Return the original string if it's empty or not a string
+      return str;
+    }
+}

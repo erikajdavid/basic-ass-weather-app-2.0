@@ -2,6 +2,7 @@ import React from "react";
 import DailyWeather from "./DailyWeather";
 import ForecastWeather from "./ForecastWeather";
 import { format } from "date-fns";
+import { capitalize } from "./WeatherUtils";
 
 //reformat date from api
 const formatDate = (dateString) => {
@@ -14,16 +15,6 @@ const formatDate = (dateString) => {
 const roundTemperature = (temperature) => {
   return Math.round(temperature);
 };
-
-//capitalize first letter in description returned from API
-const capitalize = (str) => {
-  if (str && typeof str === 'string') {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  } else {
-    // Return the original string if it's empty or not a string
-    return str;
-  }
-}
 
 const WeatherCard = ({ dailyWeather, forecastWeather }) => {
 
@@ -44,7 +35,6 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
         formatDate={formatDate} 
         roundTemperature={roundTemperature} 
         forecastWeather={forecastWeather} 
-        capitalize={capitalize}
       >  
       </ForecastWeather>
     </div>
