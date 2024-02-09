@@ -33,3 +33,7 @@ export const calculateDayLength = (sunriseTimestamp, sunsetTimestamp) => {
     const minutes = Math.floor((dayLengthInSeconds % 3600) / 60);
     return `${hours}h ${minutes}min`;
 };
+
+export const roundTemperature = (temperature) => {
+  return Math.round(temperature);
+};

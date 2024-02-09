@@ -3,17 +3,13 @@ import DailyWeather from "./DailyWeather";
 import ForecastWeather from "./ForecastWeather";
 import { format } from "date-fns";
 import { capitalize } from "./WeatherUtils";
+import { roundTemperature } from "./WeatherUtils";
 
 //reformat date from api
 const formatDate = (dateString) => {
   const dateObject = new Date(dateString);
   const formattedDate = format(dateObject, 'eee, MMM d').toUpperCase();
   return formattedDate;
-};
-
-//round temp to the nearest degree
-const roundTemperature = (temperature) => {
-  return Math.round(temperature);
 };
 
 const WeatherCard = ({ dailyWeather, forecastWeather }) => {
