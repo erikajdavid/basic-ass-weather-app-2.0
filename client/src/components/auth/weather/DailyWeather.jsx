@@ -21,7 +21,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                             <h2>{dailyWeather.name}</h2>
                         </div>
                         <h3>Today</h3>
-                        <p className="date">{todayDate}</p>
+                        <p className="date">{todayDate()}</p>
                         <div className="temps">
                             <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
                         </div>
@@ -32,6 +32,11 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                         </div>
                     </div>
                     <div className="imgMainCtn">
+                        <div className="tempToggleCtn">
+                            <p>°C</p>
+                            <p>F</p>
+                            <div className="toggle"></div>
+                        </div>
                         <div className="imgCtn">
                             <img src={customWeatherIconUrl} alt={dailyWeather.weather[0].description}/>
                         </div>
