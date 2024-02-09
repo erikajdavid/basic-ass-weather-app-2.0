@@ -1,5 +1,6 @@
 import React from "react";
 import { getCustomWeatherIconUrl, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
+import TempToggle from "../TempToggle";
 
 const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
@@ -32,11 +33,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                         </div>
                     </div>
                     <div className="imgMainCtn">
-                        <div className="tempToggleCtn">
-                            <p>°C</p>
-                            <p>F</p>
-                            <div className="toggle"></div>
-                        </div>
+                        <TempToggle />
                         <div className="imgCtn">
                             <img src={customWeatherIconUrl} alt={dailyWeather.weather[0].description}/>
                         </div>
