@@ -1,10 +1,23 @@
+import { useState } from "react";
+
 const TempToggle = () => {
+    const [isMetric, setIsMetric] = useState(true);
+
+    const handleToggleClick = () => {
+        setIsMetric(!isMetric);
+        onToggle(!isMetric ? "metric" : "imperial"); // Notify parent component about the toggle
+    };
 
     return (
-        <div className="tempToggleCtn">
+        <div className="tempToggleCtn" onClick={handleToggleClick}>
             <p>°C</p>
             <p>F</p>
-            <div className="toggle"></div>
+            <div 
+                className="toggle" 
+                onClick={handleToggleClick}
+                style={{ right: isMetric ? "10%" : "52%" }}
+            >
+            </div>
         </div>
     );
 
