@@ -1,6 +1,6 @@
 import React from "react";
 import { format } from "date-fns";
-import { getCustomWeatherIconUrl } from "./WeatherUtils";
+import { getCustomWeatherIconUrl, calculateDayLength } from "./WeatherUtils";
 
 const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
@@ -18,13 +18,6 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
         const formattedTime = format(time, 'h:ss');
         return formattedTime;
     }
-
-    const calculateDayLength = (sunriseTimestamp, sunsetTimestamp) => {
-        const dayLengthInSeconds = sunsetTimestamp - sunriseTimestamp;
-        const hours = Math.floor(dayLengthInSeconds / 3600);
-        const minutes = Math.floor((dayLengthInSeconds % 3600) / 60);
-        return `${hours}h ${minutes}min`;
-    };
 
     const customWeatherIconUrl = getCustomWeatherIconUrl(id);
 

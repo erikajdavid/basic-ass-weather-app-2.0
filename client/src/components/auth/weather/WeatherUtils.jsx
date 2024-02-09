@@ -16,7 +16,7 @@ export const getCustomWeatherIconUrl = (id) => {
     } else if (id >= 802 && id < 900) {
         return "./assets/03d.png"
     }
-}
+};
 
 export const capitalize = (str) => {
     if (str && typeof str === 'string') {
@@ -25,4 +25,11 @@ export const capitalize = (str) => {
       // Return the original string if it's empty or not a string
       return str;
     }
-}
+};
+
+export const calculateDayLength = (sunriseTimestamp, sunsetTimestamp) => {
+    const dayLengthInSeconds = sunsetTimestamp - sunriseTimestamp;
+    const hours = Math.floor(dayLengthInSeconds / 3600);
+    const minutes = Math.floor((dayLengthInSeconds % 3600) / 60);
+    return `${hours}h ${minutes}min`;
+};
