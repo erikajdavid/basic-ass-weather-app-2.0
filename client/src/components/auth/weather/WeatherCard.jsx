@@ -2,6 +2,7 @@ import React from "react";
 import DailyWeather from "./DailyWeather";
 import ForecastWeather from "./ForecastWeather";
 import { capitalize, roundTemperature } from "./WeatherUtils";
+import SaveCity from "../SaveCity";
 
 const WeatherCard = ({ dailyWeather, forecastWeather }) => {
 
@@ -11,9 +12,7 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
 
   return (
     <div className="weatherCardMainCtn">
-      <div className="saveCity">
-        <i class="fa-regular fa-heart"></i>
-      </div>
+      <SaveCity />
       <div className="weatherCardCtn wrapper">  
         <DailyWeather 
           roundTemperature={roundTemperature} 
