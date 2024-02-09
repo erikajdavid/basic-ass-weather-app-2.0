@@ -10,20 +10,26 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
   }
 
   return (
-    <div className="weatherCardCtn wrapper">  
-      <DailyWeather 
-        roundTemperature={roundTemperature} 
-        dailyWeather={dailyWeather} 
-        capitalize={capitalize}
-      >  
-      </DailyWeather>
+    <div className="weatherCardMainCtn">
+      <div className="saveCity">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+      <div className="weatherCardCtn wrapper">  
+        <DailyWeather 
+          roundTemperature={roundTemperature} 
+          dailyWeather={dailyWeather} 
+          capitalize={capitalize}
+        >  
+        </DailyWeather>
 
-      <ForecastWeather 
-        roundTemperature={roundTemperature} 
-        forecastWeather={forecastWeather} 
-      >  
-      </ForecastWeather>
+        <ForecastWeather 
+          roundTemperature={roundTemperature} 
+          forecastWeather={forecastWeather} 
+        >  
+        </ForecastWeather>
+      </div>
     </div>
+  
   );
   
 };
