@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 export const getCustomWeatherIconUrl = (id) => {
     if (id >= 200 && id < 300) {
         return "./assets/11d.png";
@@ -37,3 +39,16 @@ export const calculateDayLength = (sunriseTimestamp, sunsetTimestamp) => {
 export const roundTemperature = (temperature) => {
   return Math.round(temperature);
 };
+
+export const formatTime = (timestamp) => {
+    const time = new Date(timestamp * 1000);
+    const formattedTime = format(time, 'h:ss');
+    return formattedTime;
+}
+
+export const todayDate = () => {
+    const today = new Date();
+    const formatDate = format(today, "EEE, MMM d").toUpperCase();
+};
+
+

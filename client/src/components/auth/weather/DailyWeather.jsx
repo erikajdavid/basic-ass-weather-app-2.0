@@ -1,6 +1,5 @@
 import React from "react";
-import { format } from "date-fns";
-import { getCustomWeatherIconUrl, calculateDayLength } from "./WeatherUtils";
+import { getCustomWeatherIconUrl, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
 
 const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
 
@@ -9,15 +8,6 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
     }
 
     const { id } = dailyWeather.weather[0];
-
-    const today = new Date();
-    const formatDate = format(today, "EEE, MMM d").toUpperCase();
-
-    const formatTime = (timestamp) => {
-        const time = new Date(timestamp * 1000);
-        const formattedTime = format(time, 'h:ss');
-        return formattedTime;
-    }
 
     const customWeatherIconUrl = getCustomWeatherIconUrl(id);
 
@@ -31,7 +21,7 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                             <h2>{dailyWeather.name}</h2>
                         </div>
                         <h3>Today</h3>
-                        <p className="date">{formatDate}</p>
+                        <p className="date">{todayDate}</p>
                         <div className="temps">
                             <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
                         </div>
