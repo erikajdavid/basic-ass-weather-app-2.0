@@ -5,13 +5,13 @@ const TempToggle = () => {
 
     const handleToggleClick = () => {
         setIsMetric(!isMetric);
-        onToggle(!isMetric ? "metric" : "imperial"); // Notify parent component about the toggle
+        onToggle(!isMetric ? "metric" : "imperial");
     };
 
     return (
         <div className="tempToggleCtn" onClick={handleToggleClick}>
             <p>°C</p>
-            <p>F</p>
+            <p>°F</p>
             <div 
                 className="toggle" 
                 onClick={handleToggleClick}
