@@ -7,3 +7,9 @@ CREATE TABLE users(
     user_password_verify VARCHAR(255) NOT NULL,
     PRIMARY KEY (user_id)
 );
+
+CREATE TABLE favorites (
+    id SERIAL PRIMARY KEY,
+    user_id UUID REFERENCES users(user_id),
+    city_name VARCHAR(255)
+);
