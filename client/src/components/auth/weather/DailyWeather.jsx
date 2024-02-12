@@ -1,7 +1,7 @@
 import React from "react";
 import { getCustomWeatherIconUrl, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
 
-const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, unit, convertTemperature }) => {
+const DailyWeather = ({ dailyWeather, capitalize, unit, convertTemperature }) => {
 
     if( !dailyWeather || !dailyWeather.main || !dailyWeather.wind || !dailyWeather.name || !dailyWeather.weather) {
         return null;

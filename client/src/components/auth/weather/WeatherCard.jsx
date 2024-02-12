@@ -25,7 +25,7 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
         // Convert Celsius to Fahrenheit
         return roundTemperature((temperature * 9/5) + 32);
     }
-};
+  };
 
   return (
     <div className="weatherCardMainCtn">
