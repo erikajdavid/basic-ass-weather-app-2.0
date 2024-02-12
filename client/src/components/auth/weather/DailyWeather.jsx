@@ -1,8 +1,7 @@
 import React from "react";
 import { getCustomWeatherIconUrl, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
-import TempToggle from "../TempToggle";
 
-const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, handleToggleUnit, unit }) => {
+const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, unit, convertTemperature }) => {
 
     if( !dailyWeather || !dailyWeather.main || !dailyWeather.wind || !dailyWeather.name || !dailyWeather.weather) {
         return null;
@@ -11,15 +10,6 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, handleToggle
     const { id } = dailyWeather.weather[0];
 
     const customWeatherIconUrl = getCustomWeatherIconUrl(id);
-
-    const convertTemperature = (temperature) => {
-        if (unit === 'metric') {
-            return roundTemperature(temperature);
-        } else {
-            // Convert Celsius to Fahrenheit
-            return roundTemperature((temperature * 9/5) + 32);
-        }
-    };
 
     return (
         <div className="dailyWeatherCtn">
@@ -42,7 +32,6 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, handleToggle
                         </div>
                     </div>
                     <div className="imgMainCtn">
-                        <TempToggle handleToggleUnit={handleToggleUnit} unit={unit} />
                         <div className="imgCtn">
                             <img src={customWeatherIconUrl} alt={dailyWeather.weather[0].description}/>
                         </div>
