@@ -1,12 +1,15 @@
 import { useState } from "react";
 
-const TempToggle = () => {
-    const [isMetric, setIsMetric] = useState(true);
+const TempToggle = ({handleToggleUnit, unit}) => {
+    const [isMetric, setIsMetric] = useState(unit === 'metric');
 
-    const handleToggleClick = () => {
+    const handleToggleClick =  () => {
+        const newUnit = isMetric ? 'imperial' : 'metric';
         setIsMetric(!isMetric);
-        onToggle(!isMetric ? "metric" : "imperial");
+        handleToggleUnit(newUnit); 
     };
+
+    console.log(unit);
 
     return (
         <div className="tempToggleCtn" onClick={handleToggleClick}>

@@ -2,7 +2,7 @@ import React from "react";
 import { getCustomWeatherIconUrl, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
 import TempToggle from "../TempToggle";
 
-const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
+const DailyWeather = ({ dailyWeather, roundTemperature, capitalize, handleToggleUnit, unit }) => {
 
     if( !dailyWeather || !dailyWeather.main || !dailyWeather.wind || !dailyWeather.name || !dailyWeather.weather) {
         return null;
@@ -11,6 +11,15 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
     const { id } = dailyWeather.weather[0];
 
     const customWeatherIconUrl = getCustomWeatherIconUrl(id);
+
+    const convertTemperature = (temperature) => {
+        if (unit === 'metric') {
+            return roundTemperature(temperature);
+        } else {
+            // Convert Celsius to Fahrenheit
+            return roundTemperature((temperature * 9/5) + 32);
+        }
+    };
 
     return (
         <div className="dailyWeatherCtn">
@@ -24,16 +33,16 @@ const DailyWeather = ({ dailyWeather, roundTemperature, capitalize }) => {
                         <h3>Today</h3>
                         <p className="date">{todayDate()}</p>
                         <div className="temps">
-                            <p className="mainTemp">{roundTemperature(dailyWeather.main.temp)}°C</p>
+                        <p className="mainTemp">{convertTemperature(dailyWeather.main.temp)}{unit === 'metric' ? '°C' : '°F'}</p>
                         </div>
-                        <p className="feelsLikeTemp">Feels Like: {roundTemperature(dailyWeather.main.feels_like)}°C</p>
+                        <p className="feelsLikeTemp">Feels Like: {convertTemperature(dailyWeather.main.feels_like)}{unit === 'metric' ? '°C' : '°F'}</p>
                         <div className="HLtemp">
-                            <p>High: {roundTemperature(dailyWeather.main.temp_max)}°C</p>
-                            <p>Low: {roundTemperature(dailyWeather.main.temp_min)}°C</p>
+                            <p>High: {convertTemperature(dailyWeather.main.temp_max)}{unit === 'metric' ? '°C' : '°F'}</p>
+                            <p>Low: {convertTemperature(dailyWeather.main.temp_min)}{unit === 'metric' ? '°C' : '°F'}</p>
                         </div>
                     </div>
                     <div className="imgMainCtn">
-                        <TempToggle />
+                        <TempToggle handleToggleUnit={handleToggleUnit} unit={unit} />
                         <div className="imgCtn">
                             <img src={customWeatherIconUrl} alt={dailyWeather.weather[0].description}/>
                         </div>

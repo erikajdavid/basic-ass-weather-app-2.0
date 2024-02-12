@@ -4,7 +4,7 @@ import ForecastWeather from "./ForecastWeather";
 import { capitalize, roundTemperature } from "./WeatherUtils";
 import SaveCity from "../SaveCity";
 
-const WeatherCard = ({ dailyWeather, forecastWeather }) => {
+const WeatherCard = ({ dailyWeather, forecastWeather, handleToggleUnit, unit }) => {
 
   if (!dailyWeather || !forecastWeather) {
     return null;
@@ -18,6 +18,8 @@ const WeatherCard = ({ dailyWeather, forecastWeather }) => {
           roundTemperature={roundTemperature} 
           dailyWeather={dailyWeather} 
           capitalize={capitalize}
+          handleToggleUnit={handleToggleUnit}
+          unit={unit} 
         >  
         </DailyWeather>
 
