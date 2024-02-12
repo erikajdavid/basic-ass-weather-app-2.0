@@ -15,7 +15,6 @@ const Dashboard = ({ setAuth }) => {
     const [welcome, setWelcome] = useState(true);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [unit, setUnit] = useState("metric");
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -83,13 +82,7 @@ const Dashboard = ({ setAuth }) => {
         } finally {
             setLoading(false);
         }
-
-    };
-
-    const handleToggleUnit = () => {
-        // Toggle between Celsius and Fahrenheit
-        setUnit(unit === 'metric' ? 'imperial' : 'metric');
-      };    
+    };  
 
     return (
         <>
@@ -115,7 +108,7 @@ const Dashboard = ({ setAuth }) => {
                             <FormError error={error}/>
                         </div>
                     ) : (
-                        <Weather handleToggleUnit={handleToggleUnit} unit={unit} dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
+                        <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
                     )
                 )}
             </section>
