@@ -8,11 +8,11 @@ const SaveCity = () => {
     };
 
     return (
-        <div className="saveCity" onClick={handleSaveClick}>
+        <div className="saveCity" onClick={handleSaveClick} >
             {isSaved ? (
-                <i className="fa-solid fa-heart"></i>
+                <i className="fa-solid fa-heart" title="Remove this city as your homepage."></i>
             ) : (
-                <i className="fa-regular fa-heart"></i>
+                <i className="fa-regular fa-heart" title="Set this city as your homepage."></i>
             )}
         </div>
     );
