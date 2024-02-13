@@ -9,8 +9,6 @@ const TempToggle = ({handleToggleUnit, unit}) => {
         handleToggleUnit(newUnit); 
     };
 
-    console.log(unit);
-
     return (
         <div className="tempToggleCtn" onClick={handleToggleClick}>
             <p>°C</p>
@@ -23,7 +21,6 @@ const TempToggle = ({handleToggleUnit, unit}) => {
             </div>
         </div>
     );
-
 }
 
 export default TempToggle;
