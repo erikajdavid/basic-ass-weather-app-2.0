@@ -1,9 +1,11 @@
 require("dotenv").config();
-
+const pool = require("./config/db");
 const express = require("express");
+const morgan = require('morgan');
 const cors = require("cors");
-
 const app = express();
+
+app.use(morgan('dev'));
 
 const PORT = process.env.PORT || 5000
 
@@ -15,7 +17,7 @@ app.use(express.json());
 app.use("/auth", require("./routes/auth/jwtAuth"));
 
 //dashboard route
-app.use("/dashboard", require("./routes/auth/dashboard"));
+app.use("/auth", require("./routes/auth/dashboard"));
 
 //weather route
 app.use("/weather", require("./routes/api/openWeatherAPI"));
