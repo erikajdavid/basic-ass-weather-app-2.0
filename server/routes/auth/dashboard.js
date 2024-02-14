@@ -34,7 +34,7 @@ router.post("/favorite_city", authorization, async(req, res) => {
 
         const savedCity = result.rows[0];
 
-        res.json({ user_id: savedCity.user_id, city_name: savedCity.city_name });
+        res.json({ city_name: savedCity.city_name });
 
     } catch (error) {
         console.error('Error saving favorite city:', error);
