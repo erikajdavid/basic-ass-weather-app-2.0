@@ -10,7 +10,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 const Dashboard = ({ setAuth }) => {
 
     const [email, setEmail] = useState("");
-    const [dailyWeather, setDailyWeather] = useState(null); // State to store weather data  
+    const [dailyWeather, setDailyWeather] = useState(null);
     const [forecastWeather, setForecastWeather] = useState(null); // State to store weather data  
     const [welcome, setWelcome] = useState(true);
     const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ const Dashboard = ({ setAuth }) => {
 
     const displayEmail = async () => {
         try {
-            const response = await fetch("http://localhost:3500/dashboard/", {
+            const response = await fetch("http://localhost:3500/auth/dashboard/", {
                 method: "GET",
                 headers: myHeaders
             });

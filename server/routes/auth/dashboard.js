@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require("../../config/db");
 const authorization = require("../../middleware/authorization");
 
-router.get("/", authorization, async (req, res) => {
+router.get("/dashboard", authorization, async (req, res) => {
     try {
         const user = await pool.query("SELECT user_email FROM users WHERE user_id = $1", [req.user.id]);
 
