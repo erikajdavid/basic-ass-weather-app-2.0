@@ -1,10 +1,28 @@
 import React, { useState } from "react";
 
-const SaveCity = () => {
+const SaveCity = ({ cityName }) => {
     const [isSaved, setIsSaved] = useState(false);
 
-    const handleSaveClick = () => {
-        setIsSaved(!isSaved);
+    const myHeaders = {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${localStorage.token || ""}`
+    }
+
+    const handleSaveClick = async () => {
+        try {
+            const response = await fetch("http://localhost:3500/auth/favorite_city", {
+                method: "POST",
+                headers: myHeaders,
+                body: JSON.stringify({ city_name: cityName }) // Send city_name in the request body
+            });
+
+            const parseResponse = await response.json();
+            console.log(parseResponse);
+            setIsSaved(!isSaved);
+
+        } catch (error) {
+            console.error(error.message);
+        }
     };
 
     return (
