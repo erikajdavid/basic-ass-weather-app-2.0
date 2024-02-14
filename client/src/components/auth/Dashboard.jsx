@@ -15,6 +15,7 @@ const Dashboard = ({ setAuth }) => {
     const [welcome, setWelcome] = useState(true);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [cityName, setCityName] = useState("");
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -41,7 +42,7 @@ const Dashboard = ({ setAuth }) => {
         displayEmail();
     }, [])
 
-    const handleSearch = async () => {
+    const handleSearch = async (city) => {
         try {
             const city = document.getElementById("cityInput").value;
 
@@ -76,6 +77,7 @@ const Dashboard = ({ setAuth }) => {
             
             setForecastWeather(forecastParseResponse);
             setWelcome(false);
+            setCityName(city);
             
         } catch (error) {
             console.error(error.message);
@@ -108,7 +110,7 @@ const Dashboard = ({ setAuth }) => {
                             <FormError error={error}/>
                         </div>
                     ) : (
-                        <Weather dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
+                        <Weather cityName={cityName} dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
                     )
                 )}
             </section>
