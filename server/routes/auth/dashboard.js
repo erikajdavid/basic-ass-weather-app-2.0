@@ -57,5 +57,24 @@ router.get("/favorite_city", authorization, async (req, res) => {
     }
 });
 
+//DELETE request to remove a favorited city
+router.delete("/favorite_city", authorization, async (req, res) => {
+    try {
+        const user_id = req.user.id;
+        const { city_name } = req.body;
+
+        const deletedFavoriteCity = await pool.query('DELETE FROM favorites WHERE user_id = $1 AND city_name = $2', [user_id, city_name]);
+
+        console.log(deletedFavoriteCity);
+
+        res.json({ message: 'Favorite city removed successfully' });
+
+    } catch (error) {
+        console.error('Error deleting favorite city:', error);
+        res.status(500).json({ error: 'An error occurred while deleting favorite city' });
+    }
+});
+
+
 
 module.exports = router;
