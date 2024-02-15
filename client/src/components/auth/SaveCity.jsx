@@ -46,9 +46,16 @@ const SaveCity = ({ cityName, favoriteCity, setFavoriteCity }) => {
     return (
         <div className="saveCity" onClick={handleSaveClick} >
             {isSaved ? (
-                <i className="fa-solid fa-heart" title="Remove this city as your homepage."></i>
+                <div className="saveCityCtn">
+                    <p>Remove this city as your homepage.</p>
+                    <i className="fa-solid fa-heart" title="Remove this city as your homepage."></i>
+                </div>
+                
             ) : (
-                <i className="fa-regular fa-heart" title="Set this city as your homepage."></i>
+                <div className="saveCity">
+                    <p>Set this city as your homepage.</p>
+                    <i className="fa-regular fa-heart" title="Set this city as your homepage."></i>
+                </div>
             )}
         </div>
     );

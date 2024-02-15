@@ -415,6 +415,22 @@ form p {
   flex-direction: column;
 }
 
+.saveCityCtn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.saveCityCtn p {
+  font-size: 0.7rem;
+  color: grey;
+  margin-right: 0.5rem;
+}
+
+.saveCity p:hover {
+  text-decoration: underline;
+}
+
 .saveCity {
   text-align: right;
   height: 100%;
