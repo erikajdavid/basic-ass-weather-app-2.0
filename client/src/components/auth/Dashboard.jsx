@@ -8,19 +8,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = ({ setAuth }) => {
-
     const [email, setEmail] = useState("");
     const [dailyWeather, setDailyWeather] = useState(null);
-    const [forecastWeather, setForecastWeather] = useState(null); // State to store weather data  
+    const [forecastWeather, setForecastWeather] = useState(null);
     const [welcome, setWelcome] = useState(true);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [cityName, setCityName] = useState("");
+    const [favoriteCity, setFavoriteCity] = useState(""); // State to store favorite city
 
     const myHeaders = {
         "Content-type": "application/json",
         "Authorization": `Bearer ${localStorage.token || ""}`
-    }
+    };
 
     const displayEmail = async () => {
         try {
@@ -30,22 +30,19 @@ const Dashboard = ({ setAuth }) => {
             });
 
             const parseResponse = await response.json();
-
             setEmail(parseResponse.user_email);
-            
+
         } catch (error) {
             console.error(error.message);
         }
-    }
+    };
 
     useEffect(() => {
         displayEmail();
-    }, [])
+    }, []);
 
-    const handleSearch = async (city) => {
+    const fetchWeather = async (city) => {
         try {
-            const city = document.getElementById("cityInput").value;
-
             setLoading(true); // Set loading to true when the search starts
 
             // Daily weather API call
@@ -54,11 +51,11 @@ const Dashboard = ({ setAuth }) => {
                 headers: myHeaders
             });
             const dailyParseResponse = await dailyResponse.json();
-                if (dailyResponse.status === 404) {
-                    setError(`City not found. Please try again.`)
-                } else {
-                    setError("");
-                }
+            if (dailyResponse.status === 404) {
+                setError(`City not found. Please try again.`);
+            } else {
+                setError("");
+            }
 
             setDailyWeather(dailyParseResponse);
 
@@ -69,22 +66,52 @@ const Dashboard = ({ setAuth }) => {
             });
 
             const forecastParseResponse = await forecastResponse.json();
-                if (forecastResponse.status === 404) {
-                    setError(`City not found. Please try again.`)
-                } else {
-                    setError("");
-                }
-            
+            if (forecastResponse.status === 404) {
+                setError(`City not found. Please try again.`);
+            } else {
+                setError("");
+            }
+
             setForecastWeather(forecastParseResponse);
             setWelcome(false);
             setCityName(city);
-            
+
         } catch (error) {
             console.error(error.message);
         } finally {
             setLoading(false);
         }
-    };  
+    };
+
+    useEffect(() => {
+        const fetchFavoriteCity = async () => {
+            try {
+                const response = await fetch("http://localhost:3500/auth/favorite_city", {
+                    method: "GET",
+                    headers: myHeaders, 
+                });
+
+                const parseResponse = await response.json();
+                console.log(parseResponse);
+
+                setFavoriteCity(parseResponse.city_name); 
+
+                if (parseResponse.city_name) {
+                    // Fetch weather data for favorite city
+                    await fetchWeather(parseResponse.city_name);
+                }
+
+            } catch (error) {
+                console.error(error.message);
+            }
+        };
+
+        fetchFavoriteCity();
+    }, []); 
+
+    const handleSearch = async (city) => {
+        await fetchWeather(city);
+    };
 
     return (
         <>
@@ -101,7 +128,7 @@ const Dashboard = ({ setAuth }) => {
                 </nav>
             </header>
             <section className="dashboardCtn wrapper">
-                {welcome ? (
+                {welcome && !favoriteCity ? (
                     <p>HELLO WHAT TO PUT HERE</p>
                 ) : (
                     error !== "" ? (
@@ -110,14 +137,13 @@ const Dashboard = ({ setAuth }) => {
                             <FormError error={error}/>
                         </div>
                     ) : (
-                        <Weather cityName={cityName} dailyWeather={dailyWeather} forecastWeather={forecastWeather}/>
+                        <Weather cityName={cityName} dailyWeather={dailyWeather} favoriteCity={favoriteCity} setFavoriteCity={setFavoriteCity} forecastWeather={forecastWeather}/>
                     )
                 )}
             </section>
             <Footer />
         </>
       );
-      
 };
 
 export default Dashboard;
