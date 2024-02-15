@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const SaveCity = ({ cityName }) => {
+const SaveCity = ({ cityName, favoriteCity, setFavoriteCity }) => {
     const [isSaved, setIsSaved] = useState(false);
+
+    useEffect(() => {
+        setIsSaved(cityName === favoriteCity);
+    }, [cityName, favoriteCity]);
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -18,7 +22,7 @@ const SaveCity = ({ cityName }) => {
 
             const parseResponse = await response.json();
             console.log(parseResponse);
-            setIsSaved(!isSaved);
+            setFavoriteCity(cityName); 
 
         } catch (error) {
             console.error(error.message);

@@ -5,8 +5,7 @@ import { capitalize, roundTemperature } from "./WeatherUtils";
 import SaveCity from "../SaveCity";
 import TempToggle from "../TempToggle";
 
-const WeatherCard = ({ dailyWeather, forecastWeather, cityName }) => {
-
+const WeatherCard = ({ dailyWeather, forecastWeather, cityName, favoriteCity, setFavoriteCity }) => {
   const [unit, setUnit] = useState("metric");
 
   if (!dailyWeather || !forecastWeather) {
@@ -29,7 +28,7 @@ const WeatherCard = ({ dailyWeather, forecastWeather, cityName }) => {
 
   return (
     <div className="weatherCardMainCtn">
-        <SaveCity cityName={cityName} /> 
+        <SaveCity cityName={cityName} favoriteCity={favoriteCity} setFavoriteCity={setFavoriteCity}/> 
       <div className="weatherCardCtn wrapper">  
         <TempToggle handleToggleUnit={handleToggleUnit} unit={unit}/>
         <DailyWeather 
