@@ -52,7 +52,7 @@ const SaveCity = ({ cityName, favoriteCity, setFavoriteCity }) => {
                 </div>
                 
             ) : (
-                <div className="saveCity">
+                <div className="saveCityCtn">
                     <p>Set this city as your homepage.</p>
                     <i className="fa-regular fa-heart" title="Set this city as your homepage."></i>
                 </div>
