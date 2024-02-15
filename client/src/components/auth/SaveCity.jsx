@@ -14,15 +14,29 @@ const SaveCity = ({ cityName, favoriteCity, setFavoriteCity }) => {
 
     const handleSaveClick = async () => {
         try {
-            const response = await fetch("http://localhost:3500/auth/favorite_city", {
-                method: "POST",
-                headers: myHeaders,
-                body: JSON.stringify({ city_name: cityName }) // Send city_name in the request body
-            });
+            if (isSaved) {
+                // If the city is already saved, deleted the city
+                const response = await fetch("http://localhost:3500/auth/favorite_city", {
+                    method: "DELETE",
+                    headers: myHeaders,
+                    body: JSON.stringify({ city_name: cityName })
+                });
 
-            const parseResponse = await response.json();
-            console.log(parseResponse);
-            setFavoriteCity(cityName); 
+                const parseResponse = await response.json();
+                console.log(parseResponse);
+                setFavoriteCity("");
+
+            } else { 
+                const response = await fetch("http://localhost:3500/auth/favorite_city", {
+                    method: "POST",
+                    headers: myHeaders,
+                    body: JSON.stringify({ city_name: cityName })
+                });
+
+                const parseResponse = await response.json();
+                console.log(parseResponse);
+                setFavoriteCity(cityName); 
+            }
 
         } catch (error) {
             console.error(error.message);
