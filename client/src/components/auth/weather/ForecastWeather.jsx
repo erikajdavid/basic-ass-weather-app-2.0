@@ -1,5 +1,5 @@
 import React from "react";
-import { getCustomWeatherIconUrl, formatForecastDate } from "./WeatherUtils";
+import { getCustomWeatherIconUrlForecast, formatForecastDate } from "./WeatherUtils";
 
 const ForecastWeather = ({ forecastWeather, roundTemperature, convertTemperature, unit }) => {
 
@@ -23,7 +23,7 @@ const ForecastWeather = ({ forecastWeather, roundTemperature, convertTemperature
   })
   .filter(Boolean)
 
-  const customWeatherIconUrl = noonWeather.map(day => getCustomWeatherIconUrl(day.id));
+  const customWeatherIconUrl = noonWeather.map(day => getCustomWeatherIconUrlForecast(day.id));
 
     return (
         <div className="forecastWeatherCtn">

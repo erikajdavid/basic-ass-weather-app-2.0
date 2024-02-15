@@ -1,5 +1,5 @@
 import React from "react";
-import { getCustomWeatherIconUrl, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
+import { getCustomWeatherIconUrlDaily, calculateDayLength, formatTime, todayDate } from "./WeatherUtils";
 
 const DailyWeather = ({ dailyWeather, capitalize, unit, convertTemperature }) => {
 
@@ -8,8 +8,9 @@ const DailyWeather = ({ dailyWeather, capitalize, unit, convertTemperature }) =>
     }
 
     const { id } = dailyWeather.weather[0];
+    const { sunrise, sunset } = dailyWeather.sys;
 
-    const customWeatherIconUrl = getCustomWeatherIconUrl(id);
+    const customWeatherIconUrl = getCustomWeatherIconUrlDaily(id, sunrise, sunset);
 
     return (
         <div className="dailyWeatherCtn">
