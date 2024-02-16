@@ -4,6 +4,7 @@ import Weather from "./weather/WeatherCard";
 import Logout from "./Logout";
 import Footer from "../Footer";
 import FormError from "./FormError";
+import GenericWelcome from "./GenericWelcome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
@@ -119,7 +120,7 @@ const Dashboard = ({ setAuth }) => {
                 <nav className="wrapper">
                     <div className="welcomeCtn">
                         <FontAwesomeIcon icon={ faUser } className="faUserCtn"></FontAwesomeIcon>
-                        <p>Welcome, {email}!</p>
+                        <p>Hello, {email}!</p>
                     </div>
                     <div className="dashNavRight">
                         <Search handleSearch={handleSearch} loading={loading}/>
@@ -129,7 +130,7 @@ const Dashboard = ({ setAuth }) => {
             </header>
             <section className="dashboardCtn wrapper">
                 {welcome && !favoriteCity ? (
-                    <p>HELLO WHAT TO PUT HERE</p>
+                    <GenericWelcome />
                 ) : (
                     error !== "" ? (
                         <div className="cityErrorCtn">
