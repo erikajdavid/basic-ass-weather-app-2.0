@@ -39,7 +39,7 @@ export const getCustomWeatherIconUrlDaily = (id, sunrise, sunset) => {
         } else if (id === 801) {
             return "./assets/02n.png"
         } else if (id >= 802 && id < 900) {
-            return "./assets/03n.png"
+            return "./assets/02n.png"
         }
     }
 };
