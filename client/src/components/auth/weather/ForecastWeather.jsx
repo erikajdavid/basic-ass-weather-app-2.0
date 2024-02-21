@@ -33,7 +33,7 @@ const ForecastWeather = ({ forecastWeather, roundTemperature, convertTemperature
                 <li key={day.date} className="forecastDayCtn">
                   <div className="forecastTempInfo">
                     <p>{formatForecastDate(day.date)}</p>
-                    <p className="temp">{convertTemperature(day.mainTemp)}{unit === 'metric' ? '°C' : '°F'}<span>/ {roundTemperature(day.feelsLike)}°C</span></p>
+                    <p className="temp">{convertTemperature(day.mainTemp)}{unit === 'metric' ? '°C' : '°F'}<span>/ {convertTemperature(day.feelsLike)}{unit === 'metric' ? '°C' : '°F'}</span></p>
                   </div>
                   <div className="forecastImgCtn">
                     <img src={customWeatherIconUrl[index]} alt={day.description} />
