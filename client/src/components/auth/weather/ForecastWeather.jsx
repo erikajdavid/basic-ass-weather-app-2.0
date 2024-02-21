@@ -1,7 +1,7 @@
 import React from "react";
 import { getCustomWeatherIconUrlForecast, formatForecastDate } from "./WeatherUtils";
 
-const ForecastWeather = ({ forecastWeather, roundTemperature, convertTemperature, unit }) => {
+const ForecastWeather = ({ forecastWeather, convertTemperature, unit }) => {
 
   if (!forecastWeather || !forecastWeather.list || forecastWeather.list.length === 0) {
     return null;
@@ -33,7 +33,7 @@ const ForecastWeather = ({ forecastWeather, roundTemperature, convertTemperature
                 <li key={day.date} className="forecastDayCtn">
                   <div className="forecastTempInfo">
                     <p>{formatForecastDate(day.date)}</p>
-                    <p className="temp">{convertTemperature(day.mainTemp)}{unit === 'metric' ? '°C' : '°F'}<span>/ {convertTemperature(day.feelsLike)}{unit === 'metric' ? '°C' : '°F'}</span></p>
+                    <p className="temp">{convertTemperature(day.mainTemp)}{unit === 'metric' ? '°C' : '°F'}<span> / {convertTemperature(day.feelsLike)}{unit === 'metric' ? '°C' : '°F'}</span></p>
                   </div>
                   <div className="forecastImgCtn">
                     <img src={customWeatherIconUrl[index]} alt={day.description} />
