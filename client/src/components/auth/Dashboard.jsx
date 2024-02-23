@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Search from "./Search";
 import Weather from "./weather/WeatherCard";
 import Logout from "./Logout";
@@ -17,6 +17,8 @@ const Dashboard = ({ setAuth }) => {
     const [error, setError] = useState("");
     const [cityName, setCityName] = useState("");
     const [favoriteCity, setFavoriteCity] = useState(""); // State to store favorite city
+
+    const cityInputRef = useRef(null);
 
     const myHeaders = {
         "Content-type": "application/json",
@@ -123,14 +125,14 @@ const Dashboard = ({ setAuth }) => {
                         <p>Hello, {email}!</p>
                     </div>
                     <div className="dashNavRight">
-                        <Search handleSearch={handleSearch} loading={loading}/>
+                        <Search handleSearch={handleSearch} loading={loading} cityInputRef={cityInputRef} />
                         <Logout setAuth={setAuth}/>
                     </div>
                 </nav>
             </header>
             <section className="dashboardCtn wrapper">
                 {welcome && !favoriteCity ? (
-                    <GenericWelcome />
+                    <GenericWelcome cityInputRef={cityInputRef}/>
                 ) : (
                     error !== "" ? (
                         <div className="cityErrorCtn">

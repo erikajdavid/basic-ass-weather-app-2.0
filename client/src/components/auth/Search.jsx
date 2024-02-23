@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
-const Search = ({ handleSearch, loading }) => {
+const Search = ({ handleSearch, loading, cityInputRef }) => {
   
   const [city, setCity] = useState("");
-  const cityInputRef = useRef(null);
 
   const handleSearchClick = (e) => {
     e.preventDefault();
