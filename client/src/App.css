@@ -263,6 +263,10 @@ footer div {
   letter-spacing: 0.05rem;
 }
 
+.searchWrapper input:focus {
+  outline: 1px solid var(--priBlue);
+}
+
 .searchWrapper button {
   all: revert;
   background-color: var(--priBlue);
@@ -493,7 +497,7 @@ form p {
 
 .location h2 {
   font-size: 1.95rem;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: underline gray dashed;
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
@@ -748,4 +752,37 @@ span {
   flex-direction: column;
   line-height: 2rem;
 }
+
+/* generic welcome */
+
+.genericCtn {
+  height: 85vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.genericCtn div {
+  border: 1px solid var(--priGrey);
+  padding: 2rem 1rem;
+  border-radius: 10px;
+}
+
+.genericCtn p {
+  font-size: 1.25rem;
+}
+
+.genericCtn img {
+  width: 50%;
+}
+
+.now {
+  cursor: pointer;
+}
+
+.now:hover {
+  text-decoration: underline;
+}
+
+
 
