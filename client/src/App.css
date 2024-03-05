@@ -758,14 +758,15 @@ span {
 .genericCtn {
   height: 85vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .genericCtn div {
-  border: 1px solid var(--priGrey);
   padding: 2rem 1rem;
   border-radius: 10px;
+  margin-right: 2rem;
+  background-color: var(--priGrey);
 }
 
 .genericCtn p {
@@ -773,7 +774,7 @@ span {
 }
 
 .genericCtn img {
-  width: 50%;
+  width: 20%;
 }
 
 .now {
