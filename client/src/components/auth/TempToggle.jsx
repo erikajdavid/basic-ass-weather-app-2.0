@@ -11,8 +11,8 @@ const TempToggle = ({handleToggleUnit, unit}) => {
 
     return (
         <div className="tempToggleCtn" onClick={handleToggleClick}>
-            <p>°C</p>
             <p>°F</p>
+            <p>°C</p>
             <div 
                 className="toggle" 
                 onClick={handleToggleClick}
