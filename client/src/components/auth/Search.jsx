@@ -24,7 +24,7 @@ const Search = ({ handleSearch, loading, cityInputRef }) => {
     <form onSubmit={handleSearchClick} className="searchWrapper">
       <input type="text" 
         id="cityInput" 
-        placeholder="Enter a city..." 
+        placeholder="Search..." 
         value={city}
         onChange={(e => setCity(e.target.value))}
         required
